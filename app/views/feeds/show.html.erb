@@ -1,25 +1,29 @@
-<div class="container feed"
-  data-controller="feed-subscription"
-  data-feed-subscription-feed-id-value="<%= @feed.id %>">
-  <h1><%= @feed.name %></h1>
-<div class="post-bar"></div>
-  <%= simple_form_for [@feed, @post],
-    html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|%>
-    <%= f.input :content,
-      label: false,
-      placeholder: "post the trip...",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Post", class: "btn btn-primary mb-3" %>
-  <% end %>
+<div class="feed-scroll-box">
+  <div class="feed"
+    data-controller="feed-subscription"
+    data-feed-subscription-feed-id-value="<%= @feed.id %>">
+    <h1><%= @feed.name %></h1>
+    <div class="post-bar">
+      <%= simple_form_for [@feed, @post],
+          html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|%>
+        <%= f.input :content,
+            label: false,
+            placeholder: "post the trip...",
+            wrapper_html: {class: "flex-grow-1"}
+          %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Post", class: "btn btn-primary mb-3" %>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="posts"
+<div class="posts"
   data-feed-subscription-target="posts">
     <% @feed.posts.each do |post| %>
     <%= render "posts/post", post: post %>
     <% end %>
-  </div>
-  <div data-feed-subscription-target = "inputs">
-  </div>
+
+</div>
+   <%# <div data-feed-subscription-target = "inputs">
+</div> %>

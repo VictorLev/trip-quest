@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_12_033220) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_123456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "active_storage_attachments", force: :cascade do |t|
+  
+    create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -40,6 +41,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_033220) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+
+  create_table "cars", force: :cascade do |t|
+    t.string "vehicle"
+    t.string "transmission"
+    t.string "color"
+    t.integer "year"
+    t.integer "kilometers"
+    t.integer "photo"
+    t.integer "price"
+    t.integer "insurer_id"
+    t.integer "user_id"
+    t.integer "new_field"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
   end
 
   create_table "feeds", force: :cascade do |t|
