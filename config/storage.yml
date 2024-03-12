@@ -32,3 +32,8 @@ local:
 #   service: Mirror
 #   primary: local
 #   mirrors: [ amazon, google, microsoft ]
+
+# image storage with Active Storage and Cloudinary:
+cloudinary:
+  service: Cloudinary
+  folder: <%= Rails.env %>

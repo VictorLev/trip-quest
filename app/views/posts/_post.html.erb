@@ -3,5 +3,10 @@
     <strong><%= post.user.first_name %></strong>
     <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
+  <div>
+  <% if post.photo.present? %>
+    <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :limit %>
+  <% end %>
   <p><%= post.content %></p>
+  </div>
 </div>
