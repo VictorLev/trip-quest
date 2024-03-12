@@ -11,6 +11,7 @@
             placeholder: "post the trip...",
             wrapper_html: {class: "flex-grow-1"}
           %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit "Post", class: "btn btn-primary mb-3" %>
       <% end %>
     </div>
@@ -22,6 +23,7 @@
     <% @feed.posts.each do |post| %>
     <%= render "posts/post", post: post %>
     <% end %>
+
 </div>
    <%# <div data-feed-subscription-target = "inputs">
 </div> %>

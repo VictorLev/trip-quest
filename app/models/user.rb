@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :cars, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_one_attached :photo
 end
