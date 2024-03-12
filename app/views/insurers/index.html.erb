@@ -1,0 +1,21 @@
+<div>
+  <h2>Insurers Tier List</h2>
+  <div class="d-flex justify-content-center">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Minimum Points Required</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @insurers.each do |insurer| %>
+          <tr>
+            <td><%= insurer.name %></td>
+            <td><%= insurer.min_threshold %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

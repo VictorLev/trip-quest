@@ -22,4 +22,5 @@ Rails.application.routes.draw do
     resources :posts, only: :create
   end
 
+  resources :insurers, only: [:index]
 end

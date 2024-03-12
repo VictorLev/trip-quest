@@ -12,7 +12,7 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to user_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -44,7 +44,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:vehicle, :transmission, :color, :year, :kilometers, :price)
+    params.require(:car).permit(:vehicle, :transmission, :color, :year, :kilometers, :price, :insurer_id)
   end
 
 end
