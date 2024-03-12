@@ -1,8 +1,13 @@
 <div class="d-flex border rounded-4 p-3 my-3 bg-white">
   <!-- Picture -->
-  <%= image_tag "car", height: 200, class: "rounded-4 border" %>
+  <% if car.photo.present? %>
+    <%= cl_image_tag car.photo.key, height: 200, width: 200, crop: :fill, class: "rounded-4 border" %>
+  <% else %>
+    <%= image_tag "car", height: 200, class: "rounded-4 border" %>
+  <% end %>
+
   <!-- Info about the car -->
-  <div class="p-3 w-100">
+  <div class="px-3 w-100">
     <h3><%= car.vehicle %></h3>
     <div>year: <%= car.year %></div>
     <div>color: <%= car.color %></div>
