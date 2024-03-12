@@ -12,3 +12,9 @@ User.create!(first_name: "Emma", last_name: "Stone", email: "emmastone@gmail.com
 User.create!(first_name: "Victor", last_name: "Levesque", email: "victorilevesque@gmail.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
 User.create!(first_name: "Mehul", last_name: "Natarajan", email: "Mehulnatarajan@gmail.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
 User.create!(first_name: "Jacopo", last_name: "Riani", email: "jacoporiani@gmail.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
+
+
+Feed.destroy_all
+Feed.create!(name: "General fun")
+Feed.create!(name: "Melbourne competitors")
+Feed.create!(name: "TripQuesters")
