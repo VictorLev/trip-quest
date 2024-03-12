@@ -9,7 +9,7 @@
             html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|%>
           <%= f.input :content,
               label: false,
-              placeholder: "post the trip...",
+              placeholder: "Post your trip!",
               wrapper_html: {class: "flex-grow-1"}
             %>
           <%= f.input :photo,
@@ -24,7 +24,7 @@
     <div class="feed-scroll-box">
       <div class="posts"
       data-feed-subscription-target="posts">
-        <% @feed.posts.each do |post| %>
+        <% @posts.each do |post| %>
           <%= render "posts/post", post: post %>
         <% end %>
       </div>
