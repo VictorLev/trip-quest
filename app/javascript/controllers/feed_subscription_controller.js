@@ -13,9 +13,9 @@ export default class extends Controller {
   }
   #insertPostAndScrollDown(data) {
     this.postsTarget.insertAdjacentHTML("beforeend", data)
-    window.scrollTo(0, document.body.scrollHeight);
-    // posts = document.querySelector(".posts")
-    // posts.scrollTo(0, posts.scrollHeight);
+    // window.scrollTo(0, document.body.scrollHeight);
+    const posts = document.querySelector(".posts")
+    posts.scrollTo(0, posts.scrollHeight);
   }
 
   resetForm(event) {
