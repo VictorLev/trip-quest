@@ -1,7 +1,5 @@
 .posts {
-  overflow: scroll;
   display: flex;
-
   /* justify-content: center; */
   align-items: center;
   flex-direction: column;
@@ -15,13 +13,13 @@
 }
 
 .feed-scroll-box {
-  background-color: #c5a5a5;
+  background-color: #a5c5c2;
   color: #fff;
   text-align: center;
   margin: 10px;
   padding: 20px;
   border-radius: 25px;
-  width: 60%;
+  width: 63%;
 }
 
 .post-bar {
@@ -43,4 +41,10 @@
 
 .post-card p {
   text-wrap: wrap;
+  margin-top: 2px;
+}
+
+.content-text {
+  border-radius: 25px;
+  background-color: #e2eeed;
 }
