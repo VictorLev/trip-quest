@@ -25,7 +25,12 @@
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= cl_image_tag @user.photo.key, class: "avatar", alt: "dropdown menu" %>
+            <% if @user&.photo.present? %>
+              <%= cl_image_tag @user.photo.key, height: 40,
+              class: "avatar", alt: "dropdown menu" %>
+            <% else %>
+              <%= image_tag "user", class: "avatar" %>
+            <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Settings", user_path , class: "dropdown-item" %>

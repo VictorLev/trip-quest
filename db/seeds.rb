@@ -13,15 +13,16 @@ require 'faker'
 #  DESTROY ALL OBJECTS IN DATABASE
 User.destroy_all
 Feed.destroy_all
-
+Insurer.destroy_all
+Car.destroy_all
 
 
 # CREATE USERS IN DATABASE
 
-User.create!(first_name: "Emma", last_name: "Stone", email: "emmastone@gmail.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
-User.create!(first_name: "Victor", last_name: "Levesque", email: "victorlevesque@gmail.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
-User.create!(first_name: "Mehul", last_name: "Natarajan", email: "Mehulnatarajan@gmail.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
-User.create!(first_name: "Jacopo", last_name: "Riani", email: "jacoporiani@gmail.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
+jane = User.create!(first_name: "Jane", last_name: "Doe", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
+# User.create!(first_name: "Victor", last_name: "Levesque", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
+
+
 
 # CREATE FEED IN DATABASE
 num = 0
@@ -29,6 +30,17 @@ num = 0
   Insurer.create!(name: Faker::Company.name, min_threshold: num )
   num += 100
 end
+
+# CREATE CARS IN DATABASE
+
+car1 = Car.create!(vehicle: "Toyota Civic Sedan",
+            transmission: "Manual",
+            color: "White",
+            year: 2010,
+            kilometers: "",
+            price: "500",
+            insurer: Insurer.first,
+            user_id: jane.id)
 
 # CREATE FEED IN DATABASE
 
