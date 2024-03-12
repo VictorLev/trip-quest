@@ -27,6 +27,7 @@
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if @user&.photo.present? %>
               <%= cl_image_tag @user.photo.key, height: 40,
+              width: 40, crop: :fill,
               class: "avatar", alt: "dropdown menu" %>
             <% else %>
               <%= image_tag "user", class: "avatar" %>
