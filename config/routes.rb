@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
   get "/account" => "users#show", as: :user
   patch "/account" => "users#update"
+
+  resources :feeds, only: :show do
+    resources :posts, only: :create
+  end
+
 end
