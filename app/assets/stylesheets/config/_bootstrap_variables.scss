@@ -11,12 +11,12 @@ $body-bg:                $light-gray;
 $font-size-base:         1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
+$body-color: $my-gray;
+$primary:    $my-blue;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
-$warning:    $orange;
+$warning:    $my-orange;
 
 // Buttons & inputs' radius
 $border-radius:    2px;
@@ -24,3 +24,5 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+
+$navbar-light-color: $my-white;

@@ -10,3 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  font-family: $font-family-sans-serif;
+  background-color: $body-bg;
+  color: $my-gray;
+  font-size: $font-size-base;
+}
