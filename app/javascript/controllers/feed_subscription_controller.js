@@ -4,8 +4,9 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="feed-subscription"
 export default class extends Controller {
   static values = { feedId: Number }
-  static targets = ["posts", "inputs"]
+  static targets = ["posts"]
   connect() {
+    console.log("javascript controller is connected")
     this.channel = createConsumer().subscriptions.create(
       { channel: "FeedChannel", id: this.feedIdValue },
       { received: data => this.#insertPostAndScrollDown(data)}
