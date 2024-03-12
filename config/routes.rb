@@ -10,10 +10,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :cars, only: [:show, :index, :create, :update, :destroy]
-
   get "/account" => "users#show", as: :user
   patch "/account" => "users#update"
+
+  resources :users, only: [] do
+    resources :cars, only: [ :new, :create, :edit, :update]
+  end
+  resources :cars, only: [:destroy]
 
   resources :feeds, only: :show do
     resources :posts, only: :create

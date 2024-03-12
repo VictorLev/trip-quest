@@ -13,15 +13,25 @@
           <%= render partial: 'form', locals: { user: @user }%>
         </div>
       </div>
-
     </div>
-    <div class="m-4 d-flex justify-content-between">
-      <h3 class="m-4">
-        My Cars
 
-      </h3>
-      <%= link_to "/", "Add Car", class: "btn btn-primary" %>
+    <div class="m-4">
+      <!-- Title with New Car button -->
+      <div class="d-flex justify-content-between">
+        <h3 class="">
+          My Cars
+        </h3>
+        <%= link_to "Add Car", new_user_car_path(@user) , class: "btn btn-primary" %>
+      </div>
       <hr>
+      <!-- Display all the cars -->
+      <div>
+        <% @cars.each do |car|%>
+          <%= render partial: 'cars/car_infos', locals: { car: car } %>
+        <% end %>
+      </div>
+    </div>
+
     </div>
   </div>
 </div>

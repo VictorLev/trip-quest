@@ -1,0 +1,16 @@
+<div class="d-flex border rounded-4 p-3 my-3 bg-white">
+  <!-- Picture -->
+  <%= image_tag "car", height: 200, class: "rounded-4 border" %>
+  <!-- Info about the car -->
+  <div class="p-3 w-100">
+    <h3><%= car.vehicle %></h3>
+    <div>year: <%= car.year %></div>
+    <div>color: <%= car.color %></div>
+    <div>transmission: <%= car.transmission %></div>
+    <div>price: <%= car.price %></div>
+    <div class="d-flex justify-content-center p-1">
+      <%= link_to "Edit", edit_user_car_path(car.user, car), class: "btn btn-primary mx-1" %>
+      <%= link_to "Delete", car_path(car), data: { turbo_method: :delete, confirm: "Are you sure?" }, class: "btn btn-danger mx-1 text-white" %>
+    </div>
+  </div>
+</div>
