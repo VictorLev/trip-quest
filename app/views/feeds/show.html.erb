@@ -1,15 +1,24 @@
-<div class="container">
+<div class="container feed"
+  data-controller="feed-subscription"
+  data-feed-subscription-feed-id-value="<%= @feed.id %>">
   <h1>#<%= @feed.name %></h1>
 
-  <div class="">
+  <div class="posts"
+  data-feed-subscription-target="posts">
     <% @feed.posts.each do |post| %>
-      <div id="post<%= post.id %>">
-        <small>
-          <strong><%= post.user.first_name %></strong>
-          <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= post.content %></p>
-      </div>
+    <%= render "posts/post", post: post %>
     <% end %>
+  </div>
+   <div data-feed-subscription-target = "inputs">
+  <%= simple_form_for [@feed, @post],
+    html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|
+  %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Post ##{@feed.name}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
   </div>
 </div>
