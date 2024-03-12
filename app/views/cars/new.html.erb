@@ -1,0 +1,14 @@
+
+<h2>Add new car</h2>
+<%=  simple_form_for [@user, @car] do |f| %>
+  <%= f.input :vehicle %>
+  <%= f.input :transmission %>
+  <%= f.input :color %>
+  <%= f.input :year %>
+  <%= f.input :kilometers %>
+  <%= f.input :price %>
+  <%= f.input :insurer_id do %>
+    <%= f.collection_select :insurer_id, Insurer.order(:name), :id ,:name, { prompt: "Select a Insurer" }, { class: "form-control" } %>
+  <% end %>
+  <%= f.button :submit, 'Add Car', class: 'btn btn-primary' %>
+<% end %>
