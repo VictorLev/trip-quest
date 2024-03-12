@@ -1,0 +1,23 @@
+<div class="list-group <%= 'd-none' if user.errors.any? %>" data-edit-account-target="infos" >
+  <div class="list-group-item">
+    <%= user.first_name %> <%= user.last_name %>
+  </div>
+  <div class="list-group-item">
+    email: <%= user.email %>
+  </div>
+  <div class="list-group-item">
+    age: <%= user.age %>
+  </div>
+  <div class="list-group-item">
+    location: <%= user.location %>
+  </div>
+  <div class="list-group-item">
+    gender: <%= user.gender %>
+  </div>
+  <div class="list-group-item">
+    Photo File:
+  </div>
+  <div class="d-flex flex-row-reverse m-3">
+    <%= button_tag "Edit Account", class: "btn btn-primary", data: { action: "click->edit-account#displayForm" }, aria: { label: "Edit Account" } %>
+  </div>
+</div>
