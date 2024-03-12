@@ -1,11 +1,35 @@
 .posts {
   overflow: scroll;
-  height: 400px;
+  display: flex;
+
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
-.container.feed {
+
+.feed-scroll-box {
   background-color: #c5a5a5;
   color: #fff;
-  padding: 20px;
   text-align: center;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.post-bar {
+  border-radius: 25px;
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+  text-align: center;
+  width: 700px;
+  margin: 20px;
 }

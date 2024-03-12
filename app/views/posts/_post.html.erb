@@ -1,7 +1,12 @@
 <div id="post-<%= post.id %>">
-  <small>
-    <strong><%= post.user.first_name %></strong>
-    <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= post.content %></p>
+   <div class="card">
+      <% if post.photo.present? %>
+        <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :limit %>
+      <% end %>
+      <small>
+        <strong><%= post.user.first_name %></strong>
+        <i><%= post.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+      </small>
+      <p><%= post.content %></p>
+   </div>
 </div>
