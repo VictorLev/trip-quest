@@ -7,16 +7,12 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-
-    respond_to do |format|
-      format.html { redirect_to user_path }
-      format.text { render partial: "users/user_infos", locals: {user: @user}, formats: [:html] }
-    end
+    redirect_to user_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :location, :gender, :age)
+    params.require(:user).permit(:first_name, :last_name, :email, :location, :gender, :age, :photo)
   end
 end

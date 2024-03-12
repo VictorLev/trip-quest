@@ -4,8 +4,12 @@
       <h2>Account settings</h2>
     </div>
     <div class="d-flex">
-      <div class="m-4 px-4">
-        <%= image_tag "user", height: 300 %>
+      <div class=" m-4 px-4">
+        <% if @user.photo.present? %>
+          <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :limit, class: "rounded-circle" %>
+        <% else %>
+          <%= image_tag "user", height: 300 %>
+        <% end %>
       </div>
       <div class="w-100">
         <div data-controller="edit-account" data-edit-account-target="card" data-user-id="<%= @user.id %>">

@@ -2,8 +2,7 @@
   html: {
     class: user.errors.any? ? "" : "d-none",
     data: {
-      edit_account_target: "form",
-      action: "submit->edit-account#update"
+      edit_account_target: "form"
     }
   } do |f|
 %>
@@ -14,5 +13,9 @@
   <%= f.input :age %>
   <%= f.input :location %>
   <%= f.input :gender %>
+  <%= f.input :photo,
+    label: false,
+    as: :file
+  %>
   <%= f.button :submit, 'Update User', class: 'btn btn-primary' %>
 <% end %>

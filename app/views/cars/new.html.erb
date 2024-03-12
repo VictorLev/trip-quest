@@ -10,5 +10,9 @@
   <%= f.input :insurer_id do %>
     <%= f.collection_select :insurer_id, Insurer.order(:name), :id ,:name, { prompt: "Select a Insurer" }, { class: "form-control" } %>
   <% end %>
+  <%= f.input :photo,
+      label: false,
+      as: :file
+    %>
   <%= f.button :submit, 'Add Car', class: 'btn btn-primary' %>
 <% end %>
