@@ -8,7 +8,7 @@
         <% if @user.photo.present? %>
           <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :limit, class: "rounded-circle" %>
         <% else %>
-          <%= image_tag "user", height: 300 %>
+          <%= image_tag "user", height: 300, class: "rounded-circle" %>
         <% end %>
       </div>
       <div class="w-100">
