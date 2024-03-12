@@ -1,17 +1,27 @@
 .posts {
   overflow: scroll;
-  height: 400px;
+  display: flex;
+
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .feed-scroll-box {
   background-color: #a5c5c2;
   color: #fff;
-  padding: 20px;
   text-align: center;
   margin: 10px;
   padding: 20px;
   border-radius: 25px;
-  text-align: center;
+  width: 60%;
 }
 
 .post-bar {
@@ -19,21 +29,18 @@
   text-align: center;
 }
 
-.cards {
-  text-align: center;
-}
-
-
-// .feed-container {
-// }
-
-.card {
+.post-card {
+  background-color: $my-white;
+  color: $my-blue;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 100vh;
-  text-align: center;
-  width: 700px;
-  margin-bottom: 20px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 25px;
+  width: 540px;
+}
+
+.post-card p {
+  text-wrap: wrap;
 }

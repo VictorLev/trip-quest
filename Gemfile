@@ -76,5 +76,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Faker for seed files
+gem 'faker'
+
 # Cloudinary for image uploads to user and posts
 gem "cloudinary"
+

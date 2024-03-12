@@ -10,7 +10,6 @@ class CreateCars < ActiveRecord::Migration[7.1]
       t.integer :price
       t.integer :insurer_id
       t.integer :user_id
-      t.integer :new_field
       t.timestamps
     end
   end
