@@ -1,7 +1,18 @@
 <div class="container feed"
   data-controller="feed-subscription"
   data-feed-subscription-feed-id-value="<%= @feed.id %>">
-  <h1>#<%= @feed.name %></h1>
+  <h1><%= @feed.name %></h1>
+<div class="post-bar"></div>
+  <%= simple_form_for [@feed, @post],
+    html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|%>
+    <%= f.input :content,
+      label: false,
+      placeholder: "post the trip...",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Post", class: "btn btn-primary mb-3" %>
+  <% end %>
+  </div>
 
   <div class="posts"
   data-feed-subscription-target="posts">
@@ -10,15 +21,4 @@
     <% end %>
   </div>
    <div data-feed-subscription-target = "inputs">
-  <%= simple_form_for [@feed, @post],
-    html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|
-  %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Post ##{@feed.name}",
-      wrapper_html: {class: "flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
-  </div>
 </div>
