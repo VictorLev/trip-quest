@@ -10,3 +10,7 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-link:hover, .nav-link:focus {
+  color: $my-orange;
+}

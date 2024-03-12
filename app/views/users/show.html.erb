@@ -6,7 +6,7 @@
     <div class="d-flex">
       <div class=" m-4 px-4">
         <% if @user.photo.present? %>
-          <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :limit, class: "rounded-circle" %>
+          <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill, class: "rounded-circle" %>
         <% else %>
           <%= image_tag "user", height: 300, class: "rounded-circle" %>
         <% end %>
