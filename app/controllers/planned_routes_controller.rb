@@ -6,7 +6,7 @@ class PlannedRoutesController < ApplicationController
 
   def new
     @planned_route = PlannedRoute.new
-
+    @user = current_user
     # if PlannedRoute.all
     #   @planned_routes = PlannedRoute.first
     # end
@@ -35,6 +35,6 @@ class PlannedRoutesController < ApplicationController
   private
 
   def planned_route_params
-    #params.require(:planned_route).permit(:origin, :destination)
+    params.require(:planned_route).permit(:origin, :destination)
   end
 end
