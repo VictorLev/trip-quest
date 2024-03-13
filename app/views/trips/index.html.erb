@@ -1,7 +1,28 @@
-<% @trips.each do |trip| %>
-  <div>
-    <%= trip.start_point %>
-    <%= trip.end_point %>
-    <%= trip.reward_point %>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1 class="title">
+        <span class="main-title">My</span><span class="accent-title">Trips</span>
+      </h1>
+    </div>
   </div>
-<% end %>
+</div>
+
+<div class="container">
+  <% @trips.each do |trip| %>
+    <div class="trip my-2 d-flex align-items-center">
+      <h3 class="tripname mr-3">
+        <%= trip.name %>
+      </h3>
+      <div class="reward-info mr-3">
+        <h5>reward: </h5>
+        <%= trip.reward_point %>
+      </div>
+      <%= trip.date %>
+      <div class="button-container">
+        <%= link_to "Details", "#", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
