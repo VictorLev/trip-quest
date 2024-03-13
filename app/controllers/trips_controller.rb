@@ -1,14 +1,6 @@
 class TripsController < ApplicationController
   def index
     @trips = Trip.all
-    @markers = @trips.geocoded.map do |trip|
-      {
-        lat: trip.latitude,
-        lng: trip.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { trip: trip }),
-        marker_html: render_to_string(partial: "marker", locals: { trip: trip })
-      }
-    end
   end
 
   def new
@@ -25,4 +17,9 @@ class TripsController < ApplicationController
     end
   end
 
+  private
+
+  def trip_params
+    params.require(:trip).permit(:start_point, :end_point, :reward_point, :date, :name)
+  end
 end
