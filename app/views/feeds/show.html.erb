@@ -7,7 +7,7 @@
       <div class="post-bar">
         <%= simple_form_for [@feed, @post],
             html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|%>
-          <%= f.input :content,
+          <%= f.input :content :text,
               label: false,
               placeholder: "Post your trip!",
               wrapper_html: {class: "flex-grow-1"}

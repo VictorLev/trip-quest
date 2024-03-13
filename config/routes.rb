@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "/account" => "users#show", as: :user
   patch "/account" => "users#update"
 
+  get "/feeds" => "feeds#index", as: :feeds
+
   resources :users, only: [] do
     resources :cars, only: [ :new, :create, :edit, :update]
   end
