@@ -82,3 +82,5 @@ gem 'faker'
 # Cloudinary for image uploads to user and posts
 gem "cloudinary"
 
+# geocoder
+gem "geocoder"
