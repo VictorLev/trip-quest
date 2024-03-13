@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get "/feeds" => "feeds#index", as: :feeds
 
+
   resources :users, only: [] do
     resources :cars, only: [ :new, :create, :edit, :update]
   end
@@ -25,4 +26,6 @@ Rails.application.routes.draw do
   end
 
   resources :insurers, only: [:index]
+
+  resources :trips, only: [ :index, :new ] #insert under :cars resources due to the foreign key
 end
