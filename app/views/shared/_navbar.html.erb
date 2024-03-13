@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Dashbord", "#", class: "nav-link" %>
+            <%= link_to "Dashbord", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "MyTrips", "#", class: "nav-link" %>
+            <%= link_to "MyTrips", trips_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "MyFriends", feeds_path , class: "nav-link" %>
