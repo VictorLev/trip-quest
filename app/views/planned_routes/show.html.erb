@@ -1,0 +1,13 @@
+<h1>PlannedRoutes#show</h1>
+<p>Find me in app/views/planned_routes/show.html.erb</p>
+
+<p>planned_routes_show | GET | /planned_routes/show(.:format) | planned_routes#show</p>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="calculator"
+  <%# data-map-markers-value="<#= @markers.to_json %>
+  data-calculator-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+
+https://api.mapbox.com/directions/v5/mapbox/cycling/-84.518641,39.134270;-84.512023,39.102779?geometries=geojson&access_token=MAPBOX_API_KEY
