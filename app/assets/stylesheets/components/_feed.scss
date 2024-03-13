@@ -13,7 +13,7 @@
 }
 
 .feed-scroll-box {
-  background-color: #a5c5c2;
+  background-color: $my-orange;
   color: #fff;
   text-align: center;
   margin: 10px;
@@ -22,9 +22,65 @@
   width: 63%;
 }
 
-.post-bar {
+.post-box-feed-entry__closed-share-box {
+  margin: 0 0 0.8rem;
+  border-radius: 2px;
+  text-align: left;
+  background-color: $my-orange;
+  color: $my-blue-dark;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+}
+
+.post-box-feed-entry__top-bar {
+  display: flex;
+  align-items: center;
+  margin: 0.8rem 1.6rem 0;
+}
+
+.post-box-feed-entry__tool-bar {
+  margin: 0.8rem 1.6rem 0;
+  display: flex;
+  // position: absolute;
+  // left: 68%;
+  // top: 26%;
+}
+
+.my-class {
+  transform: scale(0);
+  width: 0px;
+  height: 0px
+}
+
+.my-label {
+  cursor: pointer;
+  padding: 8px;
+  padding-left: 0px;
+  border: $my-white;
+  color: transparent;
+  // background-color: $my-white;
   border-radius: 25px;
-  text-align: center;
+}
+
+.material-symbols-outlined {
+  margin-top: 6px;
+  margin-left: 0px;
+  font-size: 36px;
+  margin-right: -42px;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.post-box-feed-entry__top-bar a {
+  margin-right: 24px;
+}
+
+.artdeco-card {
+  overflow: visible;
 }
 
 .post-card {
