@@ -21,11 +21,11 @@ export default class extends Controller {
     });
 
     // bounds of the map VICTORIA STATE:
-    const bounds = [
-      [144.963000, -37.810000],
-      [144.964600, -37.020100]
-    ];
-    map.setMaxBounds(bounds);
+    // const bounds = [
+    //   [144.963000, -37.810000],
+    //   [144.964600, -37.020100]
+    // ];
+    // map.setMaxBounds(bounds);
 
     const start = [144.9631, -37.8136];
 
@@ -51,12 +51,12 @@ export default class extends Controller {
         }
       };
       // if the route already exists on the map, we'll reset it using setData
-      if (map.getSource('route')) {
-        map.getSource('route').setData(geojson);
+      if (this.map.getSource('route')) {
+        this.map.getSource('route').setData(geojson);
       }
       // otherwise, we'll make a new request
       else {
-        map.addLayer({
+        this.map.addLayer({
           id: 'route',
           type: 'line',
           source: {
@@ -76,13 +76,14 @@ export default class extends Controller {
       }
     }
     // add turn instructions here at the end
-    map.on('load', () => {
+
+    this.map.on('load', () => {
       // make an initial directions request that
       // starts and ends at the same location
       getRoute(start);
 
-      // Add starting point to the map
-      map.addLayer({
+      // Add starting point to the this.map
+      this.map.addLayer({
         id: 'point',
         type: 'circle',
         source: {
@@ -106,8 +107,55 @@ export default class extends Controller {
           'circle-color': '#3887be'
         }
       });
-      // this is where the code from the next step will go
     });
+    this.map.on('click', (event) => {
+      const coords = Object.keys(event.lngLat).map((key) => event.lngLat[key]);
+      const end = {
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'Point',
+              coordinates: coords
+            }
+          }
+        ]
+      };
+      if (this.map.getLayer('end')) {
+        this.map.getSource('end').setData(end);
+      } else {
+        this.map.addLayer({
+          id: 'end',
+          type: 'circle',
+          source: {
+            type: 'geojson',
+            data: {
+              type: 'FeatureCollection',
+              features: [
+                {
+                  type: 'Feature',
+                  properties: {},
+                  geometry: {
+                    type: 'Point',
+                    coordinates: coords
+                  }
+                }
+              ]
+            }
+          },
+          paint: {
+            'circle-radius': 10,
+            'circle-color': '#f30'
+          }
+        });
+      }
+      getRoute(coords);
+    });
+
+      // this is where the code from the next step will go
+
   }
 
 
