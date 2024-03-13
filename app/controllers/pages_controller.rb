@@ -3,4 +3,14 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  def strategic_points
+    @strategicpoints = StrategicPoint.all
+    @markers = @strategicpoints.map do |sp|
+      {
+        lat: sp.latitude,
+        lng: sp.longitude
+      }
+    end
+  end
 end
