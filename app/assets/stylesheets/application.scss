@@ -9,7 +9,12 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
+//@import "pages/index";
+//@import "pages/login";
+@import "components/home";
+@import "components/login";
+@import "components/form";
+
 
 body {
   font-family: $font-family-sans-serif;
