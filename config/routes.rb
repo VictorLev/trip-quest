@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'planned_routes/show'
   devise_for :users
   root to: "pages#dashboard"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -13,13 +14,17 @@ Rails.application.routes.draw do
   get "/account" => "users#show", as: :user
   patch "/account" => "users#update"
 
+  get "/strategic-points" => "pages#strategic_points", as: :strategic_points
+
   get "/feeds" => "feeds#index", as: :feeds
 
 
   resources :users, only: [] do
     resources :cars, only: [ :new, :create, :edit, :update]
+    resources :planned_routes, only: [:new, :create, :edit, :update, :show, :index]
   end
   resources :cars, only: [:destroy]
+  resources :planned_routes, only: [:destroy]
 
   resources :feeds, only: :show do
     resources :posts, only: :create
