@@ -1,25 +1,56 @@
 <div class="feed"
     data-controller="feed-subscription"
     data-feed-subscription-feed-id-value="<%= @feed.id %>">
-
-    <div class="feed-scroll-box">
+    <div class="feed-side-bar-box">
       <h1><%= @feed.name %></h1>
-      <div class="post-bar">
+    </div>
+    <div class="feed-scroll-box">
+      <div class="">
         <%= simple_form_for [@feed, @post],
-            html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|%>
-          <%= f.input :content :text,
-              label: false,
-              placeholder: "Post your trip!",
-              wrapper_html: {class: "flex-grow-1"}
+            html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" },
+            class: "post-box-feed-entry__closed-share-box" } do |f|
+          %>
+          <div class="post-box-feed-entry__top-bar">
+            <a href="#" class="avatar mb-3" style="display: inline;">
+              <% if @user&.photo.present? %>
+                <%= cl_image_tag @user.photo.key, class: "avatar" %>
+              <% else %>
+                <%= image_tag "user", class: "avatar" %>
+              <% end %>
+            </a>
+            <%= f.input :content, label: false,
+                placeholder: "Post your trip!",
+                input_html: { class: "rounded-pill" },
+                wrapper_html: {class: "flex-grow-1"}
+              %>
+            <div class="post-box-feed-entry__tool-bar">
+            <span class="material-symbols-outlined">
+              image
+            </span>
+            <%= f.input :photo,
+                as: :file,
+                input_html: { class: "my-class rounded-pill" },
+                label_html: { class: "my-label ms-1"}
+                #wrapper_html: {class: "flex-grow-1"}
+              %>
+            </div>
+          </div>
+          <%= f.submit "Post",
+              class: "btn btn-primary mb-3"
             %>
-          <%= f.input :photo,
-              label: false,
-              as: :file
-            %>
-          <%= f.submit "Post", class: "btn btn-primary mb-3" %>
         <% end %>
       </div>
     </div>
+
+<%# <div class="share-box-feed-entry-toolbar__wrapper share-box-feed-entry__tool-bar">flex %>
+<%# <button class="artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry-toolbar__item" aria-label="Add media" type="button">flex
+<svg role="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="image-medium" type="image">
+<use href="#image-medium" width="24" height="24"></use>
+</svg>
+<span class="artdeco-button__text">Media</span>
+</button> %>
+
+
 
     <div class="feed-scroll-box">
       <div class="posts"

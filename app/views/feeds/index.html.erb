@@ -1,6 +1,5 @@
 <% @feeds.each do |feed| %>
   <div>
-    <%= feed.id %>
-    <%= feed.name %>
+    <button> <%= link_to(feed.name, feed_path(feed.id)) %> </button>
   </div>
 <% end %>
