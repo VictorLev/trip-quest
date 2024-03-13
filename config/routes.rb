@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get "/account" => "users#show", as: :user
   patch "/account" => "users#update"
 
+  get "/strategic-points" => "pages#strategic_points", as: :strategic_points
+
   get "/feeds" => "feeds#index", as: :feeds
 
   resources :users, only: [] do

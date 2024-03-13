@@ -17,11 +17,24 @@ Insurer.destroy_all
 Car.destroy_all
 
 
+# Function to generate random coordinates within Melbourne
+def generate_random_coordinates
+  melbourne_latitude = -37.8136
+  melbourne_longitude = 144.9631
+  latitude_variation = 0.05
+  longitude_variation = 0.05
+
+  random_latitude = melbourne_latitude + rand(-latitude_variation..latitude_variation)
+  random_longitude = melbourne_longitude + rand(-longitude_variation..longitude_variation)
+
+  [random_latitude, random_longitude]
+end
+
+
 # CREATE USERS IN DATABASE
 
 jane = User.create!(first_name: "Jane", last_name: "Doe", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
 # User.create!(first_name: "Victor", last_name: "Levesque", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
-
 
 
 # CREATE FEED IN DATABASE
@@ -41,6 +54,15 @@ car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             price: "500",
             insurer: Insurer.first,
             user_id: jane.id)
+
+
+# CREATE RANDOM Stratigic Points IN database with random coordinates
+10.times do
+  latitude, longitude = generate_random_coordinates
+  address = Faker::Address
+  StrategicPoint.create!(address: address.city, latitude: latitude, longitude: longitude, danger: rand(1..5))
+end
+
 
 # CREATE FEED IN DATABASE
 
