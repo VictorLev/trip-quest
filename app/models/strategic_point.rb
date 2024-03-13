@@ -1,0 +1,2 @@
+class StrategicPoint < ApplicationRecord
+end

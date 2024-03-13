@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_12_123457) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_235156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_123457) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "actual_rewards", force: :cascade do |t|
+    t.bigint "strategic_point_id", null: false
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["strategic_point_id"], name: "index_actual_rewards_on_strategic_point_id"
+    t.index ["trip_id"], name: "index_actual_rewards_on_trip_id"
+  end
+
   create_table "cars", force: :cascade do |t|
     t.string "vehicle"
     t.string "transmission"
@@ -70,6 +79,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_123457) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "planned_routes", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "start_point"
+    t.string "end_point"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_planned_routes_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "content"
     t.bigint "user_id", null: false
@@ -78,6 +97,36 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_123457) do
     t.datetime "updated_at", null: false
     t.index ["feed_id"], name: "index_posts_on_feed_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "projected_rewards", force: :cascade do |t|
+    t.bigint "strategic_point_id", null: false
+    t.bigint "planned_route_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["planned_route_id"], name: "index_projected_rewards_on_planned_route_id"
+    t.index ["strategic_point_id"], name: "index_projected_rewards_on_strategic_point_id"
+  end
+
+  create_table "strategic_points", force: :cascade do |t|
+    t.string "address"
+    t.integer "danger", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "start_point", null: false
+    t.string "end_point", null: false
+    t.integer "reward_point"
+    t.date "date", null: false
+    t.bigint "car_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_trips_on_car_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,6 +148,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_123457) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "actual_rewards", "strategic_points"
+  add_foreign_key "actual_rewards", "trips"
+  add_foreign_key "planned_routes", "users"
   add_foreign_key "posts", "feeds"
   add_foreign_key "posts", "users"
+  add_foreign_key "projected_rewards", "planned_routes"
+  add_foreign_key "projected_rewards", "strategic_points"
+  add_foreign_key "trips", "cars"
 end
