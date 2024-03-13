@@ -1,0 +1,9 @@
+<h2>
+  My Planned Routes
+</h2>
+<div>
+  <% @planned_routes.each do |pr| %>
+  <div><%= pr.start_point%></div>
+  <div><%= pr.end_point%></div>
+  <% end %>
+</div>
