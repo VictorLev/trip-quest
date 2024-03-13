@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row">
     <div class="col text-center">
@@ -6,17 +7,20 @@
   </div>
 </div>
 
-
-<div class="mytrips">
-<% @trips.each do |trip| %>
-  <div>
-    <%= trip.start_point %>
-    <%= trip.end_point %>
-    <%= trip.reward_point %>
-  </div>
-<% end %>
+<div class="container">
+  <% @trips.each do |trip| %>
+    <div class="trip my-2 d-flex align-items-center">
+      <h3 class="tripname mr-3">
+        <%= trip.name %>
+      </h3>
+      <div class="reward-info mr-3">
+        <h5>reward: </h5>
+        <%= trip.reward_point %>
+      </div>
+      <%= trip.date %>
+      <div class="button-container">
+        <button class="btn btn-primary">Details</button>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-<script>
-  console.log("Trips:");
-</script>

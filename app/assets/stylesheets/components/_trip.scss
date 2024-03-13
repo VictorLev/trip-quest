@@ -1,0 +1,30 @@
+.trip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #a5c5c2;
+  color: #fff;
+  text-align: center;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 25px;
+  width: 100%;
+}
+
+.button-container {
+  margin-left: 10px;
+}
+
+h1 {
+color: #fba834;
+font-family: Arial
+}
+
+.reward-info {
+  margin-bottom: 10px;
+}
+
+.tripname, .reward-info {
+  margin-right: 10px;
+}
