@@ -12,15 +12,16 @@ require 'faker'
 
 #  DESTROY ALL OBJECTS IN DATABASE
 User.destroy_all
+Car.destroy_all
 Feed.destroy_all
 Insurer.destroy_all
-Car.destroy_all
 Trip.destroy_all
+StrategicPoint.destroy_all
 
 
 # Function to generate random coordinates within Melbourne
 def generate_random_coordinates
-  melbourne_latitude = -37.8136
+  melbourne_latitude = -37.7736
   melbourne_longitude = 144.9631
   latitude_variation = 0.05
   longitude_variation = 0.05
@@ -33,9 +34,7 @@ end
 
 
 # CREATE USERS IN DATABASE
-
 jane = User.create!(first_name: "Jane", last_name: "Doe", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
-# User.create!(first_name: "Victor", last_name: "Levesque", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "male")
 
 # CREATE FEED IN DATABASE
 num = 0
@@ -45,7 +44,6 @@ num = 0
 end
 
 # CREATE CARS IN DATABASE
-
 car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             transmission: "Manual",
             color: "White",
@@ -75,3 +73,4 @@ Trip.create!(start_point: "129-131 Acland St, St Kilda VIC 3182", end_point: "14
 Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "5", date: "05/03/2024", name: "Wilsons Promontory", car: car1)
 Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car1)
 Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car1)
+
