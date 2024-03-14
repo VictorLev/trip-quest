@@ -1,18 +1,20 @@
 <div>
   <h2>Insurers Tier List</h2>
   <div class="d-flex justify-content-center">
-    <table class="table table-bordered">
-      <thead class="thead-dark">
-        <tr>
-          <th>Name</th>
-          <th>Minimum Points Required</th>
+    <table class="table table-bordered mx-4 rounded">
+      <thead class="thead-dark ">
+        <tr >
+          <th class="bg-white">Level</th>
+          <th class="bg-white">Insurer name</th>
+          <th class="bg-white">Minimum Points Required</th>
         </tr>
       </thead>
       <tbody>
-        <% @insurers.each do |insurer| %>
+        <% @insurers.each_with_index do |insurer, i| %>
           <tr>
-            <td><%= insurer.name %></td>
-            <td><%= insurer.min_threshold %></td>
+            <td class="bg-white">lvl <%= i + 1 %></td>
+            <td class="bg-white"><%= insurer.name %></td>
+            <td class="bg-white"><%= insurer.min_threshold %></td>
           </tr>
         <% end %>
       </tbody>
