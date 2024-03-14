@@ -1,0 +1,29 @@
+.posts {
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
+  // text-align: center;
+  width: 100%;
+  /* justify-content: center; */
+}
+
+.post-card {
+  background-color: #E9F6FF;
+  color: #3652AD;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 12px;
+  padding: 12px;
+  border-radius: 12px
+}
+
+.post-card p {
+  text-wrap: wrap;
+  margin-top: 2px;
+}
+
+.content-text {
+  // border-radius: 25px;
+  // background-color: #e2eeed;
+}
