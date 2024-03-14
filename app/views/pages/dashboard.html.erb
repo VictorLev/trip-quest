@@ -1,13 +1,13 @@
 <div class="container">
 <div class="display-flex">
-  <div class="flex-container">
-    <div class="side-bar-left">
-    <div class="text-center">
-      <h1>My dashboard</h1>
-      </div>
-        <% @cars.each do |car| %>
-          <div class="semi-circle">
-            <div class="center-content">
+    <div class="flex-container">
+      <div class="side-bar-left">
+        <div class="text-center">
+        <h2><strong><span class="main-title">MY</span><span class="accent-title">DASHBOARD</span></strong></h2>
+        </div>
+      <% @cars.each do |car| %>
+        <div class="semi-circle">
+          <div class="center-content">
               <h2><%= car.vehicle %></h2>
               <h3><%= car.total_car_reward %></h3>
             </div>
@@ -18,7 +18,7 @@
 
   <div class="side-bar-right">
   <div class="text-center">
-      <h1>Most recent trips</h1>
+      <h2><strong><span class="accent-title">MOST RECENT TRIPS</span></strong></h2>
       </div>
     <% @trips.each do |trip| %>
       <div class="trip my-2 d-flex align-items-center">
