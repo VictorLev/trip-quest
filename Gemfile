@@ -84,3 +84,5 @@ gem "cloudinary"
 
 # geocoder
 gem "geocoder"
+
+gem 'truncate_all', group: :development

@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand ms-4" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
@@ -9,18 +9,18 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto d-flex align-items-center text-white">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Dashbord", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "MyTrips", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "MyFriends", feeds_path , class: "nav-link" %>
-          </li>
-          <li class="nav-item">
+          <li class="nav-item mx-2">
+            <%= link_to "Dashbord", "/", class: "nav-link" %>
+          </li> |
+          <li class="nav-item mx-2">
+            <%= link_to "MyTrips", trips_path, class: "nav-link" %>
+          </li> |
+          <li class="nav-item mx-2">
+            <%= link_to "MyFriends", feeds_path, class: "nav-link" %>
+          </li> |
+          <li class="nav-item mx-2">
             <%= link_to "JourneyCalculator", new_user_planned_route_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">

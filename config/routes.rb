@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [] do
     resources :cars, only: [ :new, :create, :edit, :update]
-    resources :planned_routes, only: [:new, :create, :edit, :update, :show, :index]
+    resources :planned_routes, only: [:new, :create, :edit, :update, :show, :index] do
+      resources :projected_reward, only: [ :create]
+    end
   end
   resources :cars, only: [:destroy]
   resources :planned_routes, only: [:destroy]
