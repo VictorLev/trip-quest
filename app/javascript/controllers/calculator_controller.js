@@ -1,10 +1,11 @@
+
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
 //import MapboxDirections from '@mapbox/mapbox-gl-directions'
 
 // Connects to data-controller="calculator"
 export default class extends Controller {
-  static targets = ["form"]
+  static targets = ["startpoint", "endpoint", "form", "button", "map"];
 
   static values = {
     apiKey: String,
@@ -13,13 +14,10 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("we are connected")
     mapboxgl.accessToken = this.apiKeyValue
 
-    console.log("we are connected")
-
     this.map = new mapboxgl.Map({
-      container: this.element,
+      container: this.mapTarget,
       style: "mapbox://styles/mapbox/streets-v10",
       center: [144.9631, -37.8136],
       zoom: 12
@@ -31,33 +29,39 @@ export default class extends Controller {
       this.direction,
       'top-left'
     );
+
+    this.#addMarkersToMap()
+    this.#fitMapToMarkers()
+
   }
 
-  save() {
-    console.log('save')
-    const url = `/users/${this.userIdValue}/planned_routes/`;
+  save(event) {
+    event.preventDefault()
 
-    const postData = {
-      planned_route: {
-        start_point: `[${this.direction.getOrigin().geometry.coordinates.toString()}]`,
-        end_point: `[${this.direction.getDestination().geometry.coordinates.toString()}]`,
-        name: "test"
-      }
-    };
+    // Update the values of the start and end targets
+    this.startpointTarget.value = this.direction.getOrigin().geometry.coordinates.toString();
+    this.endpointTarget.value = this.direction.getDestination().geometry.coordinates.toString();
 
-    const options = {
-      method: 'POST',
-      headers: {
-        "Accept": "text/plain" // Set the content type based on your API requirements
-      },
-      body: new FormData(this.formTarget) // Convert the data to JSON format
-    };
+    // Submit the form
+    this.formTarget.submit();
 
-    fetch(url, options)
-    .then(response => response.json())
-    .then(data => {
-      // Handle the data returned from the server
-      console.log(data);
+  }
+
+  #addMarkersToMap() {
+    this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.sp_info_html)
+      console.log(marker)
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(this.map)
     })
   }
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+  }
+
 }

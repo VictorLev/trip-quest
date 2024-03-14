@@ -3,6 +3,7 @@
 </h2>
 <div>
   <% @planned_routes.each do |pr| %>
+  <div><%= pr.name%></div>
   <div><%= pr.start_point%></div>
   <div><%= pr.end_point%></div>
   <% end %>
