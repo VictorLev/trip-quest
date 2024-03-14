@@ -53,6 +53,15 @@ car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             insurer: Insurer.first,
             user_id: jane.id)
 
+car2 = Car.create!(vehicle: "Mazda CX5",
+              transmission: "Automatic",
+              color: "Black",
+              year: 2020,
+              kilometers: "",
+              price: "30000",
+              insurer: Insurer.first,
+              user_id: jane.id)
+
 
 # CREATE RANDOM Stratigic Points IN database with random coordinates
 10.times do
@@ -72,5 +81,5 @@ Feed.create!(name: "General fun")
 Trip.create!(start_point: "129-131 Acland St, St Kilda VIC 3182", end_point: "145-147 Williams Rd, Prahran VIC 3181", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
 Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "5", date: "05/03/2024", name: "Wilsons Promontory", car: car1)
 Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car1)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car1)
+Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car2)
 

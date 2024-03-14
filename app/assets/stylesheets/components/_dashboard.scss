@@ -1,0 +1,86 @@
+.semi-circle {
+  position: relative;
+  width: 367px;
+  height: 190px;
+  background-color: #FFA500; /* Orange color */
+  border-radius: 300px 300px 0 0;
+  margin: 50px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.display-flex {
+  display: flex;
+}
+
+
+.center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  color: #00008B;
+}
+
+.center-content h2 {
+  margin: 0;
+}
+
+.center-content p {
+  margin: 0;
+}
+
+.side-bar-left {
+  border-radius: 12px;
+  background-color: rgba(54, 82, 173, 0.13);
+  padding: 16px;
+  box-shadow: 1px 1px 16px -2.5px rgba(87, 94, 96, 0.47);
+  margin: 10px;
+}
+
+.side-bar-right {
+  border-radius: 12px;
+  background-color: rgba(54, 82, 173, 0.13);
+  padding: 30px;
+  box-shadow: 1px 1px 16px -2.5px rgba(87, 94, 96, 0.47);
+  margin: 10px;
+  width: 900px;
+  height: 400px;
+}
+
+.trip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: $my-white;
+  color: #3652ad;
+  text-align: center;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 25px;
+  width: 100%;
+  border: 5px solid #fba834;
+  box-shadow: 12px 5px 5px;
+}
+
+.tripname, .reward-info {
+  margin-right: 10px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.reward-info {
+  margin-bottom: 10px;
+
+}
+
+
+.text-center {
+  color: $my-blue-dark;
+}

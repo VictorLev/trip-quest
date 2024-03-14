@@ -5,4 +5,8 @@ class Car < ApplicationRecord
   has_many :trips, dependent: :destroy
 
   validates :year, presence: true
+
+  def total_car_reward
+    trips.sum(:reward_point)
+  end
 end
