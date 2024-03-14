@@ -1,7 +1,8 @@
 class PlannedRoutesController < ApplicationController
 
   def index
-    @planned_routes = PlannedRoute.where(user: current_user)
+    @planned_routes = PlannedRoute.includes(:strategic_points).where(user: current_user).order(created_at: :desc)
+
   end
 
   def new
@@ -34,6 +35,12 @@ class PlannedRoutesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @planned_route = PlannedRoute.find(params[:id])
+    @planned_route.destroy
+    redirect_to user_planned_routes_path(current_user)
   end
 
   private
