@@ -6,7 +6,7 @@ class PlannedRoutesController < ApplicationController
 
   def new
     @planned_route = PlannedRoute.new
-
+    @user = current_user
     # if PlannedRoute.all
     #   @planned_routes = PlannedRoute.first
     # end
@@ -17,16 +17,16 @@ class PlannedRoutesController < ApplicationController
       {
         lat: sp.latitude,
         lng: sp.longitude,
+        sp_info_html: render_to_string(partial: "planned_routes/sp_info", locals: {sp: sp})
       }
     end
   end
 
   def create
-    raise
     @planned_route = PlannedRoute.new(planned_route_params)
     @planned_route.user = current_user
     if @planned_route.save
-      redirect_to user_planned_routes(current_user)
+      redirect_to user_planned_routes_path(current_user)
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,6 +35,6 @@ class PlannedRoutesController < ApplicationController
   private
 
   def planned_route_params
-    #params.require(:planned_route).permit(:origin, :destination)
+    params.require(:planned_route).permit(:start_point, :end_point, :name)
   end
 end

@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       {
         lat: sp.latitude,
         lng: sp.longitude,
-        info_window_html: render_to_string(partial: "pages/sp_info", locals: {sp: sp})
+        sp_info_html: render_to_string(partial: "pages/sp_info", locals: {sp: sp})
       }
     end
   end

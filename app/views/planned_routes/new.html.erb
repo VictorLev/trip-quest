@@ -1,24 +1,33 @@
-<h1>PlannedRoutes#show</h1>
-<p>Find me in app/views/planned_routes/show.html.erb</p>
+<h1>Estimate your next trip with JourneyCalculator</h1>
 
-<p>planned_routes_show | GET | /planned_routes/show(.:format) | planned_routes#show</p>
+<br>
+<br>
+<div class="position-relative px-4"
+      data-controller="calculator"
+      data-calculator-markers-value="<%= @markers.to_json %>"
+      data-calculator-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-calculator-user-id-value="<%= current_user.id %>">
 
+  <div>
+    Estimated points
 
-<div style="width: 100%; height: 600px; position: relative;"
-  data-controller="calculator"
-  data-calculator-markers-value="<%= @markers.to_json %>"
-  data-calculator-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-calculator-user-id-value="<%= current_user.id %>">
-  <div class="m-4 position-absolute bottom-0 end-0 z-3">
-    <%= simple_form_for @planned_route do |f| %>
-      <%= f.input :name,  as: :hidden, %>
-      <%= f.input :start_point, as: :hidden, %>
-      <%= f.input :end_point, as: :hidden %>
-      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-      <%= f.button :submit, class: "btn btn-primary",
+  </div>
+
+  <div data-calculator-target="map" class="border rounded-4 " style="width: 100%; height: 600px;">
+  </div>
+
+  <div class="mx-4 position-absolute bottom-0 end-0 z-3 ">
+    <div class="m-4 border bg-white p-3 rounded-4 m-3">
+      <%= simple_form_for [@user, @planned_route], data: { calculator_target: "form" } do |f| %>
+        <%= f.input :name %>
+        <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
+        <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
+        <%= f.button :submit, "Save route",
           data: {
-                  calculator_target: "form",
-                  action: "click->calculator#save"
-                } %>
+            calculator_target: "button",
+            action: "click->calculator#save"
+          }, class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
