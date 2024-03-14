@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
     @posts = Post.where(feed_id: params[:id]).order("created_at DESC")
     @post = Post.new
     @user = current_user
+    @feeds = Feed.all
   end
 
   def index
