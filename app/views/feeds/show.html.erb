@@ -1,33 +1,83 @@
-<div class="feed"
+<div class="feed row"
     data-controller="feed-subscription"
     data-feed-subscription-feed-id-value="<%= @feed.id %>">
 
+    <h1><%= @feed.name %></h1>
+
+    <div class="feed-side-bar-box col-3">
+      <% @feeds.each do |feed| %>
+      <h2><%= link_to(feed.name, feed_path(feed.id)) %></h2>
+      <% end %>
+    </div>
+    <div class="col-8">
     <div class="feed-scroll-box">
-      <h1><%= @feed.name %></h1>
-      <div class="post-bar">
         <%= simple_form_for [@feed, @post],
-            html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" }, class: "d-flex" } do |f|%>
-          <%= f.input :content :text,
-              label: false,
-              placeholder: "Post your trip!",
+            html: { data: { action: "turbo:submit-end->feed-subscription#resetForm" },
+            class: "post-box-feed-entry__closed-share-box" } do |f|
+          %>
+
+          <div class="post-box-feed-entry__top-bar">
+            <a href="#" class="avatar mb-3 me-4" style="display: inline;">
+              <% if @user&.photo.present? %>
+                <%= cl_image_tag @user.photo.key, class: "avatar" %>
+              <% else %>
+                <%= image_tag "user", class: "avatar" %>
+              <% end %>
+            </a>
+            <%= f.input :content, label: false,
+              placeholder: "Post about your trip!",
+              input_html: { class: "rounded-pill" },
               wrapper_html: {class: "flex-grow-1"}
             %>
-          <%= f.input :photo,
-              label: false,
-              as: :file
+            <%= f.submit "Post",
+              class: "btn btn-primary mb-3 ms-4"
             %>
-          <%= f.submit "Post", class: "btn btn-primary mb-3" %>
+          </div>
+
+          <div class="post-box-feed-entry__tool-bar">
+            <div class="form-input">
+              <button type="button" class="btn btn-primary">
+                <%= f.label :photo do %>
+                <%# <span class="material-symbols-outlined">Image</span> %>
+                  <svg xmlns="http://www.w3.org/2000/svg" style="height: 30px; width: 30px;" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                  </svg>
+                <% end %>
+              </button>
+              <%# want to add an event listener to the photo upload so that when a pic is attached we remove the class d-none %>
+              <%= f.input_field :photo, class: 'd-none', as: :file %>
+              <%= f.error :photo %>
+              <%= f.full_error :photo %>
+            </div>
+            <%# <span class="material-symbols-outlined">
+              image
+              </span> %>
+              <%# <%= f.input :photo,
+                as: :file,
+                input_html: { class: "my-class rounded-pill" },
+                label_html: { class: "my-label ms-1"}
+                #wrapper_html: {class: "flex-grow-1"}
+              %>
+          </div>
         <% end %>
-      </div>
     </div>
 
-    <div class="feed-scroll-box">
+    <div class="feed-scroll-box mt-4">
       <div class="posts"
-      data-feed-subscription-target="posts">
+            data-feed-subscription-target="posts">
+
         <% @posts.each do |post| %>
           <%= render "posts/post", post: post %>
         <% end %>
+
       </div>
     </div>
-
+  </div>
 </div>
+<%# <div class="share-box-feed-entry-toolbar__wrapper share-box-feed-entry__tool-bar">flex %>
+<%# <button class="artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry-toolbar__item" aria-label="Add media" type="button">flex
+<svg role="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" data-supported-dps="24x24" data-test-icon="image-medium" type="image">
+<use href="#image-medium" width="24" height="24"></use>
+</svg>
+<span class="artdeco-button__text">Media</span>
+</button> %>

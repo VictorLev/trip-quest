@@ -1,50 +1,87 @@
-.posts {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  flex-direction: column;
+.feed h1 {
   text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
 }
 
-.feed {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.feed-side-bar-box {
+  border-radius: 12px;
+  background-color: #3652ad21;
+  padding: 16px;
+  box-shadow: 1px 1px 16px -2.5px #575e6077;
+  margin: 10px;
+  // border: #575e6078;
+  // border-style: solid;
 }
 
 .feed-scroll-box {
-  background-color: #a5c5c2;
-  color: #fff;
-  text-align: center;
+  border-radius: 12px;
+  background-color: #3652ad21;
+  padding: 4px;
+  box-shadow: 1px 1px 16px -2.5px #575e6077;
+  // text-align: center;
   margin: 10px;
-  padding: 20px;
-  border-radius: 25px;
-  width: 63%;
+  // padding: 20px;
+  // border-radius: 25px;
+  // border: #575e6078;
+  // border-style: solid;
+  // background-color: $my-orange;
+  // color: #fff;
 }
 
-.post-bar {
-  border-radius: 25px;
-  text-align: center;
-}
-
-.post-card {
-  background-color: $my-white;
-  color: $my-blue;
+.post-box-feed-entry__closed-share-box {
+  margin: 0 0 0.8rem;
+  border-radius: 2px;
+  text-align: left;
+  color: $my-blue-dark;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 25px;
-  width: 540px;
+  z-index: 4;
 }
 
-.post-card p {
-  text-wrap: wrap;
-  margin-top: 2px;
+.post-box-feed-entry__top-bar {
+  display: flex;
+  align-items: center;
+  margin: 0.8rem 1.6rem 0;
 }
 
-.content-text {
-  border-radius: 25px;
-  background-color: #e2eeed;
+.post-box-feed-entry__tool-bar {
+  margin: 0.8rem 1.6rem 0;
+  display: flex;
+  // position: absolute;
+  // left: 68%;
+  // top: 26%;
 }
+
+// .material-symbols-outlined {
+//   margin-top: 6px;
+//   margin-left: 0px;
+//   font-size: 36px;
+//   margin-right: -42px;
+//   font-variation-settings:
+//   'FILL' 0,
+//   'wght' 400,
+//   'GRAD' 0,
+//   'opsz' 24
+// }
+
+// .artdeco-card {
+//   overflow: visible;
+// }
+
+// .my-label {
+//   cursor: pointer;
+//   padding: 8px;
+//   padding-left: 0px;
+//   border: $my-white;
+//   color: transparent;
+//   // background-color: $my-white;
+//   border-radius: 25px;
+// }
+
+// .my-class {
+//   transform: scale(0);
+//   width: 0px;
+//   height: 0px
+// }
