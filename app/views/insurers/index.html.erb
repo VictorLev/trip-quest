@@ -11,11 +11,7 @@
       </thead>
       <tbody>
         <% @insurers.each_with_index do |insurer, i| %>
-          <tr>
-            <td class="bg-white">lvl <%= i + 1 %></td>
-            <td class="bg-white"><%= insurer.name %></td>
-            <td class="bg-white"><%= insurer.min_threshold %></td>
-          </tr>
+         <%= render partial: 'insurer', locals: { insurer: insurer, index: (i + 1) } %>
         <% end %>
       </tbody>
     </table>
