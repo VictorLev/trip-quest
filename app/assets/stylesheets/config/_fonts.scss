@@ -1,9 +1,11 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,600;0,800;1,100;1,300;1,600&family=Righteous&display=swap');
+
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Poppins", "Helvetica", "sans-serif";
+$headers-font: "Poppins", "Nunito", "Helvetica";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,3 +16,4 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+$title-font: "Righteous", "Nunito", "Helvetica";
