@@ -21,11 +21,11 @@
             <%= link_to "MyFriends", feeds_path , class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "JourneyCalculator", "#", class: "nav-link" %>
+            <%= link_to "JourneyCalculator", new_user_planned_route_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if @user&.photo.present? %>
+            <% if current_user&.photo.present? %>
               <%= cl_image_tag @user.photo.key, height: 40,
               width: 40, crop: :fill,
               class: "avatar", alt: "dropdown menu" %>
@@ -35,7 +35,8 @@
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Settings", user_path , class: "dropdown-item" %>
-               <%= link_to "Insurer List", insurers_path , class: "dropdown-item" %>
+              <%= link_to "Insurer List", insurers_path , class: "dropdown-item" %>
+              <%= link_to "Planned roots", user_planned_routes_path(current_user) , class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
