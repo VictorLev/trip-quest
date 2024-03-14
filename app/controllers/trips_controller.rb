@@ -1,6 +1,12 @@
 class TripsController < ApplicationController
   def index
     @trips = Trip.all
+    @user = current_user
+    @total_points = []
+    @trips.each do |trip|
+      @total_points << trip.reward_point
+    end
+    @car = Trip.first.car
   end
 
   def new

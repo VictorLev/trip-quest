@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl'
 
 // Connects to data-controller="calculator"
 export default class extends Controller {
-  static targets = ["startpoint", "endpoint", "form", "button", "map"];
+  static targets = ["startpoint", "endpoint", "form", "button", "map", "checkbox"];
 
   static values = {
     apiKey: String,
@@ -47,10 +47,14 @@ export default class extends Controller {
 
   }
 
+  addPoint() {
+    console.log("addPoint")
+    console.log(this.checkboxTarget)
+  }
+
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.sp_info_html)
-      console.log(marker)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
