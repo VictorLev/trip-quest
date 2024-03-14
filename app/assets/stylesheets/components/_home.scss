@@ -8,11 +8,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 200px;
+  height: 100px;
   width: 100%;
   padding: 0px 50px;
   color: white;
   margin: 0 auto;
+  position: fixed;
 }
 
 .footer-links {
@@ -46,4 +47,10 @@
 .web-orange-button2:hover {
   background-color: #FFA500;
   color: white;
+}
+
+.footer img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
 }
