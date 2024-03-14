@@ -1,0 +1,21 @@
+.bg-my-white {
+  background-color: $my-white;
+}
+
+.blue-pill {
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  padding: 0.1rem 0.5rem;
+  background-color: $my-white;
+  color: $my-blue;
+  border: 1px solid $my-blue;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.orange-pill {
+  background-color: $my-blue-dark;
+  color: $my-white;
+  border: 1px solid $my-blue;
+}

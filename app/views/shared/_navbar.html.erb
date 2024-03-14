@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand ms-4" do %>
       <%= image_tag "logo.png" %>
+      <span class="text-white m-2">TRIPQUEST</span>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,18 +10,19 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto d-flex align-items-center text-white">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Dashbord", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
+          <li class="nav-item mx-2">
+            <%= link_to "Dashbord", "/", class: "nav-link" %>
+          </li> |
+          <li class="nav-item mx-2">
             <%= link_to "MyTrips", trips_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "MyFriends", feeds_path , class: "nav-link" %>
-          </li>
-          <li class="nav-item">
+          </li> |
+          <li class="nav-item mx-2">
+            <%= link_to "MyFriends", feeds_path, class: "nav-link" %>
+          </li> |
+          <li class="nav-item mx-2">
+
             <%= link_to "JourneyCalculator", new_user_planned_route_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
@@ -34,9 +36,10 @@
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Settings", user_path , class: "dropdown-item" %>
-              <%= link_to "Insurer List", insurers_path , class: "dropdown-item" %>
+              <%= link_to "Strategic points", "/strategic-points" , class: "dropdown-item" %>
+              <%= link_to "Insurer tier list", insurers_path , class: "dropdown-item" %>
               <%= link_to "Planned roots", user_planned_routes_path(current_user) , class: "dropdown-item" %>
+              <%= link_to "Settings", user_path , class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

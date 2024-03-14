@@ -1,28 +1,26 @@
-
 <div class="container">
-  <div class="row">
-    <div class="col text-center">
-      <h1 class="title">
-        <span class="main-title">My</span><span class="accent-title">Trips</span>
-      </h1>
+    <div class="m-4">
+      <!-- Title with Trip Count -->
+      <div class="point-calculator d-flex justify-content-between">
+        <h2><strong><span class="main-title">My</span><span class="accent-title">Trips</span></strong></h2>
+        <p>You have made <%= @trips.count %> trips in the last month and you have <%= @total_points.sum %> points! </p>
+        <%= link_to "Add a trip", new_trip_path, class: "btn btn-warning" %>
+      </div>
+
+      <%# <div style="width: 300px;">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+        </svg>
+      </div> %>
+
+      <hr>
+
+      <!-- Display all the trips -->
+      <div>
+        <% @trips.each do |trip| %>
+        <%= render partial: 'trip', locals: { trip: trip } %>
+      <% end %>
+      </div>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <% @trips.each do |trip| %>
-    <div class="trip my-2 d-flex align-items-center">
-      <h3 class="tripname mr-3">
-        <%= trip.name %>
-      </h3>
-      <div class="reward-info mr-3">
-        <h5>reward: </h5>
-        <%= trip.reward_point %>
-      </div>
-      <%= trip.date %>
-      <div class="button-container">
-        <%= link_to "Details", "#", class: "btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
 </div>

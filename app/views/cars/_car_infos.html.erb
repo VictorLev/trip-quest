@@ -17,8 +17,8 @@
     <div>price: <%= car.price %></div>
     <div>insurer: <%= car.insurer.name %></div>
     <div class="d-flex justify-content-center p-1">
-      <%= link_to "Edit", edit_user_car_path(car.user, car), class: "btn btn-primary mx-4" %>
-      <%= link_to "Delete", car_path(car), data: { turbo_method: :delete, confirm: "Are you sure?" }, class: "btn btn-danger mx-4 text-white" %>
+      <%= link_to "Edit", edit_user_car_path(car.user, car), class: "btn btn-primary mx-4 rounded-4" %>
+      <%= link_to "Delete", car_path(car), data: { turbo_method: :delete, confirm: "Are you sure?" }, class: "btn btn-danger mx-4 text-white rounded-4" %>
     </div>
   </div>
 </div>
