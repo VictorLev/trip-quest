@@ -3,6 +3,7 @@ class PagesController < ApplicationController
     @cars = current_user.cars.limit(2)
     @trips = Trip.all.order(created_at: :desc).limit(3)
     @insurers = Insurer.all
+    @user = current_user
   end
 
   def strategic_points
