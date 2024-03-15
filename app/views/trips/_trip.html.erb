@@ -1,6 +1,4 @@
 <div class="trip d-flex border bg-my-white p-4 m-4 rounded-4 justify-content-between">
-
-  <a href="<%= link_to trip_path(trip)%>">
   <div class="trip-image">
     <% if trip.car.photo.present? %>
       <%= cl_image_tag trip.car.photo.key,
@@ -14,28 +12,32 @@
       %>
     <% end %>
   </div>
-
   <div class="w-25">
-    <p class="fs-2"><%= trip.name %></p>
-    <p><%= trip.date %></p>
+    <p class="fs-2">
+      <%= trip.name %>
+    </p>
+    <p>
+      <%= trip.date %>
+    </p>
   </div>
-
-    <div class="d-flex flex-grow-1 justify-content-between align-items-center">
-      <div>Rewards:
-        <span class="fs-3 mx-3 rounded-4 px-2 py-1 orange-pill"><%= trip.reward_point %></span>
-      </div>
+  <div class="d-flex flex-grow-1 justify-content-between align-items-center">
+    <div>Rewards:
+      <span class="fs-3 mx-3 rounded-4 px-2 py-1 orange-pill">
+        <%= trip.reward_point %>
+      </span>
+    </div>
     <%# <% trip.actual_rewards.each do |reward| %>
           <%# <div class="blue-pill">
             <%=reward.strategic_point.address%>
           <%# </div> %>
         <%# <% end %>
-    </div>
-    <div class="w-25 fs-3">
   </div>
-  <div class="button-container">
-   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-      Launch modal
-    </button>
+  <div class="w-25 fs-3">
+    <div class="button-container">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Launch modal
+      </button>
+    </div>
   </div>
 </div>
 

@@ -46,6 +46,28 @@ end
 jane = User.create!(first_name: "Jane", last_name: "Doe", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
 liam = User.create!(first_name: "Liam", last_name: "Mel", email: "liamel@gmail.com", password: "secret", age: 25, location: "Melbourne", gender: "male")
 sarah = User.create!(first_name: "Sarah", last_name: "Roder", email: "sarahroder@gmail.com", password: "secret", age: 32, location: "Melbourne", gender: "female")
+victor = User.create!(first_name: "Victor", last_name: "Levesque", email: "vic@gmail.com", password: "secret", age: 21, location: "Melbourne", gender: "male")
+emma = User.create!(first_name: "Emma", last_name: "Stone", email: "emma@gmail.com", password: "secret", age: 19, location: "Melbourne", gender: "female")
+jaco = User.create!(first_name: "Jaco", last_name: "Riani", email: "jaco@gmail.com", password: "secret", age: 32, location: "Melbourne", gender: "male")
+mehul = User.create!(first_name: "Mehul", last_name: "Mehul", email: "mehul@gmail.com", password: "secret", age: 25, location: "Melbourne", gender: "male")
+
+mehul_pic = URI.open("/Users/emmastone/code/EmmJStone/trip-quest/app/assets/images/mehul.png")
+mehul.photo.attach(io: mehul_pic, filename: "mehul.png", content_type: "image/png")
+mehul.save!
+
+jaco_pic = URI.open("/Users/emmastone/code/EmmJStone/trip-quest/app/assets/images/jaco.png")
+jaco.photo.attach(io: jaco_pic, filename: "jaco.png", content_type: "image/png")
+jaco.save!
+
+victor_pic = URI.open("/Users/emmastone/code/EmmJStone/trip-quest/app/assets/images/vic.jpg")
+victor.photo.attach(io: victor_pic, filename: "vic.jpg", content_type: "image/jpg")
+victor.save!
+
+emma_pic = URI.open("app/assets/images/emma.jpg")
+emma.photo.attach(io: emma_pic, filename: "emma.jpg", content_type: "image/jpg")
+emma.save!
+# jaco_pic = image_tag("jaco")
+
 
 # CREATE FEED IN DATABASE
 num = 0
