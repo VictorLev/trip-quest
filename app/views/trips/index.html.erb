@@ -1,5 +1,4 @@
-
-  <div class="container">
+<div class="container">
     <div class="m-4">
       <!-- Title with Trip Count -->
       <div class="point-calculator d-flex justify-content-between">
@@ -28,9 +27,10 @@
         <% @trips.each do |trip| %>
         <%= render partial: 'trip', locals: { trip: trip } %>
       <% end %>
-      </div>
     </div>
   </div>
+</div>
+
 
       <%# <div style="width: 300px;">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -48,3 +48,4 @@
           <%# <%= f.collection_select :vehicle, Car.order(:vehicle), :vehicle, :vehicle, { prompt: "Select a vehicle" }, { class: "form-control" } %> %>
             <%# <% end %>
           <%# <%= f.submit %>
+
