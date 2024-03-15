@@ -8,6 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+def create_strategic_points_for_trip(trip)
+  StrategicPoint.all.shuffle.first(4).each do |sp|
+    # Create the joiner
+    ActualReward.create!(trip: trip, strategic_point: sp)
+  end
+end
+
 require 'faker'
 
 #  DESTROY ALL OBJECTS IN DATABASE
@@ -83,3 +90,6 @@ Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smi
 Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car1)
 Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car2)
 
+Trip.all.each do |trip|
+  create_strategic_points_for_trip(trip)
+end

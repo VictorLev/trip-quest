@@ -1,16 +1,18 @@
 <div class="container">
 <div class="display-flex">
-  <div class="flex-container">
-    <div class="side-bar-left">
-    <div class="text-center">
-      <h1>My dashboard</h1>
-      </div>
-        <% @cars.each do |car| %>
-          <div class="semi-circle">
-            <div class="center-content">
-              <h2><%= car.vehicle %></h2>
+    <div class="flex-container">
+      <div class="side-bar-left">
+        <div class="text-center">
+        <h2><strong><span class="main-title">MY</span><span class="accent-title">DASHBOARD</span></strong></h2>
+        </div>
+      <% @cars.each do |car| %>
+        <div class="semi-circle">
+          <div class="center-content">
+               <%= link_to account_path(:id) do %>
+               <h2><%= car.vehicle %></h2>
+              <% end %>
               <h3><%= car.total_car_reward %></h3>
-            </div>
+             </div>
           </div>
         <% end %>
       </div>
@@ -18,20 +20,25 @@
 
   <div class="side-bar-right">
   <div class="text-center">
-      <h1>Most recent trips</h1>
+      <h2><strong><span class="accent-title">MOST RECENT TRIPS</span></strong></h2>
       </div>
-    <% @trips.each do |trip| %>
-      <div class="trip my-2 d-flex align-items-center">
-        <h3 class="tripname mr-3">
-          <%= trip.name %>
-        </h3>
-        <div class="reward-info mr-3">
-          <h5>reward: </h5>
-          <%= trip.reward_point %>
-        </div>
-        <%= trip.date %>
+        <div>
+        <% @trips.each do |trip| %>
+        <%= render partial: 'trips/trip', locals: { trip: trip } %>
+      <% end %>
       </div>
-    <% end %>
     </div>
-  </div>
+</div>
+</div>
+
+<div class="side-bar-right-center">
+  <div class="text-center">
+      <h2><strong><span class="accent-title">INSURERS</span></strong></h2>
+      </div>
+      <div>
+       <% @insurers.each_with_index do |insurer, i| %>
+      <div class="insurance-list">
+         <%= render partial: 'insurers/insurer', locals: { insurer: insurer, index: (i + 1) } %>
+      </div>
+      <% end %>
 </div>
