@@ -1,9 +1,15 @@
 class TripsController < ApplicationController
   def index
 
-    @trips = Trip.all
+
     @user = current_user
     @cars = @user.cars
+
+    if params[:car]
+      @trips = Car.find(params[:car][:vehicle]).trips
+    else
+      @trips = @user.trips
+    end
 
     @total_points = []
 

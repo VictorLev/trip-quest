@@ -1,25 +1,48 @@
 <%= link_to trip_path(trip), data: { turbo_frame: "modal"} do  %>
   <div class="trip d-flex border bg-my-white p-4 m-4 rounded-4 justify-content-between">
-      <div class="trip-image">
-        <% if trip.car.photo.present? %>
-          <%= cl_image_tag trip.car.photo.key %>
-        <% else %>
-          <%= image_tag "car", style: 'object-fit: cover;', width: '200px', class: "rounded-4";  %>
-        <% end %>
+    <div class="trip-image">
+      <% if trip.photo.present? %>
+        <%= cl_image_tag trip.photo.key,
+            width: '200px',
+            class: "rounded-4";
+        %>
+      <% else %>
+        <%= image_tag "car", style: 'object-fit: cover;',
+            width: '200px',
+            class: "rounded-4";
+        %>
+      <% end %>
+      <% if trip.car.photo.present? %>
+        <%= cl_image_tag trip.car.photo.key,
+            width: '200px',
+            class: "rounded-4";
+        %>
+      <% else %>
+        <%= image_tag "car", style: 'object-fit: cover;',
+            width: '200px',
+            class: "rounded-4";
+        %>
+      <% end %>
+    </div>
+    <div class="w-25">
+      <p class="fs-2">
+        <%= trip.name %>
+      </p>
+      <p>
+        <%= trip.date %>
+      </p>
+    </div>
+    <div class="d-flex flex-grow-1 justify-content-between align-items-center">
+      <div>Rewards:
+        <span class="fs-3 mx-3 rounded-4 px-2 py-1 orange-pill">
+          <%= trip.reward_point %>
+        </span>
       </div>
-      <div class="w-25">
-        <p class="fs-2"><%= trip.name %></p>
-        <p><%= trip.date %></p>
-      </div>
-      <div class="d-flex flex-grow-1 justify-content-between align-items-center">
-        <div>Rewards:
-          <span class="fs-3 mx-3 rounded-4 px-2 py-1 orange-pill"><%= trip.reward_point %></span>
-        </div>
-        <% trip.actual_rewards.each do |reward| %>
-          <div class="blue-pill">
-            <%=reward.strategic_point.address%>
-          </div>
-        <% end %>
-      </div>
+      <%# <% trip.actual_rewards.each do |reward| %>
+            <%# <div class="blue-pill">
+              <%=reward.strategic_point.address%>
+            <%# </div> %>
+          <%# <% end %>
+    </div>
   </div>
 <% end %>
