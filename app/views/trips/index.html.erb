@@ -1,50 +1,32 @@
+<div class="container">
+  <div class="m-4">
+    <!-- Title with Trip Count -->
+    <div class="point-calculator d-flex justify-content-between">
+      <h2><strong><span class="main-title">My</span><span class="accent-title">Trips</span></strong></h2>
+      <p>You have made <%= @trips.count %> trips in the last month and you have <%= @total_points.sum %> points! </p>
+      <%= link_to "Add a trip", new_trip_path, class: "btn btn-warning rounded-4" %>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <!-- Display all the trips -->
 
-  <div class="container">
-    <div class="m-4">
-      <!-- Title with Trip Count -->
-      <div class="point-calculator d-flex justify-content-between">
-        <h2><strong><span class="main-title">My</span><span class="accent-title">Trips</span></strong></h2>
-        <p>You have made <%= @trips.count %> trips in the last month and you have <%= @total_points.sum %> points! </p>
-        <%= link_to "Add a trip", new_trip_path, class: "btn btn-warning rounded-4" %>
+    <div class="position-relative p-4 bg-white rounded-4 shadow-lg">
+      <div class="d-flex flex-row-reverse">
+        <%# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}) %>
+        <%= form_with url: trips_path, method: :get, class: "d-flex" do %>
+        <%= link_to "reset", trips_path, class: "btn rounded-4"%>
+        <%= collection_select :car, :vehicle, @cars, :id, :vehicle,
+          { prompt: "Select a vehicle" }, { class: "form-control ms-5" }
+        %>
+        <%= submit_tag "filter", name: "", class: "btn btn-warning rounded-4 ms-5" %>
+        <%# <% @cars.each do |car| %>
+        <% end %>
+        <%# <% end %>
       </div>
-      <hr>
-      <br>
-      <br>
-      <!-- Display all the trips -->
-
-      <div class="position-relative p-4 bg-white rounded-4 shadow-lg">
-        <div class="d-flex flex-row-reverse">
-          <%# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}) %>
-          <%= form_with url: trips_path, method: :get, class: "d-flex" do %>
-          <%= link_to "reset", trips_path, class: "btn rounded-4"%>
-          <%= collection_select :car, :vehicle, @cars, :id, :vehicle,
-            { prompt: "Select a vehicle" }, { class: "form-control ms-5" }
-          %>
-          <%= submit_tag "filter", name: "", class: "btn btn-warning rounded-4 ms-5" %>
-          <%# <% @cars.each do |car| %>
-          <% end %>
-          <%# <% end %>
-        </div>
         <% @trips.each do |trip| %>
         <%= render partial: 'trip', locals: { trip: trip } %>
       <% end %>
-      </div>
     </div>
   </div>
-
-      <%# <div style="width: 300px;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
-        </svg>
-      </div> %>
-
-        <%# <%= simple_form_for url: request.original_url do |f| %>
-        <%# <%= f.input :vehicle,
-                    collection: @cars,
-                    prompt: "Select a vehicle",
-                    selected: @cars.first %>
-
-        <%# <%= f.input :vehicle do %>
-          <%# <%= f.collection_select :vehicle, Car.order(:vehicle), :vehicle, :vehicle, { prompt: "Select a vehicle" }, { class: "form-control" } %> %>
-            <%# <% end %>
-          <%# <%= f.submit %>
+</div>

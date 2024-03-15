@@ -1,5 +1,16 @@
 <div class="trip d-flex border bg-my-white p-4 m-4 rounded-4 justify-content-between">
   <div class="trip-image">
+     <% if trip.photo.present? %>
+      <%= cl_image_tag trip.photo.key,
+          width: '200px',
+          class: "rounded-4";
+      %>
+    <% else %>
+      <%= image_tag "car", style: 'object-fit: cover;',
+          width: '200px',
+          class: "rounded-4";
+      %>
+    <% end %>
     <% if trip.car.photo.present? %>
       <%= cl_image_tag trip.car.photo.key,
           width: '200px',

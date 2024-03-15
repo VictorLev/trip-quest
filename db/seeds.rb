@@ -51,22 +51,21 @@ emma = User.create!(first_name: "Emma", last_name: "Stone", email: "emma@gmail.c
 jaco = User.create!(first_name: "Jaco", last_name: "Riani", email: "jaco@gmail.com", password: "secret", age: 32, location: "Melbourne", gender: "male")
 mehul = User.create!(first_name: "Mehul", last_name: "Mehul", email: "mehul@gmail.com", password: "secret", age: 25, location: "Melbourne", gender: "male")
 
-mehul_pic = URI.open("/Users/emmastone/code/EmmJStone/trip-quest/app/assets/images/mehul.png")
+mehul_pic = URI.open("app/assets/images/mehul.png")
 mehul.photo.attach(io: mehul_pic, filename: "mehul.png", content_type: "image/png")
 mehul.save!
 
-jaco_pic = URI.open("/Users/emmastone/code/EmmJStone/trip-quest/app/assets/images/jaco.png")
+jaco_pic = URI.open("app/assets/images/jaco.png")
 jaco.photo.attach(io: jaco_pic, filename: "jaco.png", content_type: "image/png")
 jaco.save!
 
-victor_pic = URI.open("/Users/emmastone/code/EmmJStone/trip-quest/app/assets/images/vic.jpg")
+victor_pic = URI.open("app/assets/images/vic.jpg")
 victor.photo.attach(io: victor_pic, filename: "vic.jpg", content_type: "image/jpg")
 victor.save!
 
 emma_pic = URI.open("app/assets/images/emma.jpg")
 emma.photo.attach(io: emma_pic, filename: "emma.jpg", content_type: "image/jpg")
 emma.save!
-# jaco_pic = image_tag("jaco")
 
 
 # CREATE FEED IN DATABASE
@@ -119,3 +118,7 @@ Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smi
 Trip.all.each do |trip|
   create_strategic_points_for_trip(trip)
 end
+
+journey_pic = URI.open("app/assets/images/journey_1.jpg")
+Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
+Trip.first.save!
