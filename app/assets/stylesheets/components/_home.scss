@@ -109,3 +109,21 @@ footer {
     height: 100%;
     max-height: 20vh;
 }
+
+
+.social-icons {
+    font-size: 24px; /* Adjusting the size as needed */
+    text-align: center;
+    color: white;
+}
+
+.social-icons a {
+    margin-right: 10px; /* Adjusting the spacing between icons */
+}
+
+#footer-logo {
+  width: 100px !important;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
