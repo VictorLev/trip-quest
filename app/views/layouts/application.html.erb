@@ -18,8 +18,8 @@
   </head>
 
   <body>
-    <%# <%= tubro_frame_tag 'modal'%>
-    <%= render "shared/navbar" %>
+    <%= turbo_frame_tag 'modal' %>
+    <%= render "shared/navbar"  %>
     <%= render "shared/flashes" %>
     <div class="container py-4">
       <%= yield %>

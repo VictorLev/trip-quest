@@ -39,5 +39,5 @@ Rails.application.routes.draw do
 
   resources :insurers, only: [:index]
 
-  resources :trips, only: [ :index, :new ] #insert under :cars resources due to the foreign key
+  resources :trips, only: [ :index, :new, :show ] #insert under :cars resources due to the foreign key
 end
