@@ -42,16 +42,21 @@
   padding: 16px;
   box-shadow: 1px 1px 16px -2.5px rgba(87, 94, 96, 0.47);
   margin: 10px;
+  height: 700px;
 }
 
 .side-bar-right {
   border-radius: 12px;
   background-color: rgba(54, 82, 173, 0.13);
-  padding: 30px;
+  padding: 16px;
   box-shadow: 1px 1px 16px -2.5px rgba(87, 94, 96, 0.47);
   margin: 10px;
   width: 1000px;
-  height: 600px;
+  height: 700px;
+}
+
+.list {
+  height: 700px;
 }
 
 .text-center {
@@ -69,9 +74,10 @@
 .side-bar-right-center {
   border-radius: 12px;
   background-color: rgba(54, 82, 173, 0.13);
-  padding: 16px;
+  padding: 8px;
   box-shadow: 1px 1px 16px -2.5px rgba(87, 94, 96, 0.47);
-  margin: 10px;
+  margin: 15px;
+  height: 500px;
 }
 .insurance-list {
   border-radius: 12px;
@@ -81,4 +87,9 @@
   margin: 10px;
   width: 1000px;
   height: 50px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
 }
