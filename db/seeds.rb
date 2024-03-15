@@ -8,14 +8,16 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+require 'faker'
+
+
 def create_strategic_points_for_trip(trip)
-  StrategicPoint.all.shuffle.first(4).each do |sp|
+  StrategicPoint.all.shuffle.first(1).each do |sp|
     # Create the joiner
     ActualReward.create!(trip: trip, strategic_point: sp)
   end
 end
 
-require 'faker'
 
 #  DESTROY ALL OBJECTS IN DATABASE
 User.destroy_all
