@@ -1,30 +1,52 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
-  <div class="card h-100">
-    <div class="round">
-      <img src="..." class="card-img-top" alt="user1">
-      <div class="card-body">
-         <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
-        <p class="card-text">ce</p>
+    <div class="card rounded-12">
+      <div class="card h-100 round">
+      <div class="image-size">
+        <% if @user.photo.present? %>
+        <%= cl_image_tag user.photo.key %>
+        <% else %>
+       <%= image_tag "", style: 'object-fit: cover;', class: "border" %>
+        <% end %>
+        </div>
+        <div class="card-body">
+          <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
+          <p class="card-text">ce</p>
         </div>
       </div>
     </div>
   </div>
   <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="user2">
-      <div class="card-body">
-         <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
-        <p class="card-text">ce</p>
+    <div class="card rounded-12">
+      <div class="card h-100">
+      <div class="image-size">
+         <% if @user.photo.present? %>
+        <%= cl_image_tag user.photo.key %>
+        <% else %>
+        <%= image_tag "", style: 'object-fit: cover; width: 200px; height: 200px;', class: "rounded-4 border" %>
+        <% end %>
+        </div>
+        <div class="card-body">
+          <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
+          <p class="card-text">ce</p>
+        </div>
       </div>
     </div>
   </div>
   <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="user3">
-      <div class="card-body">
-         <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
-        <p class="card-text">cce</p>
+    <div class="card rounded-12">
+      <div class="card h-100">
+      <div class="image-size">
+         <% if @user.photo.present? %>
+        <%= cl_image_tag user.photo.key %>
+        <% else %>
+        <%= image_tag "", style: 'object-fit: cover; width: 200px; height: 200px;', class: "rounded-4 border" %>
+        <% end %>
+        </div>
+        <div class="card-body">
+          <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
+          <p class="card-text">cce</p>
+        </div>
       </div>
     </div>
   </div>
