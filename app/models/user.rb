@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one_attached :photo
   has_many :planned_routes, dependent: :destroy
+  has_many :trips, through: :car
 
 end

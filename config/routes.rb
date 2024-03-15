@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'stimulus/flatpickr'
   get 'planned_routes/show'
   devise_for :users
   root to: "pages#dashboard"
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
     resources :planned_routes, only: [:new, :create, :edit, :update, :show, :index] do
       resources :projected_reward, only: [ :create]
     end
+    resources :trips, only: [:create ]
   end
   resources :cars, only: [:destroy]
   resources :planned_routes, only: [:destroy]
