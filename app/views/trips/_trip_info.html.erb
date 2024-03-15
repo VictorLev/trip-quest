@@ -7,8 +7,6 @@
 
     <% if trip.photo.present? %>
         <%= cl_image_tag trip.photo.key, class: "rounded-4 border", style: "width: 100px; height: 100px; object-fit: cover;" %>
-    <% else %>
-        <%= image_tag "", style: 'object-fit: cover; width: 100px; height: 100px;', class: "rounded-4 border" %>
     <% end %>
 
     <div class="d-flex flex-grow-1 justify-content-end align-items-center">
