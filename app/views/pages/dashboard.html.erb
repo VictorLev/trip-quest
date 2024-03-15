@@ -33,12 +33,7 @@
 
 <div class="side-bar-right-center">
   <div class="text-center">
-      <h2><strong><span class="accent-title">INSURERS</span></strong></h2>
+      <h2><strong><span class="accent-title">LEADERBOARD</span></strong></h2>
       </div>
       <div>
-       <% @insurers.each_with_index do |insurer, i| %>
-      <div class="insurance-list">
-         <%= render partial: 'insurers/insurer', locals: { insurer: insurer, index: (i + 1) } %>
-      </div>
-      <% end %>
 </div>
