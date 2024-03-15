@@ -1,0 +1,12 @@
+<div class="d-flex border bg-my-white p-4 m-4 rounded-4 justify-content-between">
+    <div class="w-25">
+        <h2><strong><span class="accent-title fs-2"><%= trip.name %></span></strong></h2>
+        <p><%= trip.date %></p>
+    </div>
+
+    <div class="d-flex flex-grow-1 justify-content-end align-items-center">
+        <div><strong><span class="main-title">Rewards: <span class="accent-title"><%= trip.reward_point %></span></strong></div>
+        <% trip.actual_rewards.each do |reward| %>
+        <% end %>
+    </div>
+</div>

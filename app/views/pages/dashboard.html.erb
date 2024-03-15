@@ -9,9 +9,9 @@
         <div class="semi-circle">
           <div class="center-content">
                <%= link_to account_path(:id) do %>
-               <h2><%= car.vehicle %></h2>
+               <h2><strong><span class="accent-title"><%= car.vehicle %></span></strong></h2>
               <% end %>
-              <h3><%= car.total_car_reward %></h3>
+              <span class="fs-3 mx-3 rounded-4 px-2 py-1 orange-pill"><%= car.total_car_reward %></span>
              </div>
           </div>
         <% end %>
@@ -22,9 +22,9 @@
   <div class="text-center">
       <h2><strong><span class="accent-title">MOST RECENT TRIPS</span></strong></h2>
       </div>
-        <div>
+        <div class= "list">
         <% @trips.each do |trip| %>
-        <%= render partial: 'trips/trip', locals: { trip: trip } %>
+        <%= render partial: 'trips/trip_info', locals: { trip: trip } %>
       <% end %>
       </div>
     </div>
@@ -33,12 +33,7 @@
 
 <div class="side-bar-right-center">
   <div class="text-center">
-      <h2><strong><span class="accent-title">INSURERS</span></strong></h2>
+      <h2><strong><span class="accent-title">LEADERBOARD</span></strong></h2>
       </div>
-      <div>
-       <% @insurers.each_with_index do |insurer, i| %>
-      <div class="insurance-list">
-         <%= render partial: 'insurers/insurer', locals: { insurer: insurer, index: (i + 1) } %>
-      </div>
-      <% end %>
+      <%= render partial: 'pages/leaderboard'%>
 </div>
