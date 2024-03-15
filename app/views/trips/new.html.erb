@@ -1,44 +1,49 @@
 <h1 class="title text-center">
-        <span class="main-title">What's </span><span class="accent-title">next trip?</span>
-      </h1>
+  <span class="main-title">What's </span><span class="accent-title">next trip?</span>
+</h1>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-container">
-        <%= form_with model: @trip, html: { class: "form" } do |f| %>
-          <div class="form-group">
-            <%= f.label :name, "Trip Name",style: "color: #E9F6FF;" %>
-            <%= f.text_field :name, class: "form-control", placeholder: "Trip name" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :start_point, "Start Point",style: "color: #E9F6FF;" %>
-            <%= f.text_field :start_point, class: "form-control", placeholder: "Departure" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :end_point, "End Point",style: "color: #E9F6FF;" %>
-            <%= f.text_field :end_point, class: "form-control", placeholder: "Destionation" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :date, "Trip Date",style: "color: #E9F6FF;" %>
-            <%= f.text_field :date, class: "form-control datepicker", placeholder: "Select a date" %>
-          </div>
-          <div class="text-center">
-            <%= f.submit "Create a Trip", class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div style="width: 137%; height: 800px; position: relative;" data-controller="new-trip" data-new-trip-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-        <div id="map" style="width: 100%; height: 100%;"></div>
-        <div style="position: absolute; bottom: 10px; right: 10px; z-index: 9999;">
-          <button type="button" class="btn btn-dark">Create a trip</button>
-        </div>
-      </div>
+  <div class="row d-flex justify-content-center">
+    <div class="form-container col-md-6">
+      <%= simple_form_for [@user, @trip], data: { controller: 'flatpickr' } do |f| %>
+        <%= f.input :name,
+            as: :string,
+            placeholder: "Name your trip...",
+            label: "Trip Name"%>
+        <%= f.input :car_id,
+                    label: "Car",
+                    as: :radio_buttons,
+                    input_html: {
+                      class: "tag-selector",
+                      },
+                    item_wrapper_class: 'tag-item' ,
+                    collection: current_user.cars.map { |car| [car.vehicle, car.id] }
+                    %>
+        <%= f.input :actual_reward_ids,
+                    label: "Strategic Points",
+                    as: :check_boxes,
+                    input_html: {
+                      class: "tag-selector",
+                      },
+                    item_wrapper_class: 'tag-item' ,
+                    collection: StrategicPoint.all.map { |sp| [sp.address, sp.id] }
+                    %>
+        <%= f.input :start_point,
+            as: :string,
+            placeholder: "Start Point",
+            label: "Departure"%>
+        <%= f.input :end_point,
+            as: :string,
+            placeholder: "End Point",
+            label: "Destination"%>
+        <%= f.input :date,
+                    as: :string,
+                    label: "Travel date",
+                    placeholder: "YYYY-MM-DD",
+                    input_html: { data: { flatpickr_target: "date" } },
+                    class: "text-white" %>
+        <%= f.submit "Create a Trip", class: "btn btn-primary rounded-4" %>
+      <% end %>
     </div>
   </div>
 </div>

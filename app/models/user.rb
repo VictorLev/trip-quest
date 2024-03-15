@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   has_many :planned_routes, dependent: :destroy
+  has_many :trips, through: :car
 
   has_many :projected_rewards, through: :planned_routes
   has_many :trips, through: :cars
