@@ -1,0 +1,16 @@
+<%= turbo_frame_tag 'modal' do %>
+    <div class="mymodal bg-white">
+      <div>
+        <div>
+          <h2><%= @trip.name%></h2>
+          <p>Date: <%= @trip.date %></p>
+          <p>Rewards: <%= @trip.reward_point %></p>
+          <%= link_to "Close", trips_path, data: {
+            controller: "modals",
+            action: "modals#close"
+          }, class: "btn btn-primaruy rounded-4 border" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

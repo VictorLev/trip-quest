@@ -84,3 +84,5 @@ gem "cloudinary"
 
 # geocoder
 gem "geocoder"
+
+# Use Active Storage for image uploads
