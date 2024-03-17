@@ -3,7 +3,7 @@
   <% if car.photo.present? %>
     <%= cl_image_tag car.photo.key, height: 200, width: 200, crop: :fill, class: "rounded-4 border" %>
   <% else %>
-    <%= image_tag "car",
+    <%= image_tag "car.jpg",
       style: 'object-fit: cover; width: 200px; height: 200px;',
       class: "rounded-4 border" %>
   <% end %>
