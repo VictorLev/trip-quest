@@ -1,5 +1,5 @@
 <div class="mb-4">
-  <h2><strong><span class="main-title">Journey</span><span class="accent-title">Calculator</span></strong></h2>
+  <h1>JourneyCalculator</h1>
   <h4>Link as many rewards zones as you can to get maximum points on your journey 🏆</h4>
 </div>
 <div class="position-relative p-4 bg-white rounded-4 shadow-lg"
@@ -17,7 +17,7 @@
         <div>
           <h4>Step 1 </h4>
           <i class="fa-solid fa-arrow-left"></i>
-          Choose your starting place and destination
+          Select your starting point and destination
         </div>
       </div>
       <%= simple_form_for [@user, @planned_route], data: { calculator_target: "form" } do |f| %>
@@ -51,8 +51,6 @@
           </div>
         </div>
         <div class="border rounded-4 p-3 my-3">
-          <h4 class="">Step 4</h4>
-          <p>Save you route for later</p>
           <%= f.input :name, label: "Name your route" %>
           <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
           <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
@@ -61,4 +59,9 @@
       <% end %>
     </div>
   </div>
+
+    <div class="mx-4 position-absolute bottom-0 end-0 z-3 mb-3">
+
+    </div>
+
 </div>
