@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @insurers = Insurer.all
     @user = current_user
     @next_level = 100
+    @users = User.all
 
 
   end
