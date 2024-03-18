@@ -1,14 +1,12 @@
 class TripsController < ApplicationController
   def index
-
-
     @user = current_user
     @cars = @user.cars
 
     if params[:car]
-      @trips = Car.find(params[:car][:vehicle]).trips
+      @trips = Car.find(params[:car][:vehicle]).trips.sort_by{ |trip| trip.date}.reverse
     else
-      @trips = @user.trips
+      @trips = @user.trips.sort_by{ |trip| trip.date}.reverse
     end
 
     @total_points = []

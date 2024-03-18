@@ -111,9 +111,9 @@ Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
 Trip.create!(start_point: "129-131 Acland St, St Kilda VIC 3182", end_point: "145-147 Williams Rd, Prahran VIC 3181", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car1)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car1)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car2)
+wils_prom = Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car1)
+sorrento = Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car1)
+philip_island = Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car2)
 
 Trip.all.each do |trip|
   create_strategic_points_for_trip(trip)
@@ -122,3 +122,15 @@ end
 journey_pic = URI.open("app/assets/images/journey_1.jpg")
 Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
 Trip.first.save!
+
+wp_pic = URI.open("app/assets/images/wilsons_prom.png")
+wils_prom.photo.attach(io: wp_pic, filename: "wilsons_prom.png", content_type: "image/png")
+wils_prom.save!
+
+sor_pic = URI.open("app/assets/images/sorrento.png")
+sorrento.photo.attach(io: sor_pic, filename: "sorrento.png", content_type: "image/png")
+sorrento.save!
+
+phil_pic = URI.open("app/assets/images/phillip_island.png")
+philip_island.photo.attach(io: phil_pic, filename: "phillip_island.png", content_type: "image/png")
+philip_island.save!

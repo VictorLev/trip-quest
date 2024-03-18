@@ -42,3 +42,5 @@ pin "redux-thunk" # @2.4.2
 pin "turf-extent" # @1.0.4
 pin "turf-meta" # @1.0.2
 pin "flatpickr" # @4.6.13
+pin "chartkick", to: "chartkick.js"
+pin "Chart.bundle", to: "Chart.bundle.js"
