@@ -10,7 +10,7 @@
 
 require 'faker'
 
-
+puts "Something about points..."
 def create_strategic_points_for_trip(trip)
   StrategicPoint.all.shuffle.first(1).each do |sp|
     # Create the joiner
@@ -18,17 +18,22 @@ def create_strategic_points_for_trip(trip)
   end
 end
 
-
 #  DESTROY ALL OBJECTS IN DATABASE
+puts "Deleting users..."
 User.destroy_all
+puts "Deleting cars..."
 Car.destroy_all
+puts "Deleting feed..."
 Feed.destroy_all
+puts "Deleting insurers..."
 Insurer.destroy_all
+puts "Deleting trips..."
 Trip.destroy_all
+puts "Deleting points..."
 StrategicPoint.destroy_all
 
 
-
+puts "Creating users..."
 # CREATE USERS IN DATABASE
 jane = User.create!(first_name: "Jane", last_name: "Doe", email: "test@example.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
 liam = User.create!(first_name: "Liam", last_name: "Mel", email: "liamel@gmail.com", password: "secret", age: 25, location: "Melbourne", gender: "male")
@@ -62,21 +67,21 @@ james_pic = URI.open("app/assets/images/james.jpg")
 james.photo.attach(io: james_pic, filename: "james.jpg", content_type: "image/jpg")
 james.save!
 
-
+puts "Creating insurers..."
 # CREATE FEED IN DATABASE
 
-  Insurer.create!(name: "Australian Seniors", min_threshold: 100 )
-  Insurer.create!(name: "AWN", min_threshold: 200 )
-  Insurer.create!(name: "kogan insurance", min_threshold: 300 )
-  Insurer.create!(name: "AHM", min_threshold: 400 )
-  Insurer.create!(name: "Youi", min_threshold: 500 )
-  Insurer.create!(name: "Budget Direct", min_threshold: 600 )
-  Insurer.create!(name: "Oceania insurance", min_threshold: 700 )
-  Insurer.create!(name: "Allianz", min_threshold: 800 )
-  Insurer.create!(name: "Medibank", min_threshold: 900 )
-  Insurer.create!(name: "RACQ", min_threshold: 1000 )
+  Insurer.create!(name: "Australian Seniors", min_threshold: 100, discount: 10)
+  Insurer.create!(name: "AWN", min_threshold: 200, discount: 10 )
+  Insurer.create!(name: "kogan insurance", min_threshold: 300, discount: 10)
+  Insurer.create!(name: "AHM", min_threshold: 400, discount: 10 )
+  Insurer.create!(name: "Youi", min_threshold: 500, discount: 10 )
+  Insurer.create!(name: "Budget Direct", min_threshold: 600, discount: 10 )
+  Insurer.create!(name: "Oceania insurance", min_threshold: 700, discount: 10 )
+  Insurer.create!(name: "Allianz", min_threshold: 800, discount: 10 )
+  Insurer.create!(name: "Medibank", min_threshold: 900, discount: 10 )
+  Insurer.create!(name: "RACQ", min_threshold: 1000, discount: 10 )
 
-
+  puts "Creating cars..."
 # CREATE CARS IN DATABASE
 car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             transmission: "Manual",
@@ -126,7 +131,7 @@ car5 = Car.create!(vehicle: "Toyota",
 
 
 # CREATE Stratigic Points IN database for the route Melbourne richmond - Sydney
-
+puts "Creating points..."
 StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 2)
 StrategicPoint.create!(address: "Murray Valley Hwy", latitude: -36.105694, longitude: 146.835505, danger: 3)
 StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.696591, longitude: 150.022885, danger: 2)
@@ -139,12 +144,13 @@ StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude
 
 
 # CREATE FEED IN DATABASE
-
+puts "Creating feed..."
 Feed.create!(name: "TripQuesters")
 Feed.create!(name: "Melbourne competitors")
 Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
+puts "Creating trips..."
 Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
 Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
 Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
@@ -162,3 +168,5 @@ end
 journey_pic = URI.open("app/assets/images/journey_1.jpg")
 Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
 Trip.first.save!
+
+puts "Done!"
