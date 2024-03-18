@@ -14,4 +14,19 @@ class User < ApplicationRecord
 
   has_many :projected_rewards, through: :planned_routes
   has_many :trips, through: :cars
+
+  def total_rewards
+    # Iterate through each of the cars belonging to this user
+    # Iterate through each of the trips belonging to this car
+    # Access the reward_point of each trip
+    # Sum all the points
+    # Return the sum
+    sum = 0
+    cars.each do |car|
+      car.trips.each do |trip|
+        sum += trip.reward_point
+      end
+    end
+    sum
+  end
 end
