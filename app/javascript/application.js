@@ -5,3 +5,6 @@ import "@popperjs/core"
 import "bootstrap"
 // action cable for feeds
 import "@rails/actioncable"
+// chartkick for dashboard
+import "chartkick"
+import "Chart.bundle"

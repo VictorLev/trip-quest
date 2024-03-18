@@ -152,9 +152,9 @@ Feed.create!(name: "General fun")
 # CREATE TRIPS IN DATABASE
 puts "Creating trips..."
 Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
-Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
-Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
-Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159, 145.201303", reward_point: "2", date: "28/02/2024", name: "Philip island", car: car4)
+wils_prom = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
+sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
+philip_island = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159, 145.201303", reward_point: "2", date: "28/02/2024", name: "Philip island", car: car4)
 Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car4)
 Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car4)
 Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
@@ -168,5 +168,17 @@ end
 journey_pic = URI.open("app/assets/images/journey_1.jpg")
 Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
 Trip.first.save!
+
+wp_pic = URI.open("app/assets/images/wilsons_prom.png")
+wils_prom.photo.attach(io: wp_pic, filename: "wilsons_prom.png", content_type: "image/png")
+wils_prom.save!
+
+sor_pic = URI.open("app/assets/images/sorrento.png")
+sorrento.photo.attach(io: sor_pic, filename: "sorrento.png", content_type: "image/png")
+sorrento.save!
+
+phil_pic = URI.open("app/assets/images/phillip_island.png")
+philip_island.photo.attach(io: phil_pic, filename: "phillip_island.png", content_type: "image/png")
+philip_island.save!
 
 puts "Done!"

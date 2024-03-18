@@ -1,9 +1,13 @@
 class PagesController < ApplicationController
   def dashboard
-    @cars = current_user.cars.limit(2)
+    @cars = current_user.cars
     @trips = Trip.all.order(created_at: :desc).limit(3)
     @insurers = Insurer.all
     @user = current_user
+    @next_level = 100
+    @users = User.all
+    # need to write a method to order users by total points
+
   end
 
   def strategic_points

@@ -1,17 +1,57 @@
+<div class="w-25">
+  <p class="fs-2">
+    <%= trip.name %>
+  </p>
+  <p>
+    <%= trip.date %>
+  </p>
+</div>
 
-<div class="d-flex border bg-my-white p-4 m-4 rounded-4 justify-content-between align-items-center">
-    <div class="w-25">
-        <h2><strong><span class="accent-title fs-2"><%= trip.name %></span></strong></h2>
-        <p><%= trip.date %></p>
-    </div>
-
-    <% if trip.photo.present? %>
-        <%= cl_image_tag trip.photo.key, class: "rounded-4 border", style: "width: 100px; height: 100px; object-fit: cover;" %>
+<div class="d-flex flex-grow-1 justify-content-between align-items-center">
+  <div>
+    <span class="fs-3 mx-3 rounded-4 px-2 py-1 orange-pill">
+      <%= trip.reward_point %>
+    </span>
+  </div>
+      <%# <% trip.actual_rewards.each do |reward| %>
+            <%# <div class="blue-pill">
+              <%=reward.strategic_point.address%>
+            <%# </div> %>
+          <%# <% end %>
+</div>
+  <% if trip.photo.present? %>
+    <%= cl_image_tag trip.photo.key,
+        width: '200px',
+        class: "rounded-4";
+    %>
+    <% else %>
+      <%=
+      %>
     <% end %>
 
-    <div class="d-flex flex-grow-1 justify-content-end align-items-center">
-        <div><strong><span class="main-title">Rewards: <span class="accent-title"><%= trip.reward_point %></span></strong></div>
-        <% trip.actual_rewards.each do |reward| %>
-        <% end %>
-    </div>
-</div>
+
+<%#
+<div class="d-flex border bg-my-white p-4 m-4 rounded-4 justify-content-between align-items-center">
+    <div class="w-25">
+        <h2>
+          <strong>
+            <span class="accent-title fs-2">
+              <%# <%= trip.name %>
+            <%# </span> %>
+          <%# </strong> %>
+        <%# </h2> %>
+        <%# <p><%= trip.date %>
+        <%# </p> %>
+    <%# </div> %>
+
+    <%# <% if trip.photo.present? %>
+        <%# <%= cl_image_tag trip.photo.key, class: "rounded-4 border", style: "width: 100px; height: 100px; object-fit: cover;" %>
+    <%# <% end %>
+
+    <%# <div class="d-flex flex-grow-1 justify-content-end align-items-center"> %>
+        <%# <div><strong><span class="main-title">Rewards: <span class="accent-title"><%= trip.reward_point %>
+        <%# </span></strong></div> %>
+        <%# <% trip.actual_rewards.each do |reward| %>
+        <%# <% end %>
+    <%# </div> %>
+<%# </div> %>
