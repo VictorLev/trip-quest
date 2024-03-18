@@ -50,6 +50,9 @@ export default class extends Controller {
     this.startpointTarget.value = this.direction.getOrigin().geometry.coordinates.toString();
     this.endpointTarget.value = this.direction.getDestination().geometry.coordinates.toString();
 
+    console.log(this.startpointTarget.value);
+    console.log(this.endpointTarget.value);
+
     // Submit the form
     this.formTarget.submit();
 

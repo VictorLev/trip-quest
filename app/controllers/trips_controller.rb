@@ -38,7 +38,6 @@ class TripsController < ApplicationController
 
   def create
     current_date = Date.today
-
     @trip = Trip.new(
       date: current_date,
       name: trip_params[:name],
@@ -65,6 +64,16 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @strategicpoints = StrategicPoint.where(id: @trip.actual_rewards.map(&:strategic_point_id))
+    @markers = @strategicpoints.map do |sp|
+      {
+        id: sp.id,
+        lat: sp.latitude,
+        lng: sp.longitude,
+        sp_info_html: render_to_string(partial: "planned_routes/sp_info", locals: {sp: sp}),
+        marker_html: render_to_string(partial: "planned_routes/marker", locals: {sp: sp})
+      }
+    end
   end
 
   private

@@ -57,7 +57,10 @@
             <%= f.input :name, label: false %>
             <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
             <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
-            <%= f.button :submit, "Save journey", class: "btn btn-primary rounded-4 w-100" %>
+            <%= f.button :submit, "Save journey",
+                class: "btn btn-primary rounded-4 w-100",
+                data: { action: "click->calculator#save" }
+            %>
           </div>
         <% end %>
       </div>
