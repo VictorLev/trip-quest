@@ -1,3 +1,8 @@
-<div class="badge rounded-pill bg-primary fs-6">
-  <%= sp.danger * 50 %>
-</div>
+<% if sp.danger * 50 > 200 %>
+  <div class="badge rounded-pill bg-git fs-6">
+    <%= sp.danger * 50 %>
+      <i class="fa-solid fa-gem"></i>
+    <% else %>
+      <i class="fa-solid fa-coins"></i>
+  </div>
+<% end %>
