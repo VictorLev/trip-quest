@@ -22,19 +22,29 @@ class TripsController < ApplicationController
   def new
     @trip = Trip.new
     @user = current_user
+
+    @strategicpoints = StrategicPoint.all
+
+    @markers = @strategicpoints.map do |sp|
+      {
+        id: sp.id,
+        lat: sp.latitude,
+        lng: sp.longitude,
+        sp_info_html: render_to_string(partial: "planned_routes/sp_info", locals: {sp: sp}),
+        marker_html: render_to_string(partial: "planned_routes/marker", locals: {sp: sp})
+      }
+    end
   end
 
   def create
+    current_date = Date.today
 
-
-    @start_point = Geocoder.search(trip_params[:start_point]).first.coordinates.join(",")
-    @end_point = Geocoder.search(trip_params[:end_point]).first.coordinates.join(",")
     @trip = Trip.new(
-      date: trip_params[:date],
+      date: current_date,
       name: trip_params[:name],
       car_id: trip_params[:car_id],
-      start_point: @start_point,
-      end_point: @end_point,
+      start_point: trip_params[:start_point],
+      end_point: trip_params[:end_point],
       )
     trip_params[:actual_reward_ids].each do |ar_id|
       if ar_id != ""

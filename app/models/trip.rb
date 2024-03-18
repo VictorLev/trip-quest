@@ -9,6 +9,6 @@ class Trip < ApplicationRecord
     self.actual_rewards.each do |ar|
       sum += ar.strategic_point.danger
     end
-    sum
+    sum*50
   end
 end
