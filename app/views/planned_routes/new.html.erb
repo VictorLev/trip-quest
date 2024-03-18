@@ -13,52 +13,54 @@
       </div>
     </div>
     <div class="col-4">
-      <div class="border rounded-4 p-3 mb-3">
-        <div>
-          <h4>Step 1 </h4>
-          <i class="fa-solid fa-arrow-left"></i>
-          Choose your starting place and destination
-        </div>
-      </div>
-      <%= simple_form_for [@user, @planned_route], data: { calculator_target: "form" } do |f| %>
-        <div class="border rounded-4 p-3 my-3">
-          <h4>Step 2 </h4>
-          <p class="mb-1">Add the reward zones you want to cross during your journey</p>
-          <%= f.input :projected_reward_ids,
-                      as: :check_boxes,
-                      label: false,
-                      legend_tag: false,
-                      input_html: {
-                        class: "tag-selector",
-                        data: { calculator_target: "checkbox"}
-                        },
-                      item_wrapper_class: 'tag-item',
-                      collection: StrategicPoint.all.map { |sp| ["#{sp.address} #{sp.danger*50}", sp.id] }
-                      %>
-        </div>
-        <div class="border rounded-4 p-3 my-3">
-          <h4 class="">Step 3</h4>
-          <p>Press on <span class="fw-semibold">Calculate</span> to see your route and the rewards you can earn</p>
-          <div class="d-flex justify-content-center my-2 fs-4">
-            <div data-calculator-target="reward">0</div><span>&nbsp;points</span>
+      <div class="d-flex flex-column justify-content-between">
+        <div class="border rounded-4 p-3">
+          <div>
+            <h4>Step 1 </h4>
+            <i class="fa-solid fa-arrow-left"></i>
+            Choose your starting place and destination
           </div>
-          <div class="d-flex flex-row-reverse">
-            <div class="btn btn-primary rounded-4"
-              data-action="click->calculator#calculate"
-              >
-              Calculate
+        </div>
+        <%= simple_form_for [@user, @planned_route], data: { calculator_target: "form" } do |f| %>
+          <div class="border rounded-4 p-3 my-3">
+            <h4>Step 2 </h4>
+            <p class="mb-1">Add the reward zones you want to cross during your journey</p>
+            <%= f.input :projected_reward_ids,
+                        as: :check_boxes,
+                        label: false,
+                        legend_tag: false,
+                        input_html: {
+                          class: "tag-selector",
+                          data: { calculator_target: "checkbox"}
+                          },
+                        item_wrapper_class: 'tag-item',
+                        collection: StrategicPoint.all.map { |sp| ["#{sp.address} #{sp.danger*50}", sp.id] }
+                        %>
+          </div>
+          <div class="border rounded-4 p-3 my-3">
+            <h4 class="">Step 3</h4>
+            <p>Press on <span class="fw-semibold">Calculate</span> to see your route and the rewards you can earn</p>
+            <div class="d-flex justify-content-center my-2 fs-4">
+              <div data-calculator-target="reward">0</div><span>&nbsp;points</span>
+            </div>
+            <div class="d-flex flex-row-reverse">
+              <div class="btn btn-primary rounded-4"
+                data-action="click->calculator#calculate"
+                >
+                Calculate <i class="fa-solid fa-calculator"></i>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="border rounded-4 p-3 my-3">
-          <h4 class="">Step 4</h4>
-          <p>Save you route for later</p>
-          <%= f.input :name, label: "Name your route" %>
-          <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
-          <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
-          <%= f.button :submit, "Save route", class: "btn btn-primary rounded-4" %>
-        </div>
-      <% end %>
+          <div class="border rounded-4 p-3 mt-3">
+            <h4 class="">Step 4</h4>
+            <p>Name your journey and save it for future reference</p>
+            <%= f.input :name, label: false %>
+            <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
+            <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
+            <%= f.button :submit, "Save journey", class: "btn btn-primary rounded-4 w-100" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
