@@ -1,17 +1,31 @@
-<h1 class="title text-center">
-  <span class="main-title">What's </span><span class="accent-title">next trip?</span>
-</h1>
-
-<div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="form-container col-md-6">
-      <%= simple_form_for [@user, @trip], data: { controller: 'flatpickr' } do |f| %>
-        <%= f.input :name,
-            as: :string,
-            placeholder: "Name your trip...",
-            label: "Trip Name"%>
-        <%= f.input :car_id,
-                    label: "Car",
+<div class="mb-4">
+  <h2><strong><span class="main-title">New</span><span class="accent-title">Trip</span></strong></h2>
+  <h4>Link as many rewards zones as you can to get maximum points on your journey 🏆</h4>
+</div>
+<div class="position-relative p-4 bg-white rounded-4 shadow-lg"
+      data-controller="calculator"
+      data-calculator-markers-value="<%= @markers.to_json %>"
+      data-calculator-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-calculator-user-id-value="<%= current_user.id %>">
+  <div class="row">
+    <div class="col-8">
+      <div data-calculator-target="map" class="border rounded-4" style="width: 100%; height: 100%;">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="d-flex flex-column justify-content-between">
+        <div class="border rounded-4 p-3">
+          <div>
+            <h4>Step 1 </h4>
+            <i class="fa-solid fa-arrow-left"></i>
+            Choose your starting place and destination
+          </div>
+        </div>
+        <%= simple_form_for [@user, @trip], data: { calculator_target: "form" } do |f| %>
+          <div class="border rounded-4 p-3 my-3">
+            <h4>Step 2 </h4>
+            <%= f.input :car_id,
+                    label: "Select your car",
                     as: :radio_buttons,
                     input_html: {
                       class: "tag-selector",
@@ -19,31 +33,49 @@
                     item_wrapper_class: 'tag-item' ,
                     collection: current_user.cars.map { |car| [car.vehicle, car.id] }
                     %>
-        <%= f.input :actual_reward_ids,
-                    label: "Strategic Points",
-                    as: :check_boxes,
-                    input_html: {
-                      class: "tag-selector",
-                      },
-                    item_wrapper_class: 'tag-item' ,
-                    collection: StrategicPoint.all.map { |sp| [sp.address, sp.id] }
-                    %>
-        <%= f.input :start_point,
-            as: :string,
-            placeholder: "Start Point",
-            label: "Departure"%>
-        <%= f.input :end_point,
-            as: :string,
-            placeholder: "End Point",
-            label: "Destination"%>
-        <%= f.input :date,
-                    as: :string,
-                    label: "Travel date",
-                    placeholder: "YYYY-MM-DD",
-                    input_html: { data: { flatpickr_target: "date" } },
-                    class: "text-white" %>
-        <%= f.submit "Create a Trip", class: "btn btn-primary rounded-4" %>
-      <% end %>
+          </div>
+          <div class="border rounded-4 p-3 my-3">
+            <h4>Step 3 </h4>
+            <p class="mb-1">Add the reward zones you want to cross during your trip</p>
+            <%= f.input :actual_reward_ids,
+                        as: :check_boxes,
+                        label: false,
+                        legend_tag: false,
+                        input_html: {
+                          class: "tag-selector",
+                          data: { calculator_target: "checkbox"}
+                          },
+                        item_wrapper_class: 'tag-item',
+                        collection: StrategicPoint.all.map { |sp| ["#{sp.address} #{sp.danger*50}", sp.id] }
+                        %>
+          </div>
+          <div class="border rounded-4 p-3 my-3">
+            <h4 class="">Step 4</h4>
+            <p>Press on <span class="fw-semibold">Calculate</span> to see your route and the rewards you can earn</p>
+            <div class="d-flex justify-content-center my-2 fs-4">
+              <div data-calculator-target="reward">0</div><span>&nbsp;points</span>
+            </div>
+            <div class="d-flex flex-row-reverse">
+              <div class="btn btn-primary rounded-4"
+                data-action="click->calculator#calculate"
+                >
+                Calculate <i class="fa-solid fa-calculator"></i>
+              </div>
+            </div>
+          </div>
+          <div class="border rounded-4 p-3 mt-3">
+            <h4 class="">Step 5</h4>
+            <p>Name your Trip and go on your adventure!</p>
+            <%= f.input :name, label: false %>
+            <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
+            <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
+            <%= f.button :submit, "Create your Trip",
+              class: "btn btn-primary rounded-4 w-100",
+              data: { action: "click->calculator#save" }
+            %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

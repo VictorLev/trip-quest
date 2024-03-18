@@ -16,7 +16,8 @@ class PagesController < ApplicationController
       {
         lat: sp.latitude,
         lng: sp.longitude,
-        sp_info_html: render_to_string(partial: "pages/sp_info", locals: {sp: sp})
+        sp_info_html: render_to_string(partial: "pages/sp_info", locals: {sp: sp}),
+        marker_html: render_to_string(partial: "planned_routes/marker", locals: {sp: sp})
       }
     end
   end
