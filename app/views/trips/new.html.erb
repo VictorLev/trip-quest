@@ -50,7 +50,7 @@
                         %>
           </div>
           <div class="border rounded-4 p-3 my-3">
-            <h4 class="">Step 3</h4>
+            <h4 class="">Step 4</h4>
             <p>Press on <span class="fw-semibold">Calculate</span> to see your route and the rewards you can earn</p>
             <div class="d-flex justify-content-center my-2 fs-4">
               <div data-calculator-target="reward">0</div><span>&nbsp;points</span>
@@ -64,12 +64,15 @@
             </div>
           </div>
           <div class="border rounded-4 p-3 mt-3">
-            <h4 class="">Step 4</h4>
+            <h4 class="">Step 5</h4>
             <p>Name your Trip and go on your adventure!</p>
             <%= f.input :name, label: false %>
             <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
             <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
-            <%= f.button :submit, "Create your Trip", class: "btn btn-primary rounded-4 w-100" %>
+            <%= f.button :submit, "Create your Trip",
+              class: "btn btn-primary rounded-4 w-100",
+              data: { action: "click->calculator#save" }
+            %>
           </div>
         <% end %>
       </div>

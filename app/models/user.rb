@@ -21,12 +21,13 @@ class User < ApplicationRecord
     # Access the reward_point of each trip
     # Sum all the points
     # Return the sum
-    sum = 0
-    cars.each do |car|
-      car.trips.each do |trip|
-        sum += trip.reward_point
-      end
-    end
-    sum
+    trips.joins(:car).sum(:reward_point)
+    # sum = 0
+    # cars.each do |car|
+    #   car.trips.each do |trip|
+    #     trips.joins(:car).sum(:reward_point)
+    #   end
+    # end
+    # sum
   end
 end
