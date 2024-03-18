@@ -102,7 +102,7 @@ car3 = Car.create!(vehicle: "Audi A1",
   year: 2023,
   kilometers: "",
   price: "55000",
-  insurer: Insurer.first,
+  insurer: Insurer.second,
   user_id: jane.id)
 
 car4 = Car.create!(vehicle: "Renault Captur",
@@ -111,19 +111,17 @@ car4 = Car.create!(vehicle: "Renault Captur",
     year: 2020,
     kilometers: "",
     price: "30000",
-    insurer: Insurer.first,
+    insurer: Insurer.third,
     user_id: paul.id)
 
-car4 = Car.create!(vehicle: "Toyota",
+car5 = Car.create!(vehicle: "Toyota",
   transmission: "Manual",
   color: "grey",
   year: 2015,
   kilometers: "",
   price: "42000",
-  insurer: Insurer.first,
+  insurer: Insurer.fourth,
   user_id: james.id)
-
-
 
 
 
@@ -140,7 +138,6 @@ StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude
 
 
 
-
 # CREATE FEED IN DATABASE
 
 Feed.create!(name: "TripQuesters")
@@ -148,12 +145,13 @@ Feed.create!(name: "Melbourne competitors")
 Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
-Trip.create!(start_point: "129-131 Acland St, St Kilda VIC 3182", end_point: "145-147 Williams Rd, Prahran VIC 3181", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car1)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car2)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car4)
-Trip.create!(start_point: "68 Acland St, St Kilda VIC 3182", end_point: "174 Smith St, Collingwood VIC 3066", reward_point: "2", date: "013/03/2024", name: "Philip island", car: car2)
+Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
+Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
+Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
+Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159, 145.201303", reward_point: "2", date: "28/02/2024", name: "Philip island", car: car4)
+Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car4)
+Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car4)
+Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
 
 
 
