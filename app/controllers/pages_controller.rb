@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @user = current_user
     @next_level = 100
     @users = User.all
-
+    # need to write a method to order users by total points
 
   end
 
