@@ -1,14 +1,10 @@
-.footer {
-  background-color: $my-blue-dark;
-}
-
 .footer-logo {
   max-width: 100px;
   height: auto;
 }
 
 .footer {
-  background: #F4F4F4;
+  background-color: $my-blue-dark;
   display: flex;
   align-items: center;
   justify-content: space-between;
