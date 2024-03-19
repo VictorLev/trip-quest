@@ -83,8 +83,8 @@ car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             insurer: Insurer.first,
             user_id: liam.id)
 
-toyota = URI.open("app/assets/images/toyota.jpeg")
-car1.photo.attach(io: toyota, filename: "toyota.jpeg", content_type: "image/jpeg")
+toyota = URI.open("app/assets/images/car.jpg")
+car1.photo.attach(io: toyota, filename: "car.jg", content_type: "image/jpg")
 car1.save!
 
 car2 = Car.create!(vehicle: "Mazda CX5",
@@ -96,6 +96,10 @@ car2 = Car.create!(vehicle: "Mazda CX5",
             insurer: Insurer.first,
             user_id: sarah.id)
 
+mazda = URI.open("app/assets/images/mazda.jpg")
+car2.photo.attach(io: mazda, filename: "mazda.jpg", content_type: "image/jpg")
+car2.save!
+
 car3 = Car.create!(vehicle: "Audi A1",
             transmission: "Automatic",
             color: "Blue",
@@ -104,6 +108,10 @@ car3 = Car.create!(vehicle: "Audi A1",
             price: "55000",
             insurer: Insurer.second,
             user_id: jane.id)
+
+audiA1 = URI.open("app/assets/images/audiA1.jpg")
+car3.photo.attach(io: audiA1, filename: "audiA1.jpg", content_type: "image/jpg")
+car3.save!
 
 car4 = Car.create!(vehicle: "Renault Captur",
             transmission: "Manual",
@@ -114,7 +122,11 @@ car4 = Car.create!(vehicle: "Renault Captur",
             insurer: Insurer.third,
             user_id: paul.id)
 
-car5 = Car.create!(vehicle: "Toyota",
+renault = URI.open("app/assets/images/renault.jpg")
+car4.photo.attach(io: renault, filename: "renault.jpg", content_type: "image/jpg")
+car4.save!
+
+car5 = Car.create!(vehicle: "Toyota suv",
             transmission: "Manual",
             color: "grey",
             year: 2015,
@@ -122,6 +134,10 @@ car5 = Car.create!(vehicle: "Toyota",
             price: "42000",
             insurer: Insurer.fourth,
             user_id: jane.id)
+
+toyotasuv = URI.open("app/assets/images/toyota.jpeg")
+car5.photo.attach(io: toyotasuv, filename: "toyota.jpeg", content_type: "image/jpeg")
+car5.save!
 
 
 
@@ -134,8 +150,11 @@ sp4 = StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363
 sp5 = StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 5)
 sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 2)
 sp7 = StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude: 146.888566, danger: 4)
-sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 4)
-sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 4)
+sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 1)
+sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 3)
+sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longitude: 143.913014, danger: 2)
+sp11 = StrategicPoint.create!(address: "Princes Fwy", latitude: -38.027610, longitude: 144.437139, danger: 2)
+
 
 
 
@@ -147,7 +166,6 @@ Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
 puts "Creating trips..."
-
 gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
 wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
 sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
@@ -155,8 +173,8 @@ pi = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159,
 torq = Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car3)
 og = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
 bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
-epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890, 145.023161", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
-ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car2)
+epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890, 145.023161", reward_point: "2", date: "21/03/2024", name: "Epping", car: car5)
+ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Ballarat", car: car2)
 
 
 # Actual rewards
@@ -165,7 +183,6 @@ ActualReward.create!(trip: wp, strategic_point: sp9)
 ActualReward.create!(trip: sorrento, strategic_point: sp9)
 ActualReward.create!(trip: pi, strategic_point: sp9)
 ActualReward.create!(trip: torq, strategic_point: sp8)
-ActualReward.create!(trip: og, strategic_point: sp9)
 ActualReward.create!(trip: bend, strategic_point: sp1)
 
 

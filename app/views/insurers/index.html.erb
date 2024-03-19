@@ -1,85 +1,67 @@
-
 <div class="title-container">
-  <h2><strong><span class="main-title">Reward</span><span class="accent-title"> Level</span></strong></h2>
+  <h2><strong><span class="main-title">INSURER</span><span class="accent-title">TIER LIST</span></strong></h2>
 </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h4>Welcome to Insurance level system!</h4>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            <div class="d-flex justify-content-center">
-                <h4>As you progress through these levels, you unlock access to increasingly discounts!🏆</h4>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            <div class="d-flex justify-content-center">
-                <h4><strong>How is the cost of car insurance calculated?</strong></h4>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            <div class="d-flex justify-content-center">
-                <h4>The cost of the insurance premium is largely determined by the insured's risk profile.</h4>
-                <h4>By reducing the speed in the rewards zones you will be able to save up on your car insurance</h4>
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col">
-            <h4>Thanks to tripQuest users can <strong>save</strong> up to <strong>21%</strong> on their car policy</h4>
-            <h4>On average, users take <strong>9 months</strong> to reach the <strong>third level</strong></h4>
-        </div>
-    </div>
+<div class="d-flex justify-content-center">
+  <table class="table table-bordered mx-4 rounded custom-table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="bg-white">Level <span>&#9733;</span></th>
+        <th class="bg-white">Rewards Required <span>&#x1F4B0;</span></th>
+        <th class="bg-white">Discount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'insurer'%>
+    </tbody>
+  </table>
 </div>
 
 
-  <div class="d-flex justify-content-center">
-    <table class="table table-bordered mx-4 rounded custom-table">
-  <thead class="thead-dark">
-    <tr>
-      <th class="bg-white">Level <span>&#9733;</span></th>
-      <th class="bg-white ">Rewards Required <i class="fa-solid fa-coins"></i></th>
-      <th class="bg-white">Discount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: 'insurer'%>
-  </tbody>
-</table>
-    </div>
+<hr style="border-top: 2px solid #3652AD; margin: 20px 0;">
 
-    <div class="d-flex justify-content-center">
-        <div class="partners">
-            <h2><strong><span class="main-title">OUR</span><span class="accent-title"> PARTNERS</span></strong></h2>
-        </div>
+<div class="logos p-4 mt-2">
+  <div class="partners d-flex justify-content-center">
+      <h2><strong><span class="main-title">OUR</span><span class="accent-title"> PARTNERS</span></strong></h2>
+  </div>
+
+  <div class="">
+    <div class="d-flex justify-content-around py-4 align-items-center">
+      <%= image_tag "medibank-logo.png", alt: "Medibank", class: "footer-logo img-fluid" %>
+      <%= image_tag "ahm-logo.png", alt: "ahm", class: "footer-logo img-fluid" %>
+      <%= image_tag "allianz insurance.png", alt: "allianz insurance", class: "footer-logo img-fluid" %>
+      <%= image_tag "australian-seniors.png", alt: "australian seniors", class: "footer-logo img-fluid" %>
+      <%= image_tag "awn.png", alt: "awn", class: "footer-logo img-fluid" %>
+      <%= image_tag "budget-direct.png", alt: "budget-direct", class: "footer-logo img-fluid" %>
     </div>
-    <hr style="border-top: 2px solid #3652AD; margin: 20px 0;">
-    <div class="data" style="background-color: rgba(251, 168, 52, 0.5); padding: 20px;">
-    <div class="d-flex justify-content-center">
-        <div class="tripquest numbers mb-4">
-            <h2><strong><span class="main-title">TRIPQUEST</span><span class="accent-title"> NUMBERS</span></strong></h2>
-        </div>
+    <div class="d-flex justify-content-around py-4 align-items-center">
+      <%= image_tag "kogan.png", alt: "kogan", class: "footer-logo img-fluid" %>
+      <%= image_tag "oceania-insurance.png", alt: "oceania-insurance", class: "footer-logo img-fluid" %>
+      <%= image_tag "racq.png", alt: "racq", class: "footer-logo img-fluid" %>
+      <%= image_tag "youi.png", alt: "youi", class: "footer-logo img-fluid" %>
+      <%= image_tag "bupa-logo.png", alt: "youi", class: "footer-logo img-fluid" %>
+      <%= image_tag "suncorp-logo.png", alt: "youi", class: "footer-logo img-fluid" %>
     </div>
+  </div>
+</div>
+
+<hr style="border-top: 2px solid #3652AD; margin: 20px 0;">
+
+<div class="data" style="background-color: rgba(251, 168, 52, 0.5); padding: 20px;">
   <div class="d-flex justify-content-center">
-  <div class="flex-container">
-    <div class="card text-light bg-primary mb-3 mx-3" style="max-width: 18rem;">
-      <div class="card-body h-100">
-        <h3 class="card-title mb-2">-34%</h3>
-        <h5 class="card-title mb-3">CAR ACCIDENTS</h5>
-        <p class="card-text" style="font-size: 14px;">Car accidents have decreased by 34%</p>
+    <div class="tripquest numbers mb-4">
+        <h2><strong><span class="main-title">TRIPQUEST</span><span class="accent-title"> NUMBERS</span></strong></h2>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="flex-container">
+      <div class="card text-light bg-primary mb-3 mx-3" style="max-width: 18rem;">
+        <div class="card-body h-100">
+          <h3 class="card-title mb-2">-34%</h3>
+          <h5 class="card-title mb-3">CAR ACCIDENTS</h5>
+          <p class="card-text" style="font-size: 14px;">Car accidents have decreased by 34%</p>
+        </div>
       </div>
-    </div>
 
     <div class="card text-light bg-primary mb-3 mx-3" style="max-width: 18rem;">
       <div class="card-body h-100">
@@ -106,8 +88,11 @@
         <p class="card-text" style="font-size: 14px;"> Every week new rewards zones </p>
       </div>
     </div>
+
   </div>
 </div>
+<<<<<<< HEAD
+=======
 <div class="d-flex justify-content-center">
         <div class="partners mb-3 mt-4">
             <h3>Trusted by 4.6/5 <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span></h3>
@@ -119,3 +104,4 @@
         </div>
 </div>
 </div>
+>>>>>>> master
