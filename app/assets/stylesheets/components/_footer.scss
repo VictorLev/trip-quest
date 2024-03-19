@@ -1,0 +1,21 @@
+.footer {
+  background-color: $my-blue-dark;
+}
+
+.footer-logo {
+  max-width: 100px;
+  height: auto;
+}
+
+.footer-links {
+  text-align: center;
+}
+
+.footer-links a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-links a i {
+  font-size: 24px;
+}
