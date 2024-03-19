@@ -1,10 +1,16 @@
-.footer {
-  background-color: $my-blue-dark;
-}
-
 .footer-logo {
   max-width: 100px;
   height: auto;
+}
+
+.footer {
+  background-color: $my-blue-dark;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
 }
 
 .footer-links {
