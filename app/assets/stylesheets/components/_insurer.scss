@@ -16,7 +16,6 @@ table {
   margin-top: 20px;
 }
 
-
 .title-container {
   margin-top: 20px;
 }
@@ -30,6 +29,7 @@ table {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 12px;
 }
 
 .checked {
@@ -42,4 +42,18 @@ table {
 
 .increment-scale {
   scale: 2px;
+}
+
+.trusted
+
+.partners {
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.insurer-logos {
+  img {
+    width: 150px;
+    height: auto;
+  }
 }
