@@ -1,18 +1,3 @@
 <%= link_to trip_path(trip), data: { turbo_frame: "modal"} do  %>
-  <div class="trip d-flex border bg-my-white p-4 m-4 rounded-4 justify-content-between">
-    <div class="trip-image">
-      <% if trip.car.photo.present? %>
-        <%= cl_image_tag trip.car.photo.key,
-            width: '200px',
-            class: "rounded-4";
-        %>
-      <% else %>
-        <%= image_tag "car.jpg", style: 'object-fit: cover;',
-            width: '200px',
-            class: "rounded-4";
-        %>
-      <% end %>
-    </div>
     <%= render partial: "trip_info", locals: { trip: trip }  %>
-    </div>
 <% end %>

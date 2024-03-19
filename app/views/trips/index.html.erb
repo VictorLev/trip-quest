@@ -10,21 +10,40 @@
     <br>
     <br>
     <!-- Display all the trips -->
-
     <div class="position-relative p-4 bg-white rounded-4 shadow-lg">
       <div class="d-flex flex-row-reverse">
         <%# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {}) %>
         <%= form_with url: trips_path, method: :get, class: "d-flex" do %>
-        <%= link_to "reset", trips_path, class: "btn rounded-4"%>
         <%= collection_select :car, :vehicle, @cars, :id, :vehicle,
           { prompt: "Select a vehicle" }, { class: "form-control ms-5" }
         %>
         <%= submit_tag "filter", name: "", class: "btn btn-warning rounded-4 ms-5" %>
-        <%# <% @cars.each do |car| %>
+        <%= link_to "reset", trips_path, class: "btn rounded-4"%>
         <% end %>
-        <%# <% end %>
+
       </div>
-        <% @trips.each do |trip| %>
+      <div class="mt-4">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="w-25 fs-2">
+            Trips
+          </div>
+          <div class="fs-3 me-2">
+            Car
+          </div>
+          <div class="fs-3 me-2">
+            Date
+          </div>
+          <div class="d-flex flex-wrap fs-3 w-25">
+            TotalPoints
+            <div class="mx-3 rounded-4 px-2 py-1 orange-pill">
+              <%= @total_points.sum * 50 %>
+              <i class="fa-solid fa-coins"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr/>
+      <% @trips.each do |trip| %>
         <%= render partial: 'trip', locals: { trip: trip } %>
       <% end %>
     </div>
