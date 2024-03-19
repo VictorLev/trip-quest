@@ -6,3 +6,26 @@
   max-width: 100px;
   height: auto;
 }
+
+.footer {
+  background: #F4F4F4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+
+.footer-links {
+  text-align: center;
+}
+
+.footer-links a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-links a i {
+  font-size: 24px;
+}
