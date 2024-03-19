@@ -9,9 +9,10 @@
   <div class="row mx-2 my-4">
     <div class="col-12">
       <div class="h-100 p-4 bg-white rounded-4 shadow-lg">
-        <h3>My<strong>Progress</strong></h3>
+        <%# 1 star next to the name - level %>
+        <%# user picture %>
         <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 40px">
-        <div class="progress-bar progress-bar-striped bg-warning" style="width: 25%">25%</div>
+        <%# coin picture %><div class="progress-bar progress-bar-striped bg-warning" style="width: 25%">25%</div>
       </div>
       </div>
     </div>
@@ -21,31 +22,14 @@
     <!-- My trips -->
     <div class="col-7">
       <div class="h-100 p-4 bg-white rounded-4 shadow-lg">
-        <h3 class="text-center">My<strong>Trips</strong></h3>
+        <h3>My<strong>Trips</strong></h3>
         <% @trips.each do |trip| %>
-          <div class="trip d-flex border bg-my-white p-4 m-2 rounded-4 justify-content-between">
-            <div class="d-flex flex-grow-1 justify-content-between align-items-center">
-              <div class="">
-                <p class="fs-3 my-1">
-                  <%= trip.name %>
-                </p>
-                <p class="my-1">
-                  <%= trip.date %>
-                </p>
-                <div class="my-2">
-                  <% if trip.reward_point * 50 > 200 %>
-                    <div class="position-absolute badge bg-warning rounded-pill fs-6 p-2" style="height: fit-content;">
-                      <%= trip.reward_point * 50 %>
-                      <i class="fa-solid fa-gem" style="margin: 2px;"></i>
-                    </div>
-                  <% else %>
-                    <div class="position-absolute badge bg-primary rounded-pill fs-6 p-2" style="height: fit-content;">
-                      <%= trip.reward_point * 50 %>
-                      <i class="fa-solid fa-coins" style="margin: 2px;"></i>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
+          <%# <div class="trip d-flex border bg-my-white p-4 m-2 rounded-4 justify-content-between"> %>
+            <%# <div class="d-flex flex-grow-1 justify-content-between align-items-center"> %>
+              <div class="fs-6 border bg-my-white p-4 m-2 rounded-4">
+                <%= link_to trip_path(trip), data: { turbo_frame: "modal"} do  %>
+                  <%= render partial: "trips/trip_info", locals: { trip: trip }  %>
+                <% end %>
               <% if trip.photo.present? %>
                 <%= cl_image_tag trip.photo.key,
                     width: '200px',
@@ -54,8 +38,9 @@
               <% else %>
                 <%=%>
               <% end %>
-            </div>
-          </div>
+              </div>
+            <%# </div> %>
+          <%# </div> %>
         <% end %>
       </div>
     </div>
