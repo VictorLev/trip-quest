@@ -1,0 +1,67 @@
+<div class="mb-4">
+  <h1>JourneyCalculator</h1>
+  <h4>Link as many rewards zones as you can to get maximum points on your journey 🏆</h4>
+</div>
+<div class="position-relative p-4 bg-white rounded-4 shadow-lg"
+      data-controller="calculator"
+      data-calculator-markers-value="<%= @markers.to_json %>"
+      data-calculator-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-calculator-user-id-value="<%= current_user.id %>">
+  <div class="row">
+    <div class="col-8">
+      <div data-calculator-target="map" class="border rounded-4" style="width: 100%; height: 100%;">
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="border rounded-4 p-3 mb-3">
+        <div>
+          <h4>Step 1 </h4>
+          <i class="fa-solid fa-arrow-left"></i>
+          Select your starting point and destination
+        </div>
+      </div>
+      <%= simple_form_for [@user, @planned_route], data: { calculator_target: "form" } do |f| %>
+        <div class="border rounded-4 p-3 my-3">
+          <h4>Step 2 </h4>
+          <p class="mb-1">Add the reward zones you want to cross during your journey</p>
+          <%= f.input :projected_reward_ids,
+                      as: :check_boxes,
+                      label: false,
+                      legend_tag: false,
+                      input_html: {
+                        class: "tag-selector",
+                        data: { calculator_target: "checkbox"}
+                        },
+                      item_wrapper_class: 'tag-item',
+                      collection: StrategicPoint.all.map { |sp| ["#{sp.address} #{sp.danger*50}", sp.id] }
+                      %>
+        </div>
+        <div class="border rounded-4 p-3 my-3">
+          <h4 class="">Step 3</h4>
+          <p>Press on <span class="fw-semibold">Calculate</span> to see your route and the rewards you can earn</p>
+          <div class="d-flex justify-content-center my-2 fs-4">
+            <div data-calculator-target="reward">0</div><span>&nbsp;points</span>
+          </div>
+          <div class="d-flex flex-row-reverse">
+            <div class="btn btn-primary rounded-4"
+              data-action="click->calculator#calculate"
+              >
+              Calculate
+            </div>
+          </div>
+        </div>
+        <div class="border rounded-4 p-3 my-3">
+          <%= f.input :name, label: "Name your route" %>
+          <%= f.input :start_point, as: :hidden, input_html: { data: { calculator_target: "startpoint" } }  %>
+          <%= f.input :end_point, as: :hidden, input_html: { data: { calculator_target: "endpoint" } } %>
+          <%= f.button :submit, "Save route", class: "btn btn-primary rounded-4" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+    <div class="mx-4 position-absolute bottom-0 end-0 z-3 mb-3">
+
+    </div>
+
+</div>

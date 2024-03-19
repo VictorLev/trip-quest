@@ -5,21 +5,28 @@
       <span class="text-white m-2">TRIPQUEST</span>
     <% end %>
 
+<% if user_signed_in? %>
+    <div> You have <%= current_user.total_rewards.to_s %> rewards points! </div>
+<% end %>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto d-flex align-items-center text-white">
         <% if user_signed_in? %>
           <li class="nav-item mx-2">
-            <%= link_to "Dashbord", "/", class: "nav-link" %>
+            <%= link_to "Dashboard", "/", class: "nav-link" %>
           </li> |
           <li class="nav-item mx-2">
             <%= link_to "MyTrips", trips_path, class: "nav-link" %>
           </li> |
           <li class="nav-item mx-2">
-            <%= link_to "MyFriends", feeds_path, class: "nav-link" %>
+            <%= link_to "MyFriends", feed_path(Feed.find_by(name: "TripQuesters").id), class: "nav-link" %>
           </li> |
           <li class="nav-item mx-2">
 
@@ -28,16 +35,16 @@
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% if current_user&.photo.present? %>
-              <%= cl_image_tag @user.photo.key, height: 40,
+              <%= cl_image_tag current_user.photo.key, height: 40,
               width: 40, crop: :fill,
               class: "avatar", alt: "dropdown menu" %>
             <% else %>
-              <%= image_tag "user", class: "avatar" %>
+              <%= image_tag "user.png", class: "avatar" %>
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Strategic points", "/strategic-points" , class: "dropdown-item" %>
-              <%= link_to "Insurer tier list", insurers_path , class: "dropdown-item" %>
+              <%= link_to "Rewards Zones", "/strategic-points" , class: "dropdown-item" %>
+              <%= link_to "Insurance level", insurers_path , class: "dropdown-item" %>
               <%= link_to "Planned roots", user_planned_routes_path(current_user) , class: "dropdown-item" %>
               <%= link_to "Settings", user_path , class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
