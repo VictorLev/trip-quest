@@ -134,8 +134,10 @@ sp4 = StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363
 sp5 = StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 5)
 sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 2)
 sp7 = StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude: 146.888566, danger: 4)
-sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 4)
-sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 4)
+sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 1)
+sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 3)
+sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longitude: 143.913014, danger: 2)
+
 
 
 
