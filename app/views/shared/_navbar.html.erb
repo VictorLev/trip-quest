@@ -5,9 +5,16 @@
       <span class="text-white m-2">TRIPQUEST</span>
     <% end %>
 
+    <div>
+      <%# You have <%= current_user.total_rewards.to_s %>
+    </div>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto d-flex align-items-center text-white">
@@ -36,7 +43,7 @@
             <% end %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Strategic points", "/strategic-points" , class: "dropdown-item" %>
+              <%= link_to "Rewards Zones", "/strategic-points" , class: "dropdown-item" %>
               <%= link_to "Insurer tier list", insurers_path , class: "dropdown-item" %>
               <%= link_to "Planned roots", user_planned_routes_path(current_user) , class: "dropdown-item" %>
               <%= link_to "Settings", user_path , class: "dropdown-item" %>

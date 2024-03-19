@@ -28,6 +28,10 @@ export default class extends Controller {
       unit: 'metric',
       profile: 'mapbox/driving',
       optimizeWaypoints: true,
+      interactive: false,
+      controls: {
+        instructions: false
+      }
     })
 
     this.map.addControl(
@@ -46,6 +50,9 @@ export default class extends Controller {
     this.startpointTarget.value = this.direction.getOrigin().geometry.coordinates.toString();
     this.endpointTarget.value = this.direction.getDestination().geometry.coordinates.toString();
 
+    console.log(this.startpointTarget.value);
+    console.log(this.endpointTarget.value);
+
     // Submit the form
     this.formTarget.submit();
 
@@ -54,7 +61,6 @@ export default class extends Controller {
   calculate() {
 
     this.#removeAllWayPoints()
-
     // Check if the direction has been set
     if ( Object.keys(this.direction.getOrigin()).length !== 0 && Object.keys(this.direction.getDestination()).length !== 0) {
       // calculate the reward
@@ -67,7 +73,6 @@ export default class extends Controller {
 
           const wayPoint = this.markersValue.filter((marker) => marker.id === checkboxid)[0];
           // Add waypoints
-          console.log(wayPoint);
           this.direction.addWaypoint(index, [ wayPoint.lng, wayPoint.lat ]);
         }
       })
@@ -90,7 +95,12 @@ export default class extends Controller {
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.sp_info_html)
-      new mapboxgl.Marker()
+
+      // Create a HTML element for your custom marker
+      const customMarker = document.createElement("div")
+      customMarker.innerHTML = marker.marker_html
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
