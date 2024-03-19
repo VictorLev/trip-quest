@@ -83,6 +83,10 @@ car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             insurer: Insurer.first,
             user_id: liam.id)
 
+toyota = URI.open("app/assets/images/toyota.jpeg")
+car1.photo.attach(io: toyota, filename: "toyota.jpeg", content_type: "image/jpeg")
+car1.save!
+
 car2 = Car.create!(vehicle: "Mazda CX5",
             transmission: "Automatic",
             color: "Black",
@@ -145,6 +149,7 @@ Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
 puts "Creating trips..."
+
 gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
 wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
 sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
@@ -164,6 +169,7 @@ ActualReward.create!(trip: pi, strategic_point: sp9)
 ActualReward.create!(trip: torq, strategic_point: sp8)
 ActualReward.create!(trip: og, strategic_point: sp9)
 ActualReward.create!(trip: bend, strategic_point: sp1)
+
 
 journey_pic = URI.open("app/assets/images/journey_1.jpg")
 Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
