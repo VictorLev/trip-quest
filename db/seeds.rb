@@ -84,40 +84,40 @@ car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             user_id: liam.id)
 
 car2 = Car.create!(vehicle: "Mazda CX5",
-              transmission: "Automatic",
-              color: "Black",
-              year: 2020,
-              kilometers: "",
-              price: "30000",
-              insurer: Insurer.first,
-              user_id: sarah.id)
+            transmission: "Automatic",
+            color: "Black",
+            year: 2020,
+            kilometers: "",
+            price: "30000",
+            insurer: Insurer.first,
+            user_id: sarah.id)
 
 car3 = Car.create!(vehicle: "Audi A1",
-  transmission: "Automatic",
-  color: "Blue",
-  year: 2023,
-  kilometers: "",
-  price: "55000",
-  insurer: Insurer.second,
-  user_id: jane.id)
+            transmission: "Automatic",
+            color: "Blue",
+            year: 2023,
+            kilometers: "",
+            price: "55000",
+            insurer: Insurer.second,
+            user_id: jane.id)
 
 car4 = Car.create!(vehicle: "Renault Captur",
-    transmission: "Manual",
-    color: "orange",
-    year: 2020,
-    kilometers: "",
-    price: "30000",
-    insurer: Insurer.third,
-    user_id: paul.id)
+            transmission: "Manual",
+            color: "orange",
+            year: 2020,
+            kilometers: "",
+            price: "30000",
+            insurer: Insurer.third,
+            user_id: paul.id)
 
 car5 = Car.create!(vehicle: "Toyota",
-  transmission: "Manual",
-  color: "grey",
-  year: 2015,
-  kilometers: "",
-  price: "42000",
-  insurer: Insurer.fourth,
-  user_id: jane.id)
+            transmission: "Manual",
+            color: "grey",
+            year: 2015,
+            kilometers: "",
+            price: "42000",
+            insurer: Insurer.fourth,
+            user_id: jane.id)
 
 
 
@@ -154,7 +154,7 @@ epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649
 ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car2)
 
 
-
+# Actual rewards
 ActualReward.create!(trip: gor, strategic_point: sp8)
 ActualReward.create!(trip: wp, strategic_point: sp9)
 ActualReward.create!(trip: sorrento, strategic_point: sp9)
