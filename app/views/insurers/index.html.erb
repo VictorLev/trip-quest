@@ -1,19 +1,68 @@
-<div>
+
+<div class="title-container">
   <h2><strong><span class="main-title">INSURER</span><span class="accent-title">TIER LIST</span></strong></h2>
+</div>
   <div class="d-flex justify-content-center">
-    <table class="table table-bordered mx-4 rounded">
-      <thead class="thead-dark ">
-        <tr >
-          <th class="bg-white">Insurer name</th>
-          <th class="bg-white">Minimum Points Required</th>
-          <th class="bg-white">Discount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @insurers.each_with_index do |insurer, i| %>
-         <%= render partial: 'insurer', locals: { insurer: insurer, index: (i + 1) } %>
-        <% end %>
-      </tbody>
-    </table>
+    <table class="table table-bordered mx-4 rounded custom-table">
+  <thead class="thead-dark">
+    <tr>
+      <th class="bg-white">Level <span>&#9733;</span></th>
+      <th class="bg-white">Rewards Required <span>&#x1F4B0;</span></th>
+      <th class="bg-white">Discount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'insurer'%>
+  </tbody>
+</table>
+    </div>
+    <div class="data" style="background-color: rgba(251, 168, 52, 0.5); padding: 20px;">
+    <div class="d-flex justify-content-center">
+        <div class="partners">
+            <h2><strong><span class="main-title">OUR</span><span class="accent-title"> PARTNERS</span></strong></h2>
+        </div>
+    </div>
+    <hr style="border-top: 2px solid #3652AD; margin: 20px 0;">
+    <div class="d-flex justify-content-center">
+        <div class="tripquest numbers mb-4">
+            <h2><strong><span class="main-title">TRIPQUEST</span><span class="accent-title"> NUMBERS</span></strong></h2>
+        </div>
+    </div>
+  <div class="d-flex justify-content-center">
+  <div class="flex-container">
+    <div class="card text-light bg-primary mb-3 mx-3" style="max-width: 18rem;">
+      <div class="card-body h-100">
+        <h3 class="card-title mb-2">-34%</h3>
+        <h5 class="card-title mb-3">CAR ACCIDENTS</h5>
+        <p class="card-text" style="font-size: 14px;">Car accidents have decreased by 34%</p>
+      </div>
+    </div>
+
+    <div class="card text-light bg-primary mb-3 mx-3" style="max-width: 18rem;">
+      <div class="card-body h-100">
+        <h3 class="card-title mb-2">22%</h3>
+        <h5 class="card-title mb-3">Save </h5>
+        <p class="card-text" style="font-size: 14px;">More than 270k users have saved up 22%</p>
+      </div>
+    </div>
+
+    <div class="card text-light bg-primary mb-3 mx-3" style="max-width: 18rem;">
+      <div class="card-body h-100">
+        <h3 class="card-title mb-2">2MLN</h3>
+        <h5 class="card-title mb-3">USERS</h5>
+        <p class="card-text" style="font-size: 14px;">300k monthly active users</p>
+        <p class="card-text" style="font-size: 14px;">review 4.6/5 <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span></p>
+      </div>
+    </div>
+
+    <div class="card text-light bg-primary mb-3 mx-3" style="max-width: 18rem;">
+      <div class="card-body h-100">
+        <h3 class="card-title mb-2">3275</h3>
+        <h5 class="card-title mb-3">Reward stops</h5>
+        <p class="card-text" style="font-size: 14px;">Every week new rewards zone</p>
+      </div>
+    </div>
   </div>
+</div>
+
 </div>
