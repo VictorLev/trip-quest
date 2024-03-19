@@ -1,3 +1,17 @@
 <%= link_to trip_path(trip), data: { turbo_frame: "modal"} do  %>
-    <%= render partial: "trip_info", locals: { trip: trip }  %>
+  <div>
+    <tr>
+      <th class="bg-white align-middle text-left" ><%= trip.name %></th>
+      <td class="bg-white align-middle text-left" ><%= trip.car.vehicle %></td>
+      <td class="bg-white align-middle text-left" ><%= trip.date.strftime("%B %d, %Y") %></td>
+      <td class="bg-white" >
+        <div class="d-flex justify-content-end">
+          <div class="fs-3 rounded-4 px-2 py-1 orange-pill">
+            <%= trip.reward_point * 50 %>
+            <i class="fa-solid fa-coins"></i>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </div>
 <% end %>

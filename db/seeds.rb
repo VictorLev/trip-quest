@@ -166,15 +166,15 @@ Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
 puts "Creating trips..."
-gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
-wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
-sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
-pi = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159, 145.201303", reward_point: "2", date: "28/02/2024", name: "Philip island", car: car3)
-torq = Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car3)
-og = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
-bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
-epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890, 145.023161", reward_point: "2", date: "21/03/2024", name: "Epping", car: car5)
-ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Ballarat", car: car2)
+gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864,143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
+wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750,146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
+sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904,144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
+pi = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159,145.201303", reward_point: "2", date: "28/02/2024", name: "Philip island", car: car3)
+torq = Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497,144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car3)
+og = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541,144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
+bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942,144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
+epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890,145.023161", reward_point: "2", date: "21/03/2024", name: "Epping", car: car5)
+ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523,143.850102", reward_point: "2", date: "12/03/2024", name: "Ballarat", car: car2)
 
 
 # Actual rewards
