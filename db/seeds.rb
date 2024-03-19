@@ -153,7 +153,7 @@ sp7 = StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, lon
 sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 1)
 sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 3)
 sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longitude: 143.913014, danger: 2)
-
+sp11 = StrategicPoint.create!(address: "Princes Fwy", latitude: -38.027610, longitude: 144.437139, danger: 2)
 
 
 
@@ -173,10 +173,9 @@ pi = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159,
 torq = Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car3)
 og = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
 bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
-epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890, 145.023161", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
-ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car2)
+epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890, 145.023161", reward_point: "2", date: "21/03/2024", name: "Epping", car: car5)
+ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Ballarat", car: car2)
 
-ActualReward.create!(trip: trip1, strategic_point: sp1)
 
 # Actual rewards
 ActualReward.create!(trip: gor, strategic_point: sp8)
@@ -184,7 +183,6 @@ ActualReward.create!(trip: wp, strategic_point: sp9)
 ActualReward.create!(trip: sorrento, strategic_point: sp9)
 ActualReward.create!(trip: pi, strategic_point: sp9)
 ActualReward.create!(trip: torq, strategic_point: sp8)
-ActualReward.create!(trip: og, strategic_point: sp9)
 ActualReward.create!(trip: bend, strategic_point: sp1)
 
 
