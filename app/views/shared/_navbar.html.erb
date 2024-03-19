@@ -5,9 +5,9 @@
       <span class="text-white m-2">TRIPQUEST</span>
     <% end %>
 
-    <div>
-      <%# You have <%= current_user.total_rewards.to_s %>
-    </div>
+<% if user_signed_in? %>
+    <div> You have <%= current_user.total_rewards.to_s %> rewards points! </div>
+<% end %>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
