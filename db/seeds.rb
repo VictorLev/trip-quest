@@ -141,6 +141,7 @@ sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longi
 
 
 
+
 # CREATE FEED IN DATABASE
 puts "Creating feed..."
 Feed.create!(name: "TripQuesters")
@@ -149,7 +150,6 @@ Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
 puts "Creating trips..."
-
 gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
 wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
 sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
@@ -160,6 +160,7 @@ bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.74094
 epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890, 145.023161", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
 ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car2)
 
+ActualReward.create!(trip: trip1, strategic_point: sp1)
 
 # Actual rewards
 ActualReward.create!(trip: gor, strategic_point: sp8)
