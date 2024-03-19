@@ -86,3 +86,8 @@ gem "cloudinary"
 gem "geocoder"
 
 # Use Active Storage for image uploads
+
+
+# Use chartkick for graphic charts on dashboard
+gem "chartkick"
+

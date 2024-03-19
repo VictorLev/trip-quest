@@ -9,6 +9,6 @@ class PlannedRoute < ApplicationRecord
     self.projected_rewards.each do |pr|
       sum += pr.strategic_point.danger
     end
-    sum
+    sum*50
   end
 end

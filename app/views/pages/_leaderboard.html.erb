@@ -1,41 +1,63 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card rounded-12">
-      <div class="card h-100 round">
-      <div class="image-size">
-        <%= cl_image_tag @user.photo.key %>
-        </div>
-        <div class="card-body">
-          <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
-          <p class="card-text">ce</p>
-        </div>
-      </div>
+  <div class="d-flex border bg-my-white p-4 m-2 rounded-4">
+     <div class="me-2">
+      <% if user.photo.present? %>
+        <%= cl_image_tag user.photo.key, height: 100,
+              width: 100, crop: :fill, class: "rounded-4"
+              # class: "avatar"
+        %>
+      <% else %>
+        <%= %>
+      <% end %>
     </div>
-  </div>
-  <div class="col">
-    <div class="card rounded-12">
-      <div class="card h-100">
-      <div class="image-size">
-        <%= cl_image_tag @user.photo.key %>
+    <%# <%= user.total_rewards %>
+    <div class="d-flex flex-column w-100 justify-content-center">
+    <div class="fs-6 mb-1 ms-1"><strong><%= user.first_name %> <%= user.last_name %></strong></div>
+    <% if user.total_rewards / 1000 >= 3 && user.total_rewards / 1000 < 4 %>
+    <%=  %>
+    <% elsif user.total_rewards / 1000 >= 2 && user.total_rewards / 1000 < 3 %>
+    <%=  %>
+    <% elsif user.total_rewards / 1000 >= 1 && user.total_rewards / 1000 < 2 %>
+        <div class="progress d-flex rounded-4 mx-2 my-2" style="width: 90%;">
+          <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <p><strong>level <%= user.total_rewards / 1000 %></strong></p>
+          </div>
         </div>
-        <div class="card-body">
-          <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
-          <p class="card-text">ce</p>
+        <div class="d-flex pt-1">
+          <% (user.total_rewards / 1000).times do %>
+            <i class="fa-solid fa-star fa-lg mx-1 my-2"></i>
+          <% end %>
+          <% (10 - (user.total_rewards / 1000)).times do %>
+            <i class="fa-regular fa-star fa-lg mx-1 my-2"></i>
+          <% end %>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card rounded-12">
-      <div class="card h-100">
-      <div class="image-size">
-        <%= cl_image_tag @user.photo.key %>
+    <% elsif user.total_rewards / 1000 >= 0 && user.total_rewards / 1000 < 1 %>
+        <div class="progress d-flex rounded-4 mx-2 my-2" style="width: 90%;">
+          <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <p><strong>level
+              <%= user.total_rewards / 1000 %>
+            </p>
+            <% (user.total_rewards / 1000).times do %>
+              <i class="fa-regular fa-star"></i></strong>
+            <% end %>
+          </div>
         </div>
-        <div class="card-body">
-          <div><strong><span class="main-title">Rewards: <span class="accent-title">reward</span></strong></div>
-          <p class="card-text">cce</p>
+        <div class="d-flex pt-1">
+          <% (user.total_rewards / 1000).times do %>
+            <i class="fa-solid fa-star fa-lg mx-1 my-2"></i>
+          <% end %>
+          <% (10 - (user.total_rewards / 1000)).times do %>
+            <i class="fa-regular fa-star fa-lg mx-1 my-2"></i>
+          <% end %>
         </div>
-      </div>
-    </div>
+        <%# <div class="badge bg-primary rounded-pill fs-6" style="height: fit-content;">
+        </div> %>
+    <% end %>
   </div>
 </div>
+
+      <%# <% user.cars.each do |car| %>
+        <%# <div class="my-2"> %>
+        <%# <span class="fs-4 rounded-4 px-2 py-1 orange-pill"> %>
+          <%# <i class="fa-regular fa-star fa-sm"> <%= car.total_car_reward %> </i>
+        <%# </span> %>
+    <%# <% end %>

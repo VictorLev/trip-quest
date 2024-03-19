@@ -1,14 +1,45 @@
 <%= turbo_frame_tag 'modal' do %>
-    <div class="mymodal bg-white">
-      <div>
-        <div>
-          <h2><%= @trip.name%></h2>
-          <p>Date: <%= @trip.date %></p>
-          <p>Rewards: <%= @trip.reward_point %></p>
-          <%= link_to "Close", trips_path, data: {
-            controller: "modals",
+  <div data-controller="modals">
+    <div class="mymodal-overlay" data-action="click->modals#close"></div>
+    <div class="mymodal bg-white w-50">
+      <div class="position-absolute top-0 end-0 p-3">
+        <%= link_to trips_path, data: {
             action: "modals#close"
-          }, class: "btn btn-primaruy rounded-4 border" %>
+          } do %>
+          <i class="fa-solid fa-x"></i>
+        <% end %>
+      </div>
+      <div
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-spoint-value="<%= @trip.start_point %>"
+        data-map-epoint-value="<%= @trip.end_point %>"
+        >
+        <div class="row">
+          <div class="col-6">
+            <h2><%= @trip.name%></h2>
+            <p><%= @trip.date.strftime("%A, %B %d, %Y") %></p>
+            <div class="border rounded-4 p-3 m-3 me-3">
+              <div class="badge bg-primary rounded-pill bg-git fs-6">
+                <%= @trip.reward_point * 50 %>
+                <i class="fa-solid fa-coins"></i>
+              </div>
+              <p>Car: <%= @trip.car.vehicle%></p>
+              <div class="d-flex">
+                <p class="me-1">Distance:</p><div data-map-target="dist"></div>
+              </div>
+              <div class="d-flex">
+                <p class="me-1">Duration:</p><div data-map-target="dur"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="width: 100%; height: 100%;">
+              <div data-map-target="mapt" class="border rounded-4" style="width: 100%; height: 100%;">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
