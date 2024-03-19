@@ -83,8 +83,8 @@ car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             insurer: Insurer.first,
             user_id: liam.id)
 
-toyota = URI.open("app/assets/images/toyota.jpeg")
-car1.photo.attach(io: toyota, filename: "toyota.jpeg", content_type: "image/jpeg")
+toyota = URI.open("app/assets/images/car.jpg")
+car1.photo.attach(io: toyota, filename: "car.jg", content_type: "image/jpg")
 car1.save!
 
 car2 = Car.create!(vehicle: "Mazda CX5",
@@ -96,6 +96,10 @@ car2 = Car.create!(vehicle: "Mazda CX5",
             insurer: Insurer.first,
             user_id: sarah.id)
 
+mazda = URI.open("app/assets/images/mazda.jpg")
+car2.photo.attach(io: mazda, filename: "mazda.jpg", content_type: "image/jpg")
+car2.save!
+
 car3 = Car.create!(vehicle: "Audi A1",
             transmission: "Automatic",
             color: "Blue",
@@ -104,6 +108,10 @@ car3 = Car.create!(vehicle: "Audi A1",
             price: "55000",
             insurer: Insurer.second,
             user_id: jane.id)
+
+audiA1 = URI.open("app/assets/images/audiA1.jpg")
+car3.photo.attach(io: audiA1, filename: "audiA1.jpg", content_type: "image/jpg")
+car3.save!
 
 car4 = Car.create!(vehicle: "Renault Captur",
             transmission: "Manual",
@@ -114,7 +122,11 @@ car4 = Car.create!(vehicle: "Renault Captur",
             insurer: Insurer.third,
             user_id: paul.id)
 
-car5 = Car.create!(vehicle: "Toyota",
+renault = URI.open("app/assets/images/renault.jpg")
+car4.photo.attach(io: renault, filename: "renault.jpg", content_type: "image/jpg")
+car4.save!
+
+car5 = Car.create!(vehicle: "Toyota suv",
             transmission: "Manual",
             color: "grey",
             year: 2015,
@@ -122,6 +134,10 @@ car5 = Car.create!(vehicle: "Toyota",
             price: "42000",
             insurer: Insurer.fourth,
             user_id: jane.id)
+
+toyotasuv = URI.open("app/assets/images/toyota.jpeg")
+car5.photo.attach(io: toyotasuv, filename: "toyota.jpeg", content_type: "image/jpeg")
+car5.save!
 
 
 
