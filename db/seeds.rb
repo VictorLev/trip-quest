@@ -83,6 +83,10 @@ car1 = Car.create!(vehicle: "Toyota Civic Sedan",
             insurer: Insurer.first,
             user_id: liam.id)
 
+toyota = URI.open("app/assets/images/toyota.jpeg")
+car1.photo.attach(io: toyota, filename: "toyota.jpeg", content_type: "image/jpeg")
+car1.save!
+
 car2 = Car.create!(vehicle: "Mazda CX5",
             transmission: "Automatic",
             color: "Black",
