@@ -8,15 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-require 'faker'
-
-puts "Something about points..."
-def create_strategic_points_for_trip(trip)
-  StrategicPoint.all.shuffle.first(1).each do |sp|
-    # Create the joiner
-    ActualReward.create!(trip: trip, strategic_point: sp)
-  end
-end
 
 #  DESTROY ALL OBJECTS IN DATABASE
 puts "Deleting users..."
@@ -126,20 +117,21 @@ car5 = Car.create!(vehicle: "Toyota",
   kilometers: "",
   price: "42000",
   insurer: Insurer.fourth,
-  user_id: james.id)
+  user_id: jane.id)
 
 
 
 # CREATE Stratigic Points IN database for the route Melbourne richmond - Sydney
 puts "Creating points..."
-StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 2)
-StrategicPoint.create!(address: "Murray Valley Hwy", latitude: -36.105694, longitude: 146.835505, danger: 3)
-StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.696591, longitude: 150.022885, danger: 2)
-StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363, longitude: 150.965241, danger: 4)
-StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 5)
-StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 2)
-StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude: 146.888566, danger: 4)
-
+sp1 = StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 2)
+sp2 = StrategicPoint.create!(address: "Murray Valley Hwy", latitude: -36.105694, longitude: 146.835505, danger: 3)
+sp3 = StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.696591, longitude: 150.022885, danger: 2)
+sp4 = StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363, longitude: 150.965241, danger: 4)
+sp5 = StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 5)
+sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 2)
+sp7 = StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude: 146.888566, danger: 4)
+sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 4)
+sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 4)
 
 
 
@@ -151,34 +143,40 @@ Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
 puts "Creating trips..."
-Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
-Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
-Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
-Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159, 145.201303", reward_point: "2", date: "28/02/2024", name: "Philip island", car: car4)
-Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car4)
-Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car4)
-Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
+gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car1)
+wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
+sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
+pi = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159, 145.201303", reward_point: "2", date: "28/02/2024", name: "Philip island", car: car3)
+torq = Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "2", date: "10/03/2024", name: "Torquay", car: car3)
+og = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
+bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car4)
+epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890, 145.023161", reward_point: "2", date: "21/03/2024", name: "Ocean grove", car: car5)
+ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523, 143.850102", reward_point: "2", date: "12/03/2024", name: "Bendigo", car: car2)
 
 
 
-Trip.all.each do |trip|
-  create_strategic_points_for_trip(trip)
-end
+ActualReward.create!(trip: gor, strategic_point: sp8)
+ActualReward.create!(trip: wp, strategic_point: sp9)
+ActualReward.create!(trip: sorrento, strategic_point: sp9)
+ActualReward.create!(trip: pi, strategic_point: sp9)
+ActualReward.create!(trip: torq, strategic_point: sp8)
+ActualReward.create!(trip: og, strategic_point: sp9)
+ActualReward.create!(trip: bend, strategic_point: sp1)
 
 journey_pic = URI.open("app/assets/images/journey_1.jpg")
 Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
 Trip.first.save!
 
 wp_pic = URI.open("app/assets/images/wilsons_prom.png")
-wils_prom.photo.attach(io: wp_pic, filename: "wilsons_prom.png", content_type: "image/png")
-wils_prom.save!
+wp.photo.attach(io: wp_pic, filename: "wilsons_prom.png", content_type: "image/png")
+wp.save!
 
 sor_pic = URI.open("app/assets/images/sorrento.png")
 sorrento.photo.attach(io: sor_pic, filename: "sorrento.png", content_type: "image/png")
 sorrento.save!
 
 phil_pic = URI.open("app/assets/images/phillip_island.png")
-philip_island.photo.attach(io: phil_pic, filename: "phillip_island.png", content_type: "image/png")
-philip_island.save!
+pi.photo.attach(io: phil_pic, filename: "phillip_island.png", content_type: "image/png")
+pi.save!
 
 puts "Done!"
