@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
   def dashboard
     @cars = current_user.cars
-    @trips = Trip.all.order(created_at: :desc).limit(3)
+    @trips = current_user.trips.order(created_at: :desc).limit(3)
     @insurers = Insurer.all
     @user = current_user
     @next_level = 100
-    @users = User.all
-    # need to write a method to order users by total points
+    users = User.all
+    @users = users.sort_by { |user| user.total_rewards }.reverse
 
   end
 
