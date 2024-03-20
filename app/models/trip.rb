@@ -7,6 +7,10 @@ class Trip < ApplicationRecord
   attr_accessor :start_date, :end_date
 
   def sum_reward
-    actual_rewards.sum
+    sum = 0
+    self.actual_rewards.each do |ar|
+      sum += ar.strategic_point.danger
+    end
+    sum
   end
 end

@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @cars = current_user.cars
-    @trips = current_user.trips.order(created_at: :desc).limit(3)
+    @trips = current_user.trips.order(date: :desc).limit(5)
     # @insurers = Insurer.all
     users = User.all
     @users = users.sort_by { |user| user.total_rewards }.reverse
