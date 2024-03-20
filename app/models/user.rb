@@ -15,6 +15,10 @@ class User < ApplicationRecord
   has_many :projected_rewards, through: :planned_routes
   has_many :trips, through: :cars
 
+  def level
+    total_rewards / 1000
+  end
+
   def total_rewards
     # Iterate through each of the cars belonging to this user
     # Iterate through each of the trips belonging to this car
