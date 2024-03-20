@@ -1,3 +1,12 @@
+.footer {
+  background-color: $my-blue-dark;
+  padding: 10px 50px;
+  color: white;
+  // font size
+  // font weight
+  font-weight: normal;
+}
+
 .footer-logo {
   img {
     width: 100px;
@@ -5,16 +14,14 @@
   }
 }
 
-.footer {
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100px;
-  padding: 10px 50px;
-  color: white;
+.footer-links {
+  list-style-type: none;
+  font-size: 1.2rem;
+  // flex-wrap: wrap;
 }
 
-.footer a {
-  font-size: 24px;
+.footer-socials {
+  padding-top: 10px;
+  font-size: 30px;
+  text-align: center;
 }
