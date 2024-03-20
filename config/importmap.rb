@@ -44,3 +44,4 @@ pin "turf-meta" # @1.0.2
 pin "flatpickr" # @4.6.13
 pin "chartkick", to: "chartkick.js"
 pin "Chart.bundle", to: "Chart.bundle.js"
+pin "flatpickr/dist/plugins/rangePlugin", to: "flatpickr--dist--plugins--rangePlugin.js" # @4.6.13

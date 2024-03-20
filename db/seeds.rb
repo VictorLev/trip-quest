@@ -143,20 +143,17 @@ car5.save!
 
 # CREATE Stratigic Points IN database for the route Melbourne richmond - Sydney
 puts "Creating points..."
-sp1 = StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 5)
-sp2 = StrategicPoint.create!(address: "Murray Valley Hwy", latitude: -36.105694, longitude: 146.835505, danger: 3)
-sp3 = StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.696591, longitude: 150.022885, danger: 2)
-sp4 = StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363, longitude: 150.965241, danger: 4)
-sp5 = StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 5)
-sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 3)
-sp7 = StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude: 146.888566, danger: 4)
-sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 4)
-sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 4)
-sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longitude: 143.913014, danger: 3)
-sp11 = StrategicPoint.create!(address: "Princes Fwy", latitude: -38.027610, longitude: 144.437139, danger: 1)
-
-
-
+sp1 = StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 250)
+sp2 = StrategicPoint.create!(address: "Murray Valley Hwy", latitude: -36.105694, longitude: 146.835505, danger: 150)
+sp3 = StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.696591, longitude: 150.022885, danger: 100)
+sp4 = StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363, longitude: 150.965241, danger: 200)
+sp5 = StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 250)
+sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 150)
+sp7 = StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude: 146.888566, danger: 200)
+sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 200)
+sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 200)
+sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longitude: 143.913014, danger: 150)
+sp11 = StrategicPoint.create!(address: "Princes Fwy", latitude: -38.027610, longitude: 144.437139, danger: 50)
 
 # CREATE FEED IN DATABASE
 puts "Creating feed..."
@@ -166,20 +163,15 @@ Feed.create!(name: "General fun")
 
 # CREATE TRIPS IN DATABASE
 puts "Creating trips..."
-gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864, 143.430955", reward_point: "20", date: "12/03/2024", name: "Great Ocean Road", car: car5)
-wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750, 146.380524", reward_point: "5", date: "05/03/2024", name: "Wilson Promontory", car: car3)
-sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904, 144.743811", reward_point: "10", date: "07/03/2024", name: "Sorrento", car: car5)
-pi = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159, 145.201303", reward_point: "15", date: "28/02/2024", name: "Philip island", car: car3)
-torq = Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497, 144.321543", reward_point: "5", date: "10/03/2024", name: "Torquay", car: car3)
-og = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541, 144.521061", reward_point: "5", date: "21/03/2024", name: "Ocean grove", car: car5)
-bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942, 144.292652", reward_point: "20", date: "12/03/2024", name: "Bendigo", car: car1)
-epping = Trip.create!(start_point: "-37.839820, 145.023505", end_point: "-37.649890, 145.023161", reward_point: "20", date: "21/03/2024", name: "Epping", car: car5)
-ballarat = Trip.create!(start_point: "-37.820988, 145.000392", end_point: "-37.547523, 143.850102", reward_point: "10", date: "12/03/2024", name: "Ballarat", car: car2)
-yarrapark = Trip.create!(start_point: "--37.696060, 144.971092", end_point: "-37.713749, 145.387233", reward_point: "5", date: "21/03/2024", name: "yarrapark", car: car1)
-lerderdergpark = Trip.create!(start_point: "-37.749003, 144.838507", end_point: "--37.574983, 144.455845", reward_point: "2", date: "12/03/2024", name: "lerderdergpark", car: car1)
-
-
-
+gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864,143.430955", reward_point: sp8.danger, date: "12/03/2024", name: "Great Ocean Road", car: car1)
+wp = Trip.create!(start_point: "-37.826034, 145.001111", end_point: "-38.916750,146.380524", reward_point: sp9.danger, date: "05/03/2024", name: "Wilson Promontory", car: car3)
+sorrento = Trip.create!(start_point: "-37.798496, 144.979754", end_point: "-38.337904,144.743811", reward_point: sp9.danger, date: "07/03/2024", name: "Sorrento", car: car5)
+pi = Trip.create!(start_point: "-37.798665, 144.987446", end_point: "-38.490159,145.201303", reward_point: sp9.danger, date: "28/02/2024", name: "Philip island", car: car3)
+torq = Trip.create!(start_point: "-37.709392, 145.078092", end_point: "-38.317497,144.321543", reward_point: sp8.danger, date: "10/03/2024", name: "Torquay", car: car3)
+og = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-38.236541,144.521061", reward_point: sp1.danger, date: "21/03/2024", name: "Ocean grove", car: car5)
+bend = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-36.740942,144.292652",  reward_point: sp1.danger, date: "12/03/2024", name: "Bendigo", car: car4)
+epping = Trip.create!(start_point: "-37.809397, 145.078092", end_point: "-37.649890,145.023161", reward_point: sp1.danger, date: "21/03/2024", name: "Epping", car: car5)
+ballarat = Trip.create!(start_point: "-37.690937, 145.078092", end_point: "-37.547523,143.850102", reward_point: sp1.danger, date: "12/03/2024", name: "Ballarat", car: car2)
 
 
 # Actual rewards
@@ -188,11 +180,9 @@ ActualReward.create!(trip: wp, strategic_point: sp9)
 ActualReward.create!(trip: sorrento, strategic_point: sp9)
 ActualReward.create!(trip: pi, strategic_point: sp9)
 ActualReward.create!(trip: torq, strategic_point: sp8)
+ActualReward.create!(trip: og, strategic_point: sp1)
 ActualReward.create!(trip: bend, strategic_point: sp1)
-ActualReward.create!(trip: ballarat, strategic_point: sp1)
 ActualReward.create!(trip: epping, strategic_point: sp1)
-ActualReward.create!(trip: torq, strategic_point: sp8)
-ActualReward.create!(trip: bend, strategic_point: sp1)
 ActualReward.create!(trip: ballarat, strategic_point: sp1)
 
 

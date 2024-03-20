@@ -14,3 +14,9 @@
 .nav-link:hover, .nav-link:focus {
   color: $my-orange;
 }
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: $my-orange;
+  font-weight: 600;
+}
