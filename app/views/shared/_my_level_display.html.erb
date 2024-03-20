@@ -1,39 +1,39 @@
 
 
-<% if current_user.total_rewards / 1000 >= 8 && current_user.total_rewards / 1000 < 9 %>
+<% if user.total_rewards / 1000 >= 8 && user.total_rewards / 1000 < 9 %>
   <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user } %>
+    <%= render partial: "shared/progress_bar", locals: { user: user } %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 7 && current_user.total_rewards / 1000 < 8 %>
+<% elsif user.total_rewards / 1000 >= 7 && user.total_rewards / 1000 < 8 %>
   <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 6 && current_user.total_rewards / 1000 < 7 %>
+<% elsif user.total_rewards / 1000 >= 6 && user.total_rewards / 1000 < 7 %>
   <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 5 && current_user.total_rewards / 1000 < 6 %>
+<% elsif user.total_rewards / 1000 >= 5 && user.total_rewards / 1000 < 6 %>
   <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 4 && current_user.total_rewards / 1000 < 5 %>
+<% elsif user.total_rewards / 1000 >= 4 && user.total_rewards / 1000 < 5 %>
  <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 3 && current_user.total_rewards / 1000 < 4 %>
+<% elsif user.total_rewards / 1000 >= 3 && user.total_rewards / 1000 < 4 %>
  <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 2 && current_user.total_rewards / 1000 < 3 %>
+<% elsif user.total_rewards / 1000 >= 2 && user.total_rewards / 1000 < 3 %>
  <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 1 && current_user.total_rewards / 1000 < 2 %>
+<% elsif user.total_rewards / 1000 >= 1 && user.total_rewards / 1000 < 2 %>
    <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
-<% elsif current_user.total_rewards / 1000 >= 0 && current_user.total_rewards / 1000 < 1 %>
+<% elsif user.total_rewards / 1000 >= 0 && user.total_rewards / 1000 < 1 %>
  <div class="d-flex border bg-my-white p-2 m-2 rounded-4 align-items-center">
-    <%= render partial: "shared/progress_bar", locals: { user: current_user} %>
+    <%= render partial: "shared/progress_bar", locals: { user: user} %>
   </div>
 <% end %>
