@@ -6,24 +6,15 @@
 }
 
 .footer {
-  background-color: $my-blue-dark;
+  background-color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  padding: 10px 50px;
+  color: white;
 }
 
-.footer-links {
-  text-align: center;
-}
-
-.footer-links a {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.footer-links a i {
+.footer a {
   font-size: 24px;
 }
