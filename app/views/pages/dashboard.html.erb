@@ -28,16 +28,8 @@
             <%# <div class="d-flex flex-grow-1 justify-content-between align-items-center"> %>
               <div class="fs-6 border bg-my-white p-4 m-2 rounded-4">
                 <%= link_to trip_path(trip), data: { turbo_frame: "modal"} do  %>
-                  <%= render partial: "trips/trip_info", locals: { trip: trip }  %>
+                  <%= render partial: "trips/trip", locals: { trip: trip }  %>
                 <% end %>
-              <% if trip.photo.present? %>
-                <%= cl_image_tag trip.photo.key,
-                    width: '200px',
-                    class: "rounded-4";
-                %>
-              <% else %>
-                <%=%>
-              <% end %>
               </div>
             <%# </div> %>
           <%# </div> %>
