@@ -8,6 +8,7 @@
   </div>
 
   <div class="d-flex justify-content-center pt-5">
+      <% if current_user %>
     <ul class="footer-links">
       <li><%= link_to "Rewards Zones", "/strategic-points" %></li>
       <li><%= link_to "Insurance level", insurers_path %></li>
@@ -19,11 +20,11 @@
       <li><%= link_to "Settings", user_path %></li>
       <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
     </ul>
-
     <ul class="footer-links">
       <li><%= link_to "MyTrips", trips_path %></li>
       <li><%= link_to "MyFriends", feed_path(Feed.find_by(name: "TripQuesters").id) %></li>
       <li><%= link_to "JourneyCalculator", new_user_planned_route_path(current_user) %></li>
     </ul>
+    <% end %>
   </div>
 </div>
