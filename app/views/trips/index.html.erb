@@ -3,7 +3,7 @@
     <!-- Title with Trip Count -->
     <div class="point-calculator d-flex justify-content-between">
       <h2><strong><span class="main-title">My</span><span class="accent-title">Trips</span></strong></h2>
-      <p>You have made <%= @trips_last_month.count %> trips in the last month and you have gained <%= @total_points_last_month.sum * 50%> points! </p>
+      <p>You have made <%= @trips_last_month.count %> trips in the last month and you have gained <%= @total_points_last_month.sum %> points! </p>
       <%= link_to "Add a trip", new_trip_path, class: "btn btn-warning rounded-4" %>
     </div>
     <hr>
@@ -38,7 +38,7 @@
                   TotalPoints
                 </div>
                 <div class="fs-3 rounded-4 px-2 py-1 orange-pill font-weight-normal">
-                  <%= @total_points.sum * 50 %>
+                  <%= @total_points.sum  %>
                   <i class="fa-solid fa-coins"></i>
                 </div>
               </div>

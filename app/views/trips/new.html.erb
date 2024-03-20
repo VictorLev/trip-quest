@@ -46,7 +46,7 @@
                           data: { calculator_target: "checkbox"}
                           },
                         item_wrapper_class: 'tag-item',
-                        collection: StrategicPoint.all.map { |sp| ["#{sp.address} #{sp.danger*50}", sp.id] }
+                        collection: StrategicPoint.all.map { |sp| ["#{sp.address} #{sp.danger}", sp.id] }
                         %>
           </div>
           <div class="border rounded-4 p-3 my-3">

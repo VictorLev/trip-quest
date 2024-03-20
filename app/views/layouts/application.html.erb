@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
   </head>
 
   <body class="d-flex flex-column min-vh-100">
     <%= turbo_frame_tag 'modal' %>
     <%= render "shared/navbar"  %>
     <%= render "shared/flashes" %>
-    <div class="container py-4">
+    <div class="container py-4 flex-grow-1">
       <%= yield %>
     </div>
     <%= render "shared/footer"%>

@@ -1,14 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand ms-4" do %>
-      <%= image_tag "logo.png" %>
-      <span class="text-white m-2">TRIPQUEST</span>
+    <%= link_to "/", class: "ms-4" do %>
+      <div class="d-flex align-items-center">
+        <%= image_tag "logo.png", size: "45x45", class: "mb-2" %>
+        <h2 class="ms-1"><strong><span class="main-title">Trip</span><span class="accent-title text-white">Quest</span></strong></h2>
+      </div>
     <% end %>
-
-<% if user_signed_in? %>
-    <div> You have <%= current_user.total_rewards.to_s %> rewards points! </div>
-<% end %>
-
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,33 +17,38 @@
       <ul class="navbar-nav me-auto d-flex align-items-center text-white">
         <% if user_signed_in? %>
           <li class="nav-item mx-2">
-            <%= link_to "Dashboard", "/", class: "nav-link", style: "font-size: larger" %>
+            <%= link_to "Dashboard", "/", class: "nav-link #{'active' if current_page?("/")}", style: "font-size: larger" %>
           </li> |
           <li class="nav-item mx-2">
-            <%= link_to "MyTrips", trips_path, class: "nav-link", style: "font-size: larger" %>
+            <%= link_to "MyTrips", trips_path, class: "nav-link #{'active' if current_page?(trips_path)}", style: "font-size: larger" %>
           </li> |
           <li class="nav-item mx-2">
-            <%= link_to "Feed", feed_path(Feed.find_by(name: "TripQuesters").id), class: "nav-link", style: "font-size: larger" %>
+            <%= link_to "MyFeed", feed_path(Feed.find_by(name: "TripQuesters").id), class: "nav-link #{'active' if current_page?(feed_path(Feed.find_by(name: "TripQuesters").id))}", style: "font-size: larger" %>
           </li> |
           <li class="nav-item mx-2">
-            <%= link_to "JourneyCalculator", new_user_planned_route_path(current_user), class: "nav-link", style: "font-size: larger" %>
+            <%= link_to "JourneyCalculator", new_user_planned_route_path(current_user), class: "nav-link #{'active' if current_page?(new_user_planned_route_path(current_user))}", style: "font-size: larger" %>
           </li> |
           <li class="nav-item mx-2">
-            <%= link_to "Insurance", insurers_path, class: "nav-link", style: "font-size: larger" %>
+            <%= link_to "Insurance", insurers_path, class: "nav-link #{'active' if current_page?(insurers_path)}", style: "font-size: larger" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user&.photo.present? %>
-              <%= cl_image_tag current_user.photo.key, height: 40,
-              width: 40, crop: :fill,
-              class: "avatar", alt: "dropdown menu" %>
-            <% else %>
-              <%= image_tag "user.png", class: "avatar" %>
-            <% end %>
+            <div class="d-flex rounded-pill align-items-center m-2 bg-white">
+              <div class="m-2 text-body">
+                <strong><i class="fa-solid fa-star fa-lg mx-1 my-2"></i> lvl <%= current_user.level %></strong>
+              </div>
+              <% if current_user&.photo.present? %>
+                <%= cl_image_tag current_user.photo.key, height: 50,
+                  width: 50, crop: :fill,
+                  class: "avatar", alt: "dropdown menu" %>
+              <% else %>
+                <%= image_tag "user.png", class: "avatar" %>
+              <% end %>
+            </div>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Rewards Zones", "/strategic-points" , class: "dropdown-item" %>
-              <%= link_to "Planned roots", user_planned_routes_path(current_user) , class: "dropdown-item" %>
+              <%= link_to "Planned routes", user_planned_routes_path(current_user) , class: "dropdown-item" %>
               <%= link_to "Settings", user_path , class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

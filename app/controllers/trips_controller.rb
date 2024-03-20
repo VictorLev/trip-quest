@@ -4,7 +4,6 @@ class TripsController < ApplicationController
     @cars = @user.cars
     @trips = @user.trips.sort_by{ |trip| trip.date}.reverse
     @trips_last_month = @trips.select { |trip| trip.date >= Date.today - 1.month }
-
     if params[:trip] && params[:trip][:car] != ""
       @trips = @trips.select { |trip| trip.car == Car.find(params[:trip][:car])}
     end
