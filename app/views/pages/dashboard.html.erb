@@ -67,28 +67,30 @@
         <h3>My<strong>Cars</strong></h3>
           <% @cars.each do |car| %>
             <%= link_to account_path(:id) do %>
-              <div class="position-relative d-flex border bg-my-white p-4 m-2 rounded-4 justify-content-center">
-                <% if car.photo.present? %>
-                  <%= cl_image_tag car.photo.key,
-                        width: 350, crop: :fill, class: "rounded-4"
-                  %>
-                <% else %>
-                  <%= image_tag "car.jpg", style: 'object-fit: cover;',
-                        width: '100%',
-                        class: "rounded-4";
+              <div class="d-flex border bg-my-white p-4 m-2 rounded-4 justify-content-center">
+                <div class="position-relative" >
+                  <% if car.photo.present? %>
+                    <%= cl_image_tag car.photo.key,
+                          width: 350, crop: :fill, class: "rounded-4"
                     %>
-                <% end %>
-                <% if car.total_car_reward * 50 > 1000 %>
-                  <div class="position-absolute badge bg-warning rounded-pill fs-6 m-2 p-2" style="height: fit-content;">
+                  <% else %>
+                    <%= image_tag "car.jpg", style: 'object-fit: cover;',
+                          width: '100%',
+                          class: "rounded-4";
+                      %>
+                  <% end %>
+                  <% if car.total_car_reward * 50 > 1000 %>
+                  <div class="position-absolute top-0 start-0 translate-middle badge bg-warning rounded-pill fs-6 m-2 p-2" style="height: fit-content;">
                     <%= car.total_car_reward * 50 %>
                     <i class="fa-solid fa-gem" style="margin: 2px;"></i>
                   </div>
                 <% else %>
-                  <div class="position-absolute badge bg-primary rounded-pill fs-6 m-2 p-2" style="height: fit-content;">
+                  <div class="position-absolute top-0 start-0 translate-middle badge bg-primary rounded-pill fs-6 m-2 p-2" style="height: fit-content;">
                     <%= car.total_car_reward * 50 %>
                     <i class="fa-solid fa-coins" style="margin: 2px;"></i>
                   </div>
                 <% end %>
+                </div>
               </div>
               <%# <%= pie_chart(
                 [[car.vehicle, car.total_car_reward],
