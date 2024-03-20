@@ -143,17 +143,17 @@ car5.save!
 
 # CREATE Stratigic Points IN database for the route Melbourne richmond - Sydney
 puts "Creating points..."
-sp1 = StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 2)
+sp1 = StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 5)
 sp2 = StrategicPoint.create!(address: "Murray Valley Hwy", latitude: -36.105694, longitude: 146.835505, danger: 3)
 sp3 = StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.696591, longitude: 150.022885, danger: 2)
 sp4 = StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363, longitude: 150.965241, danger: 4)
 sp5 = StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 5)
-sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 2)
+sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 3)
 sp7 = StrategicPoint.create!(address: "Princes Hwy/2", latitude: -38.109985, longitude: 146.888566, danger: 4)
-sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 1)
-sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 3)
-sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longitude: 143.913014, danger: 2)
-sp11 = StrategicPoint.create!(address: "Princes Fwy", latitude: -38.027610, longitude: 144.437139, danger: 2)
+sp8 = StrategicPoint.create!(address: "Great ocean Road", latitude: -38.426227, longitude: 144.168440, danger: 4)
+sp9 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -38.101590, longitude: 145.125872, danger: 4)
+sp10 = StrategicPoint.create!(address: "Nepean Hwy", latitude: -37.553680, longitude: 143.913014, danger: 3)
+sp11 = StrategicPoint.create!(address: "Princes Fwy", latitude: -38.027610, longitude: 144.437139, danger: 1)
 
 
 
@@ -184,6 +184,13 @@ ActualReward.create!(trip: sorrento, strategic_point: sp9)
 ActualReward.create!(trip: pi, strategic_point: sp9)
 ActualReward.create!(trip: torq, strategic_point: sp8)
 ActualReward.create!(trip: bend, strategic_point: sp1)
+ActualReward.create!(trip: ballarat, strategic_point: sp1)
+ActualReward.create!(trip: epping, strategic_point: sp1)
+ActualReward.create!(trip: torq, strategic_point: sp8)
+ActualReward.create!(trip: bend, strategic_point: sp1)
+ActualReward.create!(trip: ballarat, strategic_point: sp1)
+
+
 
 
 journey_pic = URI.open("app/assets/images/journey_1.jpg")
