@@ -76,6 +76,10 @@ group :test do
   gem "selenium-webdriver"
 end
 
+
+# redis action cable
+gem 'redis'
+
 # Faker for seed files
 gem 'faker'
 
@@ -90,4 +94,3 @@ gem "geocoder"
 
 # Use chartkick for graphic charts on dashboard
 gem "chartkick"
-
