@@ -13,8 +13,13 @@ class TripsController < ApplicationController
     end
 
     @total_points = []
+    @total_points_last_month = []
 
     @trips_last_month.each do |trip|
+      @total_points_last_month << trip.reward_point
+    end
+
+    @trips.each do |trip|
       @total_points << trip.reward_point
     end
 
