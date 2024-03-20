@@ -3,34 +3,29 @@
     <!-- Title with Trip Count -->
     <div class="point-calculator d-flex justify-content-between">
       <h2><strong><span class="main-title">My</span><span class="accent-title">Trips</span></strong></h2>
-      <p>You have made <%= @trips.count %> trips in the last month and you have <%= @total_points.sum * 50%> points! </p>
+      <p>You have made <%= @trips_last_month.count %> trips in the last month and you have <%= @total_points.sum * 50%> points! </p>
       <%= link_to "Add a trip", new_trip_path, class: "btn btn-warning rounded-4" %>
     </div>
     <hr>
-    <br>
-    <br>
     <!-- Display all the trips -->
     <div class="position-relative p-4 bg-white rounded-4 shadow-lg">
-      <div class="d-flex justify-content-end align-items-center">
-
-
-        <div class="d-flex align-items-center border rounded-4 p-3">
-
-          <%= simple_form_for :trip, url: trips_path, method: :get, data: { controller: 'datepicker' }, html: { class: "d-flex" } do |f| %>
-            <%= f.input :start_date, as: :string, input_html: { data: { datepicker_target: "startDate" } } %>
-            <%= f.input :end_date, as: :string, input_html: { data: { datepicker_target: "endDate" }, id: 'end_date' } %>
-            <div class="ms-3">
-              <%= f.label :car, "Search by car:" %>
-              <%= f.collection_select :car, @cars, :id, :vehicle, { prompt: "Select a vehicle" }, { class: "form-control" } %>
+        <%= simple_form_for :trip, url: trips_path, method: :get, data: { controller: 'datepicker' }, html: { class: "d-flex align-items-center border rounded-4 p-3" } do |f| %>
+          <div class="d-flex w-50 align-items-center px-2">
+            <div class="px-1">
+              Filter by date :
             </div>
-            <div class="ms-5">
-              <%= f.submit "Filter", class: "btn btn-warning rounded-4" %>
+            <%= f.input_field :start_date, label: false, as: :string, data: { datepicker_target: "startDate" } , class: "mx-1 px-1 border rounded-4 date-input" %>
+            <%= f.input_field :end_date,label: false, as: :string,  data: { datepicker_target: "endDate" } , class: "mx-1 px-1 border rounded-4 date-input" %>
+          </div>
+          <div class="d-flex w-50 align-items-center">
+            <div class="m-1">
+              Search by car:
             </div>
+            <%= f.collection_select :car, @cars, :id, :vehicle, { prompt: "Select a vehicle" }, { class: "form-control" } %>
+            <%= f.submit "Filter", class: "btn btn-warning rounded-4 m-1" %>
             <%= link_to "Reset", trips_path, class: "btn rounded-4" %>
-          <% end %>
-          <!-- Search by car -->
-        </div>
-      </div>
+          </div>
+        <% end %>
       <table class="table table-hover mt-4">
         <thead>
           <tr >

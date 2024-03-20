@@ -3,19 +3,18 @@ class TripsController < ApplicationController
     @user = current_user
     @cars = @user.cars
     @trips = @user.trips.sort_by{ |trip| trip.date}.reverse
+    @trips_last_month = @trips.select { |trip| trip.date >= Date.today - 1.month }
 
-    if params[:trip] && params[:trip][:car]
+    if params[:trip] && params[:trip][:car] != ""
       @trips = @trips.select { |trip| trip.car == Car.find(params[:trip][:car])}
     end
-    if params[:trip] && params[:start_date] && params[:end_date]
-      @trips = @trips.select { |trip| trip.date >= params[:start_date].to_date && trip.date <= params[:end_date].to_date }
+    if params[:trip] && params[:trip][:start_date] != "" && params[:trip][:end_date] != ""
+      @trips = @trips.select { |trip| trip.date >= params[:trip][:start_date].to_date && trip.date <= params[:trip][:end_date].to_date }
     end
-
-
 
     @total_points = []
 
-    @trips.each do |trip|
+    @trips_last_month.each do |trip|
       @total_points << trip.reward_point
     end
 
