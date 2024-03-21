@@ -1,8 +1,10 @@
+<br>
 <div class="feed row"
     data-controller="feed-subscription"
     data-feed-subscription-feed-id-value="<%= @feed.id %>">
-    <div class="mb-4">
-  <h2><strong><span class="main-title">Trip</span><span class="accent-title">Questers</span></strong></h2>
+    <div class="">
+  <h2 class="mb-4"><strong><span class="main-title">Trip</span><span class="accent-title">Questers</span></strong></h2>
+  <hr>
    </div>
     <div class="col-7">
       <div class="feed-scroll-box">
@@ -60,8 +62,8 @@
     <div class="col-5">
       <div class="m-2 p-4 bg-white rounded-4 shadow-lg border">
         <h3><strong>Leaderboard</strong></h3>
-        <% @users.first(5).each do |user| %>
-          <%= render "shared/my_level_display", user: user %>
+        <% @users.each do |user| %>
+          <%= render "pages/leaderboard", user: user %>
         <% end %>
       </div>
     </div>
