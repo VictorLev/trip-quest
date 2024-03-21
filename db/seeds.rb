@@ -26,6 +26,10 @@ StrategicPoint.destroy_all
 
 
 puts "Creating users..."
+
+
+
+
 # CREATE USERS IN DATABASE
 jane = User.create!(first_name: "Jane", last_name: "Doe", email: "jane@doe.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
 liam = User.create!(first_name: "Liam", last_name: "Mel", email: "liamel@gmail.com", password: "secret", age: 25, location: "Melbourne", gender: "male")
@@ -164,8 +168,8 @@ Feed.create!(name: "General fun")
 # CREATE Stratigic Points IN database for the route Melbourne richmond - Sydney
 puts "Creating points..."
 sp1 = StrategicPoint.create!(address: "Metropolitan Ring rd", latitude: -34.594619, longitude: 150.842759, danger: 350)
-sp2 = StrategicPoint.create!(address: "Murray Valley Hwy", latitude: -36.105694, longitude: 146.835505, danger: 150)
-sp3 = StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.696591, longitude: 150.022885, danger: 200)
+sp2 = StrategicPoint.create!(address: "Princes Hwy", latitude: -34.526374, longitude: 150.787291, danger: 450)
+sp3 = StrategicPoint.create!(address: "Remembrance Driveway", latitude: -34.671288, longitude: 150.138278, danger: 200)
 sp4 = StrategicPoint.create!(address: "South-Western Mtwy", latitude: -33.947363, longitude: 150.965241, danger: 50)
 sp5 = StrategicPoint.create!(address: "Boyd street", latitude: -37.063653, longitude: 149.891674, danger: 250)
 sp6 = StrategicPoint.create!(address: "Princes Hwy/1", latitude: -37.585287, longitude: 148.935202, danger: 150)
@@ -280,10 +284,6 @@ ActualReward.create!(trip: torq, strategic_point: sp8)
 ActualReward.create!(trip: og, strategic_point: sp11)
 ActualReward.create!(trip: bend, strategic_point: sp1)
 ActualReward.create!(trip: epping, strategic_point: sp13)
-ActualReward.create!(trip: ballarat, strategic_point: sp1)
-ActualReward.create!(trip: og, strategic_point: sp1)
-ActualReward.create!(trip: bend, strategic_point: sp1)
-ActualReward.create!(trip: epping, strategic_point: sp1)
 ActualReward.create!(trip: ballarat, strategic_point: sp1)
 ActualReward.create!(trip: sydney, strategic_point: sp2)
 ActualReward.create!(trip: drysdale, strategic_point: sp13)
