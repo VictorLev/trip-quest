@@ -65,8 +65,9 @@ class TripsController < ApplicationController
     if @trip.save
       if current_user.level > init_level
         redirect_to new_level_path
+      else
+        redirect_to trips_path
       end
-      redirect_to trips_path
     else
       render :new, status: :unprocessable_entity
     end
