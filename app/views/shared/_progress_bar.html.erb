@@ -1,9 +1,9 @@
 <%# <div class="h-100 d-flex p-4 bg-white rounded-4 shadow-lg align-items-center"> %>
 <div class="d-flex">
   <% if user.photo.present? %>
-    <%= cl_image_tag user.photo.key, height: 80, width: 80, crop: :fill, class: "rounded-4 mx-2 my-2" %>
+    <%= cl_image_tag user.photo.key, height: 80, width: 80, crop: :fill, class: "avatar mx-2 my-2" %>
   <% else %>
-    <%= image_tag "user.png", height: 40, class: "rounded-4" %>
+    <%= image_tag "user.png", height: 40, class: "avatar rounded-4" %>
   <% end %>
   </div>
   <div class="d-flex flex-column w-100 me-2">

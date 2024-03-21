@@ -99,6 +99,7 @@
       <div class="h-100 p-4 bg-white rounded-4 shadow-lg">
         <%= column_chart(@chart, colors: ["#fba834", "#280274"] ) %>
         <%= area_chart Trip.group_by_week(:date).count, colors: ["#fba834", "#280274"] %>
+        <%# <%= column_chart @chart_two  %> %>
 
         <%# <%= pie_chart([[car.vehicle, car.total_car_reward], %>
                       <%# ["Remaining", (@next_level - car.total_car_reward)]], %>
