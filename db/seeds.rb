@@ -12,6 +12,7 @@
 #  DESTROY ALL OBJECTS IN DATABASE
 puts "Deleting users..."
 User.destroy_all
+
 puts "Deleting cars..."
 Car.destroy_all
 puts "Deleting feed..."
@@ -288,10 +289,10 @@ ActualReward.create!(trip: sydney, strategic_point: sp2)
 ActualReward.create!(trip: drysdale, strategic_point: sp13)
 ActualReward.create!(trip: wollongong, strategic_point: sp3)
 
+# journey_pic = URI.open("app/assets/images/journey_1.jpg")
+# Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
+# Trip.first.save!
 
-journey_pic = URI.open("app/assets/images/journey_1.jpg")
-Trip.first.photo.attach(io: journey_pic, filename: "journey_1.jpg", content_type: "image/jpg")
-Trip.first.save!
 
 wp_pic = URI.open("app/assets/images/wilsons_prom.png")
 wp.photo.attach(io: wp_pic, filename: "wilsons_prom.png", content_type: "image/png")

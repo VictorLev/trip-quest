@@ -9,5 +9,6 @@ export default class extends Controller {
     e.preventDefault()
     const modal = document.getElementById('modal');
     modal.innerHTML = "";
+
   }
 }

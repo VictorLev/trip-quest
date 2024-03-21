@@ -1,5 +1,6 @@
 class TripsController < ApplicationController
   def index
+
     @user = current_user
     @cars = @user.cars
     @trips = @user.trips.sort_by{ |trip| trip.date}.reverse
@@ -43,6 +44,7 @@ class TripsController < ApplicationController
 
   def create
     current_date = Date.today
+    init_level = current_user.level
     @trip = Trip.new(
       date: current_date,
       name: trip_params[:name],
@@ -61,7 +63,11 @@ class TripsController < ApplicationController
     @trip.reward_point = @trip.sum_reward
 
     if @trip.save
-      redirect_to trips_path
+      if current_user.level > init_level
+        redirect_to new_level_path
+      else
+        redirect_to trips_path
+      end
     else
       render :new, status: :unprocessable_entity
     end
