@@ -39,7 +39,7 @@
         <% end %>
         <table class="table table-hover mt-4">
           <tbody>
-          <% @trips.each do |trip| %>
+          <% @trips.first(5).each do |trip| %>
             <%= render partial: 'trips/trip', locals: { trip: trip } %>
           <% end %>
           </tbody>
@@ -90,21 +90,22 @@
                 <% end %>
                 </div>
               </div>
-              <%# <%= pie_chart(
-                [[car.vehicle, car.total_car_reward],
-                ["Remaining", (@next_level - car.total_car_reward)]],
-                # suffix: "%",
-                colors: ["#fba834", "#280274"],
-                donut: true )
-              %>
             <% end %>
           <% end %>
       </div>
     </div>
-    <!-- TBC -->
+    <!-- Chart -->
     <div class="col-7">
       <div class="h-100 p-4 bg-white rounded-4 shadow-lg">
-      </div>
-    </div>
+        <%= column_chart(@chart, colors: ["#fba834", "#280274"] ) %>
+        <%= area_chart Trip.group_by_week(:date).count, colors: ["#fba834", "#280274"] %>
+
+        <%# <%= pie_chart([[car.vehicle, car.total_car_reward], %>
+                      <%# ["Remaining", (@next_level - car.total_car_reward)]], %>
+                      <%# suffix: "%", %>
+                      <%# %>
+                      <%# donut: true ) %>
+      <%# </div> %>
+    <%# </div> %>
   </div>
 </div>

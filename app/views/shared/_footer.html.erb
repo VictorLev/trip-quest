@@ -12,7 +12,7 @@
     <ul class="footer-links">
       <li><%= link_to "Rewards Zones", "/strategic-points" %></li>
       <li><%= link_to "Insurance level", insurers_path %></li>
-      <li><%= link_to "Planned roots", user_planned_routes_path(current_user) %></li>
+      <li><%= link_to "Planned routes", user_planned_routes_path(current_user) %></li>
     </ul>
 
     <ul class="footer-links">
@@ -23,7 +23,7 @@
     <ul class="footer-links">
       <li><%= link_to "MyTrips", trips_path %></li>
       <li><%= link_to "MyFriends", feed_path(Feed.find_by(name: "TripQuesters").id) %></li>
-      <li><%= link_to "JourneyCalculator", new_user_planned_route_path(current_user) %></li>
+      <%# <li><%= link_to "JourneyCalculator", new_user_planned_route_path(current_user) %></li>
     </ul>
     <% end %>
   </div>
