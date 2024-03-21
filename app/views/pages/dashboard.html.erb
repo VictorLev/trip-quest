@@ -65,7 +65,7 @@
         <h3>My<strong>Cars</strong></h3>
           <% @cars.each do |car| %>
             <%= link_to account_path(:id) do %>
-              <div class="d-flex border bg-my-white p-4 m-2 rounded-4 justify-content-center">
+              <div class="d-flex p-4 m-2 rounded-4 justify-content-center">
                 <div class="position-relative" >
                   <% if car.photo.present? %>
                     <%= cl_image_tag car.photo.key,
@@ -79,13 +79,11 @@
                   <% end %>
                   <% if car.total_car_reward > 1000 %>
                   <div class="position-absolute top-0 start-0 translate-middle badge bg-warning rounded-pill fs-6 m-2 p-2" style="height: fit-content;">
-                    <%= car.total_car_reward %>
-                    <i class="fa-solid fa-gem" style="margin: 2px;"></i>
+                    <strong><i class="fa-solid fa-gem fa-lg mx-1 my-2"></i><%= car.total_car_reward %></strong>
                   </div>
                 <% else %>
                   <div class="position-absolute top-0 start-0 translate-middle badge bg-primary rounded-pill fs-6 m-2 p-2" style="height: fit-content;">
-                    <%= car.total_car_reward %>
-                    <i class="fa-solid fa-coins" style="margin: 2px;"></i>
+                    <strong><i class="fa-solid fa-coins fa-lg mx-1 my-2"></i><%= car.total_car_reward %></strong>
                   </div>
                 <% end %>
                 </div>
@@ -97,8 +95,10 @@
     <!-- Chart -->
     <div class="col-7">
       <div class="h-100 p-4 bg-white rounded-4 shadow-lg">
-        <%= column_chart(@chart, colors: ["#fba834", "#280274"] ) %>
-        <%= area_chart Trip.group_by_week(:date).count, colors: ["#fba834", "#280274"] %>
+        <%# <%= column_chart(@chart, colors: ["#fba834", "#280274"] ) %>
+        <%= column_chart(current_user.trips.group_by_month(:date, format:"%b" ).sum(:reward_point), colors: ["#fba834", "#280274"] ) %>
+        <%= area_chart current_user.trips.group_by_week(:date).count, colors: ["#fba834", "#280274"] %>
+        <%# <%= column_chart @chart_two  %>
 
         <%# <%= pie_chart([[car.vehicle, car.total_car_reward], %>
                       <%# ["Remaining", (@next_level - car.total_car_reward)]], %>
