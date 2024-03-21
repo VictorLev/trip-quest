@@ -22,8 +22,8 @@
             <p><%= @trip.date.strftime("%A, %B %d, %Y") %></p>
             <div class="border rounded-4 p-3 m-3 me-3">
               <div class="badge bg-primary rounded-pill bg-git fs-6">
-                <%= @trip.reward_point %>
                 <i class="fa-solid fa-coins"></i>
+                <%= @trip.reward_point %>
               </div>
               <p>Car: <%= @trip.car.vehicle%></p>
               <div class="d-flex">

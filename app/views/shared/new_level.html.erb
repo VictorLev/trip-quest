@@ -1,5 +1,19 @@
-<% if current_user.new_level %>
-  <%= render partial: "shared/new_level" %>
+<%= turbo_frame_tag 'modal' do %>
+  <div data-controller="modals">
+    <div class="mymodal-overlay" data-action="click->modals#close"></div>
+    <div class="mymodal bg-white w-50">
+      <div class="position-absolute top-0 end-0 p-3">
+        <%= link_to trips_path, data: {
+            action: "modals#close"
+          } do %>
+          <i class="fa-solid fa-x"></i>
+        <% end %>
+      </div>
+      <div>
+        NEW LEVEL TEST!!!!
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <div class="container">

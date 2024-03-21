@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "/strategic-points" => "pages#strategic_points", as: :strategic_points
 
   get "/feeds" => "feeds#index", as: :feeds
+  get "/new_level" => "pages#new_level", as: :new_level
 
 
   resources :users, only: [] do

@@ -19,4 +19,8 @@ class PagesController < ApplicationController
       }
     end
   end
+
+  def new_level
+    @user = current_user
+  end
 end

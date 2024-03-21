@@ -46,20 +46,17 @@ export default class extends Controller {
   save(event) {
     event.preventDefault()
 
-    // Update the values of the start and end targets
-    this.startpointTarget.value = this.direction.getOrigin().geometry.coordinates.toString();
-    this.endpointTarget.value = this.direction.getDestination().geometry.coordinates.toString();
+    this.startpointTarget.value = this.#swapCoordinates(this.direction.getOrigin().geometry.coordinates);
+    this.endpointTarget.value = this.#swapCoordinates(this.direction.getDestination().geometry.coordinates);
 
     console.log(this.startpointTarget.value);
     console.log(this.endpointTarget.value);
 
     // Submit the form
     this.formTarget.submit();
-
   }
 
   calculate() {
-
     this.#removeAllWayPoints()
     // Check if the direction has been set
     if ( Object.keys(this.direction.getOrigin()).length !== 0 && Object.keys(this.direction.getDestination()).length !== 0) {
@@ -80,6 +77,10 @@ export default class extends Controller {
       // Update the reward target
       this.rewardTarget.innerText = reward;
     }
+  }
+
+  #swapCoordinates(coordinates) {
+    return [coordinates[1], coordinates[0]].toString();
   }
 
   #removeAllWayPoints() {
