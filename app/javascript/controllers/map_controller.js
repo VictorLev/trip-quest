@@ -28,6 +28,9 @@ export default class extends Controller {
     //   // Set start and end markers
     // new mapboxgl.Marker().setLngLat(startcoor).addTo(this.map);
     // new mapboxgl.Marker().setLngLat(endcoor).addTo(this.map);
+    console.log(startcoor)
+    console.log(endcoor)
+    console.log(waycoor)
 
     this.#displayRoute(startcoor,waycoor,endcoor)
 
