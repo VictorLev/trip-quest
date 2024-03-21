@@ -16,6 +16,38 @@
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
 }
 
+.mymodal-new {
+  position: fixed;
+  z-index: 9999;
+  padding: 2em;
+
+  /* Centering */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  /* Add the drop shadow */
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
+
+  /* Animation */
+  animation: fadeInAndSlide 0.5s ease forwards;
+}
+
+@keyframes fadeInAndSlide {
+  0% {
+    top: -100%;
+    opacity: 0;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
 .mymodal-overlay {
   position: fixed;
   top: 0;
@@ -23,5 +55,15 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.5);
+  z-index: 9998;
+}
+
+.mymodal-new-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
   z-index: 9998;
 }

@@ -1,0 +1,87 @@
+
+<div data-controller="confetti" data-action="load->confetti#spray">
+  <%= link_to trips_path do %>
+    <div class="mymodal-new-overlay">
+    </div>
+  <% end %>
+  <div class="mymodal-new bg-white w-50">
+    <div class="position-absolute top-0 end-0 p-3">
+      <%= link_to trips_path do %>
+        <i class="fa-solid fa-x"></i>
+      <% end %>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <h2>🎉Congralutions! You have reached level <%= current_user.level %>!🎉</h2>
+      <p class="p-4">
+        since you have reached level <%= current_user.level %>, you have unlocked the following benefits:<br>
+        <ul class="">
+          <li><%= current_user.level * 2 %>% discount your car insurance</li>
+          <li>New reward zones are now available</li>
+          <li>Your current rewards zones now give you more points</li>
+          <li>You can now have up to 3 cars in your account</li>
+        </ul>
+        Go share your achievement with your friends and family and let them know how they can also benefit from the rewards of being a responsible driver!
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="m-4">
+    <!-- Title with Trip Count -->
+    <div class="point-calculator d-flex justify-content-between">
+      <h2><strong><span class="main-title">My</span><span class="accent-title">Trips</span></strong></h2>
+      <p>You have made <%= @trips_last_month.count %> trips in the last month and you have gained <%= @total_points_last_month.sum %> points! </p>
+      <%= link_to "Add a trip", new_trip_path, class: "btn btn-warning rounded-4" %>
+    </div>
+    <hr>
+    <!-- Display all the trips -->
+    <div class="position-relative p-4 bg-white rounded-4 shadow-lg">
+        <%= simple_form_for :trip, url: trips_path, method: :get, data: { controller: 'datepicker' }, html: { class: "d-flex align-items-center border rounded-4 p-3" } do |f| %>
+          <div class="d-flex w-50 align-items-center px-2">
+            <div class="px-1">
+              Filter by date :
+            </div>
+            <%= f.input_field :start_date, label: false, as: :string, data: { datepicker_target: "startDate" } , class: "mx-1 px-1 border rounded-2 date-input" %>
+            <%= f.input_field :end_date,label: false, as: :string,  data: { datepicker_target: "endDate" } , class: "mx-1 px-1 border rounded-2 date-input" %>
+          </div>
+          <div class="d-flex w-50 align-items-center justify-content-between">
+            <div class="px-1">
+              Filter by car:
+              <%= f.collection_select :car, @cars, :id, :vehicle, { prompt: "Select a vehicle" }, { class: "mx-1 px-1 border rounded-2 date-input" } %>
+            </div>
+            <div>
+              <%= f.submit "Filter", class: "btn btn-warning rounded-4 m-1" %>
+              <%= link_to "Reset", trips_path, class: "btn rounded-4" %>
+            </div>
+          </div>
+        <% end %>
+      <table class="table table-hover mt-4">
+        <thead>
+          <tr >
+            <th class="bg-white" scope="col">Trips</th>
+            <th class="bg-white" scope="col">Car</th>
+            <th class="bg-white" scope="col">Date</th>
+            <th class="bg-white" scope="col">
+              <div class="d-flex justify-content-end align-items-center ">
+                <div class="me-3">
+                  TotalPoints
+                </div>
+                <div class="fs-3 rounded-4 px-2 py-1 orange-pill font-weight-normal">
+                  <i class="fa-solid fa-coins"></i>
+                  <%= @total_points.sum  %>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @trips.each do |trip| %>
+          <%= render partial: 'trips/trip', locals: { trip: trip } %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -26,9 +26,6 @@
             <%= link_to "MyFeed", feed_path(Feed.find_by(name: "TripQuesters").id), class: "nav-link #{'active' if current_page?(feed_path(Feed.find_by(name: "TripQuesters").id))}", style: "font-size: larger" %>
           </li> |
           <li class="nav-item mx-2">
-            <%= link_to "JourneyCalculator", new_user_planned_route_path(current_user), class: "nav-link #{'active' if current_page?(new_user_planned_route_path(current_user))}", style: "font-size: larger" %>
-          </li> |
-          <li class="nav-item mx-2">
             <%= link_to "Insurance", insurers_path, class: "nav-link #{'active' if current_page?(insurers_path)}", style: "font-size: larger" %>
           </li>
           <li class="nav-item dropdown">
@@ -40,16 +37,21 @@
               <% if current_user&.photo.present? %>
                 <%= cl_image_tag current_user.photo.key, height: 50,
                   width: 50, crop: :fill,
-                  class: "avatar", alt: "dropdown menu" %>
+                  class: "avatar m-1 border", alt: "dropdown menu" %>
               <% else %>
                 <%= image_tag "user.png", class: "avatar" %>
               <% end %>
             </div>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "JourneyCalculator", new_user_planned_route_path(current_user), class: "dropdown-item"%>
               <%= link_to "Rewards Zones", "/strategic-points" , class: "dropdown-item" %>
+<<<<<<< HEAD
               <%= link_to "Planned routes", user_planned_routes_path(current_user), class: "dropdown-item" %>
               <%= link_to "Planned routes", new_user_session_path, class: "dropdown-item" %>
+=======
+              <%#= link_to "Planned routes", user_id_planned_routes_path(current_user) , class: "dropdown-item" %>
+>>>>>>> master
               <%= link_to "Settings", user_path , class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

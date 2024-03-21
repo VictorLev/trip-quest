@@ -23,7 +23,7 @@
     <ul class="footer-links">
       <li><%= link_to "MyTrips", trips_path %></li>
       <li><%= link_to "MyFriends", feed_path(Feed.find_by(name: "TripQuesters").id) %></li>
-      <li><%= link_to "JourneyCalculator", new_user_planned_route_path(current_user) %></li>
+      <%# <li><%= link_to "JourneyCalculator", new_user_planned_route_path(current_user) %></li>
     </ul>
     <% end %>
   </div>

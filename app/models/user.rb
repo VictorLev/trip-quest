@@ -15,6 +15,15 @@ class User < ApplicationRecord
   has_many :projected_rewards, through: :planned_routes
   has_many :trips, through: :cars
 
+
+  # attr_accessor :new_level
+  # attr_accessor :module_shown
+
+  # def initialize(new_level = false, module_shown = false)
+  #   @new_level = new_level
+  #   @module_shown = module_shown
+  # end
+
   def level
     total_rewards / 1000
   end

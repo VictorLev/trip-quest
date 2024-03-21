@@ -14,16 +14,18 @@
             <div class="px-1">
               Filter by date :
             </div>
-            <%= f.input_field :start_date, label: false, as: :string, data: { datepicker_target: "startDate" } , class: "mx-1 px-1 border rounded-4 date-input" %>
-            <%= f.input_field :end_date,label: false, as: :string,  data: { datepicker_target: "endDate" } , class: "mx-1 px-1 border rounded-4 date-input" %>
+            <%= f.input_field :start_date, label: false, as: :string, data: { datepicker_target: "startDate" } , class: "mx-1 px-1 border rounded-2 date-input" %>
+            <%= f.input_field :end_date,label: false, as: :string,  data: { datepicker_target: "endDate" } , class: "mx-1 px-1 border rounded-2 date-input" %>
           </div>
-          <div class="d-flex w-50 align-items-center">
-            <div class="m-1">
-              Search by car:
+          <div class="d-flex w-50 align-items-center justify-content-between">
+            <div class="px-1">
+              Filter by car:
+              <%= f.collection_select :car, @cars, :id, :vehicle, { prompt: "Select a vehicle" }, { class: "mx-1 px-1 border rounded-2 date-input" } %>
             </div>
-            <%= f.collection_select :car, @cars, :id, :vehicle, { prompt: "Select a vehicle" }, { class: "form-control" } %>
-            <%= f.submit "Filter", class: "btn btn-warning rounded-4 m-1" %>
-            <%= link_to "Reset", trips_path, class: "btn rounded-4" %>
+            <div>
+              <%= f.submit "Filter", class: "btn btn-warning rounded-4 m-1" %>
+              <%= link_to "Reset", trips_path, class: "btn rounded-4" %>
+            </div>
           </div>
         <% end %>
       <table class="table table-hover mt-4">
@@ -38,8 +40,8 @@
                   TotalPoints
                 </div>
                 <div class="fs-3 rounded-4 px-2 py-1 orange-pill font-weight-normal">
-                  <%= @total_points.sum  %>
                   <i class="fa-solid fa-coins"></i>
+                  <%= @total_points.sum  %>
                 </div>
               </div>
             </th>
