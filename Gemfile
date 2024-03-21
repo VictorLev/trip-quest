@@ -94,3 +94,7 @@ gem "geocoder"
 
 # Use chartkick for graphic charts on dashboard
 gem "chartkick"
+
+# Use group date to group records by dates
+gem "groupdate"
+
