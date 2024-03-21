@@ -1,7 +1,9 @@
 
-<div data-controller="confetti" data-action="load->confetti#spray">
+<div class="position-relative">
   <%= link_to trips_path do %>
     <div class="mymodal-new-overlay">
+      <canvas data-controller="customconfetti" class="w-100 h-100 position-absolute">
+      </canvas>
     </div>
   <% end %>
   <div class="mymodal-new bg-white w-50">
