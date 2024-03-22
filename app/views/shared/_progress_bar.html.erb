@@ -1,23 +1,30 @@
-<%# <div class="h-100 d-flex p-4 bg-white rounded-4 shadow-lg align-items-center"> %>
-<div class="d-flex border p-2 mb-2 rounded-4 align-items-center">
+<% if current_user == user %>
+  <div class="d-flex border p-2 mb-2 rounded-4 align-items-center bg-my-white">
+<% else %>
+  <div class="d-flex border p-2 mb-2 rounded-4 align-items-center">
+<% end %>
+
   <div class="d-flex align-items-center">
-  <div class="fs-1 mx-2"><strong><%= index + 1 %></strong> </div>
+    <div class="fs-1 mx-2"><strong><%= index + 1 %></strong></div>
     <% if user.photo.present? %>
       <%= cl_image_tag user.photo.key, height: 80, width: 80, crop: :fill, class: "avatar mx-2 my-2" %>
     <% else %>
       <%= image_tag "user.png", height: 40, class: "avatar rounded-4" %>
     <% end %>
-    </div>
     <div class="d-flex flex-column w-100 me-2">
       <div class="fs-6 mx-2 my-2 d-flex justify-content-between">
         <strong><%= user.first_name %> <%= user.last_name %></strong>
         <strong><i class="fa-solid fa-star fa-lg mx-1 my-2"></i> Level <%= user.level %></strong>
       </div>
 
-      <div class="progress d-flex rounded-4 mx-2 my-2 w-100"   style="height: 40px">
-        <div class="progress-bar bg-warning" role="progressbar" style="width: <%=user.calculate_points_to_next_level%>%" aria-valuenow="<%=user.calculate_points_to_next_level%>" aria-valuemin="0" aria-valuemax="100"><p class="fs-6"><strong><i class="fa-solid fa-coins fa-lg" style="margin: 2px;"></i> <%= user.total_rewards %></strong></p> </div>
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%=100 - user.calculate_points_to_next_level.round%>%" aria-valuenow="<%=100 - user.calculate_points_to_next_level.round%>" aria-valuemin="0" aria-valuemax="100"><p><strong> </p></strong></div>
+      <div class="progress d-flex rounded-4 mx-2 my-2 w-100" style="height: 40px">
+        <div class="progress-bar bg-warning" role="progressbar" style="width: <%= user.calculate_points_to_next_level %>%" aria-valuenow="<%= user.calculate_points_to_next_level %>" aria-valuemin="0" aria-valuemax="100">
+          <p class="fs-6"><strong><i class="fa-solid fa-coins fa-lg" style="margin: 2px;"></i> <%= user.total_rewards %></strong></p>
+        </div>
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= 100 - user.calculate_points_to_next_level.round %>%" aria-valuenow="<%= 100 - user.calculate_points_to_next_level.round %>" aria-valuemin="0" aria-valuemax="100">
+          <p><strong></strong></p>
+        </div>
       </div>
+    </div>
   </div>
 </div>
-<%# </div> %>
