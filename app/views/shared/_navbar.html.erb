@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/", class: "ms-4" do %>
+    <%= link_to "/dashboard", class: "ms-4" do %>
       <div class="d-flex align-items-center">
         <%= image_tag "logo.png", size: "45x45", class: "mb-2" %>
         <h2 class="ms-1"><strong><span class="main-title">Trip</span><span class="accent-title text-white">Quest</span></strong></h2>
@@ -17,7 +17,7 @@
       <ul class="navbar-nav me-auto d-flex align-items-center text-white">
         <% if user_signed_in? %>
           <li class="nav-item mx-2">
-            <%= link_to "Dashboard", "/", class: "nav-link #{'active' if current_page?("/")}", style: "font-size: larger" %>
+            <%= link_to "Dashboard", "/dashboard", class: "nav-link #{'active' if current_page?("/")}", style: "font-size: larger" %>
           </li> |
           <li class="nav-item mx-2">
             <%= link_to "MyTrips", trips_path, class: "nav-link #{'active' if current_page?(trips_path)}", style: "font-size: larger" %>

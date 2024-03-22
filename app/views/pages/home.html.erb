@@ -1,0 +1,40 @@
+  <div class="dashboard-bg" style="background-image: url(<%= asset_path 'family.jpg' %>);">
+    <div class="dashboard-overlay">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 text-center text-white">
+          <div class="my-4 half-height">
+            <br>
+            <br>
+            <%= image_tag "logo.png", size: "200x200", class: "mb-2" %>
+            <br>
+            <h1 class="display-4 text-white">Welcome to <strong><span class="main-title">Trip</span><span class="accent-title text-white">Quest</span></strong></h1>
+            <p class="lead">The best way to plan your trips and earn rewards</p>
+          </div>
+        </div>
+      <div class="">
+        <h2 class="text-white">
+          Developped by :
+        </h2>
+        <div class="d-flex justify-content-center">
+          <%= image_tag "user.png", class: "avatar mx-4" %>
+          <%= image_tag "user.png", class: "avatar mx-4" %>
+          <%= image_tag "user.png", class: "avatar mx-4" %>
+          <%= image_tag "user.png", class: "avatar mx-4" %>
+        </div>
+      </div>
+
+        <div class="col-md-6 offset-md-3 text-center text-white">
+          <div class="my-4">
+            <h2 class="display-4 text-white">Join us now!</h2>
+            <p class="lead">Sign up and start planning your trips</p>
+            <br>
+            <br>
+            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= render "insurers/stats" %>
+  </div>
