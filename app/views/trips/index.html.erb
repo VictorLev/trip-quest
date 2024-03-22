@@ -2,12 +2,11 @@
 <div class="container">
   <div class="">
     <!-- Title with Trip Count -->
-    <div class="point-calculator d-flex justify-content-between">
+    <div class="point-calculator d-flex justify-content-between mb-4">
       <h2><strong><span class="main-title">My</span><span class="accent-title">Trips</span></strong></h2>
       <p>You have made <%= @trips_last_month.count %> trips in the last month and you have gained <%= @total_points_last_month.sum %> points! </p>
       <%= link_to "Add a trip", new_trip_path, class: "btn btn-warning rounded-4" %>
     </div>
-    <hr>
     <!-- Display all the trips -->
     <div class="position-relative p-4 bg-white rounded-4 shadow-lg">
         <%= simple_form_for :trip, url: trips_path, method: :get, data: { controller: 'datepicker' }, html: { class: "d-flex align-items-center border rounded-4 p-3" } do |f| %>
