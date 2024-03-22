@@ -22,9 +22,13 @@
     <%= turbo_frame_tag 'modal' %>
     <%= render "shared/navbar"  %>
     <%= render "shared/flashes" %>
-    <div class="container py-4 flex-grow-1">
+    <% unless current_page?("/") %>
+     <div class="container py-4 flex-grow-1">
+    <% end %>
       <%= yield %>
+    <% unless current_page?("/") %>
     </div>
     <%= render "shared/footer"%>
+    <% end %>
   </body>
 </html>
