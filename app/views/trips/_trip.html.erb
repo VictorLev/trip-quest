@@ -8,9 +8,9 @@
   <td class="bg-white align-middle text-left" ><%= trip.date.strftime("%B %d, %Y") %></td>
   <td class="bg-white" >
     <div class="d-flex justify-content-end">
-      <div class="fs-3 rounded-4 px-2 py-1 orange-pill">
-        <i class="fa-solid fa-coins"></i>
-        <%= trip.reward_point %>
+      <div class="badge bg-primary rounded-pill fs-5 m-2 p-2" style="height: fit-content;">
+          <strong><i class="fa-solid fa-coins fa-lg mx-1 my-2"></i> <%= trip.reward_point   %></strong>
+        </div>
       </div>
     </div>
   </td>
