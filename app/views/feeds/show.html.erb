@@ -62,8 +62,8 @@
     <div class="col-5">
       <div class="m-2 p-4 bg-white rounded-4 shadow-lg border">
         <h3><strong>Leaderboard</strong></h3>
-        <% @users.each do |user| %>
-          <%= render "pages/leaderboard", user: user %>
+        <% @users.each_with_index do |user, index| %>
+          <%= render partial: "shared/progress_bar", locals: { user: user, index: index }%>
         <% end %>
       </div>
     </div>

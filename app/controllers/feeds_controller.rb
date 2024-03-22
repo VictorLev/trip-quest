@@ -3,7 +3,9 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
     @posts = Post.where(feed_id: params[:id]).order("created_at DESC")
     @post = Post.new
-    @users = User.all
+    users = User.all
+    @users = users.sort_by { |user| user.total_rewards }.reverse
+  
     @user = current_user
     @feeds = Feed.all
   end
