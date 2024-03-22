@@ -1,29 +1,29 @@
 <div class="footer">
-  <div class="footer-socials">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
+  <div class="mt-1 footer-socials">
+    <a href="#"><i class="mx-2 fab fa-github fa-sm"></i></a>
+    <a href="#"><i class="mx-2 fab fa-instagram fa-sm"></i></a>
+    <a href="#"><i class="mx-2 fab fa-facebook fa-sm"></i></a>
+    <a href="#"><i class="mx-2 fab fa-twitter fa-sm"></i></a>
+    <a href="#"><i class="mx-2 fab fa-linkedin fa-sm"></i></a>
   </div>
 
-  <div class="d-flex justify-content-center pt-5">
+  <div class="d-flex justify-content-center pt-3">
       <% if current_user %>
     <ul class="footer-links">
-      <li><%= link_to "Rewards Zones", "/strategic-points" %></li>
-      <li><%= link_to "Insurance level", insurers_path %></li>
-      <li><%= link_to "Planned routes", user_planned_routes_path(current_user) %></li>
+      <li style="font-size: small;"><%= link_to "Rewards Zones", "/strategic-points" %></li>
+      <li style="font-size: small;"><%= link_to "Insurance level", insurers_path %></li>
+      <li style="font-size: small;"><%= link_to "Planned routes", user_planned_routes_path(current_user) %></li>
     </ul>
 
     <ul class="footer-links">
-      <li><%= link_to "Dashboard", "/" %></li>
-      <li><%= link_to "Settings", user_path %></li>
-      <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+      <li style="font-size: small;"><%= link_to "Dashboard", "/" %></li>
+      <li style="font-size: small;"><%= link_to "Settings", user_path %></li>
+      <li style="font-size: small;"><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
     </ul>
     <ul class="footer-links">
-      <li><%= link_to "MyTrips", trips_path %></li>
-      <li><%= link_to "MyFriends", feed_path(Feed.find_by(name: "TripQuesters").id) %></li>
-      <%# <li><%= link_to "JourneyCalculator", new_user_planned_route_path(current_user) %></li>
+      <li style="font-size: small;"><%= link_to "MyTrips", trips_path %></li>
+      <li style="font-size: small;"><%= link_to "MyFriends", feed_path(Feed.find_by(name: "TripQuesters").id) %></li>
+      <li style="font-size: small;"><%= link_to "JourneyCalculator", new_user_planned_route_path(current_user) %></li>
     </ul>
     <% end %>
   </div>

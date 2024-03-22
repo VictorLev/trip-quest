@@ -24,8 +24,8 @@
               <%= f.collection_select :car, @cars, :id, :vehicle, { prompt: "Select a vehicle" }, { class: "mx-1 px-1 border rounded-2 date-input" } %>
             </div>
             <div>
-              <%= f.submit "Filter", class: "btn btn-warning rounded-4 m-1" %>
               <%= link_to "Reset", trips_path, class: "btn rounded-4" %>
+              <%= f.submit "Filter", class: "btn btn-warning rounded-4 m-1" %>
             </div>
           </div>
         <% end %>
@@ -40,7 +40,7 @@
                  <div class="me-3" style="color: #575E60;">
                   TotalPoints
                 </div>
-                  <div class="badge bg-warning rounded-pill fs-4 m-2 p-2" style="height: fit-content;">
+                  <div class="badge bg-success rounded-pill fs-4 m-2 p-2" style="height: fit-content;">
                     <strong><i class="fa-solid fa-gem fa-lg mx-1 my-2"></i> <%= @total_points.sum  %></strong>
                   </div>
                 </div>
