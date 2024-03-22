@@ -22,13 +22,16 @@
       </div>
 
       <div class="progress d-flex rounded-4 mx-2 my-2 w-100" style="height: 40px">
-        <div class="progress-bar bg-warning" role="progressbar" style="width: <%= user.calculate_points_to_next_level %>%" aria-valuenow="<%= user.calculate_points_to_next_level %>" aria-valuemin="0" aria-valuemax="100">
+
+          <div class="progress-bar bg-warning" role="progressbar" style="width: <%= user.calculate_points_to_next_level %>%" aria-valuenow="<%= user.calculate_points_to_next_level %>" aria-valuemin="0" aria-valuemax="100">
+          </div>
+          <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= 100 - user.calculate_points_to_next_level.round %>%" aria-valuenow="<%= 100 - user.calculate_points_to_next_level.round %>" aria-valuemin="0" aria-valuemax="100">
+            <p><strong></strong></p>
+          </div>
+        <div class="mt-2 ms-2 position-absolute text-center text-white">
           <p class="fs-6">
             <strong><i class="fa-solid fa-coins fa-lg" style="margin: 2px;"></i> <%= user.total_rewards %></strong>
           </p>
-        </div>
-        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= 100 - user.calculate_points_to_next_level.round %>%" aria-valuenow="<%= 100 - user.calculate_points_to_next_level.round %>" aria-valuemin="0" aria-valuemax="100">
-          <p><strong></strong></p>
         </div>
       </div>
     </div>

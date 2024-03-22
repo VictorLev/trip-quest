@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :home
+
   def dashboard
     @user = current_user
     @cars = current_user.cars
@@ -64,6 +66,10 @@ class PagesController < ApplicationController
     @trips.each do |trip|
       @total_points << trip.reward_point
     end
+
+  end
+
+  def home
 
   end
 end

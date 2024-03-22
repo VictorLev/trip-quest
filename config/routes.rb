@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'stimulus/flatpickr'
   get 'planned_routes/show'
+
   devise_for :users
-  root to: "pages#dashboard"
+
+  get "/" => "pages#home", as: :home
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -14,6 +16,9 @@ Rails.application.routes.draw do
 
 
   #this is a comment
+
+
+  get "/dashboard" => "pages#dashboard", as: :dashboard
 
   get "/account" => "users#show", as: :user
   patch "/account" => "users#update"
