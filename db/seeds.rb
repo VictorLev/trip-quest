@@ -156,6 +156,18 @@ jeep = URI.open("app/assets/images/jeep.jpg")
 car6.photo.attach(io: jeep, filename: "jeep.jpg", content_type: "image/jpg")
 car6.save!
 
+car7 = Car.create!(vehicle: "Ford",
+  transmission: "Manual",
+  color: "white",
+  year: 2022,
+  kilometers: "",
+  price: "12000",
+  insurer: Insurer.fourth,
+  user_id: james.id)
+
+ford = URI.open("app/assets/images/ford.jpg")
+car7.photo.attach(io: ford, filename: "ford.jpg", content_type: "image/jpg")
+car7.save!
 
 # CREATE FEED IN DATABASE
 puts "Creating feed..."
@@ -268,14 +280,24 @@ sydney = Trip.create!(start_point: "-37.797219, 144.987657", end_point: "-33.958
 drysdale = Trip.create!(start_point: "-37.868674, 144.765000", end_point: "-38.159533,144.581264", reward_point: sp11.danger, date: "01/03/2024", name: "Drysdale", car: car6)
 wollongong = Trip.create!(start_point: "-34.808265, 149.596138", end_point: "-34.673787, 150.488712", reward_point: sp3.danger, date: "01/03/2024", name: "Drysdale", car: car6)
 callala = Trip.create!(start_point: "-34.064571, 151.018094", end_point: "-35.029419, 150.627125", reward_point: sp1.danger, date: "15/03/2024", name: "Drysdale", car: car6)
-gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864,143.430955", reward_point: sp8.danger, date: "12/03/2024", name: "Great Ocean Road", car: car6)
+gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864,143.430955", reward_point: sp8.danger, date: "12/03/2024", name: "Great Ocean Road", car: car2)
 sydney = Trip.create!(start_point: "-37.797219, 144.987657", end_point: "-33.958899,151.036390", reward_point: sp1.danger, date: "21/03/2024", name: "Sydney", car: car6)
 gor = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.780864,143.430955", reward_point: sp8.danger, date: "12/09/2023", name: "Great Ocean Road", car: car5)
 wp = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.916750,146.380524", reward_point: sp9.danger, date: "05/09/2023", name: "Wilson Promontory", car: car3)
 sorrento = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.337904,144.743811", reward_point: sp9.danger, date: "02/10/2023", name: "Sorrento", car: car5)
 pi = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.490159,145.201303", reward_point: sp9.danger, date: "09/11/2023", name: "Philip Island", car: car3)
 torq = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.317497,144.321543", reward_point: sp8.danger, date: "10/11/2023", name: "Torquay", car: car3)
-
+sydney = Trip.create!(start_point: "-37.797219, 144.987657", end_point: "-33.958899,151.036390", reward_point: sp1.danger, date: "21/03/2024", name: "Sydney", car: car7)
+gor = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.780864,143.430955", reward_point: sp8.danger, date: "12/09/2023", name: "Great Ocean Road", car: car7)
+wp = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.916750,146.380524", reward_point: sp9.danger, date: "05/09/2023", name: "Wilson Promontory", car: car7)
+sorrento = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.337904,144.743811", reward_point: sp9.danger, date: "02/10/2023", name: "Sorrento", car: car7)
+pi = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.490159,145.201303", reward_point: sp9.danger, date: "09/11/2023", name: "Philip Island", car: car7)
+torq = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.317497,144.321543", reward_point: sp8.danger, date: "10/11/2023", name: "Torquay", car: car7)
+wp = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.916750,146.380524", reward_point: sp9.danger, date: "05/09/2023", name: "Wilson Promontory", car: car7)
+sorrento = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.337904,144.743811", reward_point: sp9.danger, date: "02/10/2023", name: "Sorrento", car: car7)
+pi = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.490159,145.201303", reward_point: sp9.danger, date: "09/11/2023", name: "Philip Island", car: car7)
+torq = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.317497,144.321543", reward_point: sp8.danger, date: "10/11/2023", name: "Torquay", car: car7)
+pi = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.490159,145.201303", reward_point: sp9.danger, date: "09/11/2023", name: "Philip Island", car: car7)
 
 
 # Actual rewards
