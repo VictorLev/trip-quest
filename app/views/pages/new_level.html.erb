@@ -13,24 +13,37 @@
       <% end %>
     </div>
     <div class="d-flex flex-column align-items-center">
-      <h2>🎉Congralutions! You have reached level <%= current_user.level %>!</h2>
-      <p class="p-4">
-        since you have reached level <%= current_user.level %>, you have unlocked the following benefits:<br>
-        <div class="row">
-          <div class="col-md-6">
-            <ul>
-              <li><%= current_user.level * 2 %>% discount your car insurance</li>
-              <li>New reward zones are now available</li>
-            </ul>
+      <h2>🎉 You have unlocked level <%= current_user.level %>! 🎉</h2>
+      <p class="ps-4 pe-4 pt-2">
+        Congratulations! You can now take advantage of the following benefits:<br>
+        <div class="row row-cols-2 ps-4 pe-4">
+          <div class="col p-2">
+            <div class="h-100 p-4 rounded-4 shadow-sm d-flex flex-column align-items-center" style="background: #E9F6FF;">
+              <p class="fs-1"><i class="fa-solid fa-sack-dollar fa-lg"></i></p>
+              <p class="text-center"><%= current_user.level * 2 %>% discount your car insurance</p>
+            </div>
           </div>
-          <div class="col-md-6">
-            <ul>
-              <li>Your current rewards zones now give you more points</li>
-              <li>You can now have up to 3 cars in your account</li>
-            </ul>
+
+          <div class="col p-2">
+           <div class="h-100 p-4 rounded-4 shadow-sm d-flex flex-column align-items-center" style="background: #E9F6FF;">
+              <p class="fs-1"><i class="fa-solid fa-gem"></i></p>
+              <p class="text-center">New reward zones</p>
+            </div>
+          </div>
+          <div class="col p-2">
+           <div class="h-100 p-4 rounded-4 shadow-sm d-flex flex-column align-items-center" style="background: #E9F6FF;">
+              <p class="fs-1"><i class="fa-solid fa-coins"></i></p>
+              <p class="text-center">Higher points on repeated routes</p>
+            </div>
+          </div>
+          <div class="col p-2">
+           <div class="h-100 p-4 rounded-4 shadow-sm d-flex flex-column align-items-center" style="background: #E9F6FF;">
+              <p class="fs-1"><i class="fa-solid fa-car"></i></p>
+              <p class="text-center">Have up to 3 cars in your account</p>
+            </div>
           </div>
         </div>
-        Go share your achievement with your friends and family and let them know how they can also benefit from the rewards of being a responsible driver!
+        <%= link_to "Share this on socials!", feed_path(Feed.find_by(name: "TripQuesters").id), class: "btn mt-2" %>
       </p>
     </div>
   </div>
