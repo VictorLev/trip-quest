@@ -65,7 +65,6 @@ class User < ApplicationRecord
     end
   end
 
-
   def total_rewards
     (trips.joins(:car).sum(:reward_point))
   end
