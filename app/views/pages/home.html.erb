@@ -10,21 +10,74 @@
             <%= image_tag "logo.png", size: "200x200", class: "mb-2" %>
             <br>
             <h1 class="display-4 text-white">Welcome to <strong><span class="main-title">Trip</span><span class="accent-title text-white">Quest</span></strong></h1>
-            <p class="lead">The best way to plan your trips and earn rewards</p>
+            <p class="fs-3 lead">The best way to plan your trips and earn rewards</p>
           </div>
         </div>
-      <div class="">
-        <h2 class="text-white">
-          Developped by :
-        </h2>
         <div class="d-flex justify-content-center">
-          <%= image_tag "user.png", class: "avatar mx-4" %>
-          <%= image_tag "user.png", class: "avatar mx-4" %>
-          <%= image_tag "user.png", class: "avatar mx-4" %>
-          <%= image_tag "user.png", class: "avatar mx-4" %>
-        </div>
-      </div>
+          <div class="flex-container">
+            <div class="card text-light bg-primary mb-3 mx-3 w-25" style="border-radius: 12px;">
+              <div class="card-body h-100 text-center">
+                <h3 class="card-title mb-2">Drive safely</h3>
+                <h5 class="card-title mb-3">in key areas and gain points</h5>
+              </div>
+            </div>
 
+            <div class="card text-light bg-primary mb-3 mx-3 w-25" style="border-radius: 12px;">
+              <div class="card-body h-100 text-center">
+                <h3 class="card-title mb-2">Collect</h3>
+                <h5 class="card-title mb-3">the more the points the closer your are to level up</h5>
+              </div>
+            </div>
+
+            <div class="card text-light bg-primary mb-3 mx-3 w-25" style="border-radius: 12px;">
+              <div class="card-body h-100 text-center">
+                <h3 class="card-title mb-2">Level Up</h3>
+                <h5 class="card-title mb-3">to gain access to better the rewards</h5>
+              </div>
+            </div>
+
+            <div class="card text-light bg-primary mb-3 mx-3 w-25" style="border-radius: 12px;">
+              <div class="card-body h-100 text-center">
+                <h3 class="card-title mb-2">Save</h3>
+                <h5 class="card-title mb-3">on your car insurance premiums</h5>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center half-other">
+          <div class="d-flex justify-content-center">
+            <h2 class="text-white">
+              Developped by :
+            </h2>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column align-items-center">
+              <div class="fs-5 text-white">
+                Jacopo
+              </div>
+              <%= image_tag "jaco.jpg", style: 'object-fit: cover;', height: 100, width: 100, class: "avatar mx-4" %>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <div class="fs-5 text-white">
+                Mehul
+              </div>
+              <%= image_tag "mehul.png", style: 'object-fit: cover;', height: 100, width: 100, class: "avatar mx-4" %>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <div class="fs-5 text-white">
+                Victor
+              </div>
+              <%= image_tag "victor.jpg", style: 'object-fit: cover;', height: 100, width: 100, class: "avatar mx-4" %>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+              <div class="fs-5 text-white">
+                Emma
+              </div>
+              <%= image_tag "emma.jpg", style: 'object-fit: cover;', height: 100, width: 100, class: "avatar mx-4" %>
+            </div>
+          </div>
+        </div>
         <div class="col-md-6 offset-md-3 text-center text-white">
           <div class="my-4">
             <h2 class="display-4 text-white">Join us now!</h2>
@@ -32,6 +85,10 @@
             <br>
             <br>
             <%= link_to "Sign up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+            <br>
+            <br>
+            <br>
+            <br>
           </div>
         </div>
       </div>
