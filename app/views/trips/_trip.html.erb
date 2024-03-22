@@ -1,11 +1,11 @@
 <tr>
-  <th class="bg-white align-middle text-left" >
+  <th class="bg-white align-middle">
     <%= link_to trip_path(trip), data: { turbo_frame: "modal"} do  %>
-      <%= trip.name %>
+      <p style="color:#575E60;text-align:left;"><%= trip.name %></p>
     <% end %>
   </th>
-  <td class="bg-white align-middle text-left" ><%= trip.car.vehicle %></td>
-  <td class="bg-white align-middle text-left" ><%= trip.date.strftime("%B %d, %Y") %></td>
+  <td class="bg-white align-middle"><p style="color:#575E60;text-align:left;"><%= trip.car.vehicle %></p></td>
+  <td class="bg-white align-middle" ><p style="color:#575E60;text-align:left;"><%= trip.date.strftime("%B %d, %Y") %></p></td>
   <td class="bg-white" >
     <div class="d-flex justify-content-end">
       <div class="badge bg-primary rounded-pill fs-5 m-2 p-2" style="height: fit-content;">
