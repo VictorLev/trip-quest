@@ -31,17 +31,16 @@ puts "Creating users..."
 
 
 # CREATE USERS IN DATABASE
-jane = User.create!(first_name: "Jane", last_name: "Doe", email: "jane@doe.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
+jaco = User.create!(first_name: "Jacopo", last_name: "Riani", email: "jack@riani.com", password: "secret", age: 30, location: "Melbourne", gender: "female")
 liam = User.create!(first_name: "Liam", last_name: "Mel", email: "liamel@gmail.com", password: "secret", age: 25, location: "Melbourne", gender: "male")
 sarah = User.create!(first_name: "Sarah", last_name: "Roder", email: "sarahroder@gmail.com", password: "secret", age: 32, location: "Melbourne", gender: "female")
 paul = User.create!(first_name: "Paul", last_name: "Gryn", email: "paulgrin@yahoo.com", password: "secret", age: 28, location: "Melbourne", gender: "male")
 victoria = User.create!(first_name: "Victoria", last_name: "James", email: "vicjames@gmail.com", password: "secret", age: 25, location: "Melbourne", gender: "female")
 james = User.create!(first_name: "James", last_name: "lord", email: "jameslord@cloud.com", password: "secret", age: 32, location: "Sydney", gender: "male")
 
-
-jane_pic = URI.open("app/assets/images/jane.jpg")
-jane.photo.attach(io: jane_pic, filename: "jane.jpg", content_type: "image/jpg")
-jane.save!
+jaco_pic = URI.open("app/assets/images/jaco.jpg")
+jaco.photo.attach(io: jaco_pic, filename: "jaco.jpg", content_type: "image/jpg")
+jaco.save!
 
 liam_pic = URI.open("app/assets/images/liam.jpg")
 liam.photo.attach(io: liam_pic, filename: "liam.jpg", content_type: "image/jpg")
@@ -112,7 +111,7 @@ car3 = Car.create!(vehicle: "Audi A1",
             kilometers: "",
             price: "55000",
             insurer: Insurer.second,
-            user_id: jane.id)
+            user_id: jaco.id)
 
 audiA1 = URI.open("app/assets/images/audiA1.jpg")
 car3.photo.attach(io: audiA1, filename: "audiA1.jpg", content_type: "image/jpg")
@@ -131,14 +130,14 @@ renault = URI.open("app/assets/images/renault.jpg")
 car4.photo.attach(io: renault, filename: "renault.jpg", content_type: "image/jpg")
 car4.save!
 
-car5 = Car.create!(vehicle: "Toyota Suv",
+car5 = Car.create!(vehicle: "Toyota SUV",
             transmission: "Manual",
             color: "grey",
             year: 2015,
             kilometers: "",
             price: "42000",
             insurer: Insurer.fourth,
-            user_id: jane.id)
+            user_id: jaco.id)
 
 toyotasuv = URI.open("app/assets/images/toyota.jpeg")
 car5.photo.attach(io: toyotasuv, filename: "toyota.jpeg", content_type: "image/jpeg")
@@ -271,7 +270,11 @@ wollongong = Trip.create!(start_point: "-34.808265, 149.596138", end_point: "-34
 callala = Trip.create!(start_point: "-34.064571, 151.018094", end_point: "-35.029419, 150.627125", reward_point: sp1.danger, date: "15/03/2024", name: "Drysdale", car: car6)
 gor = Trip.create!(start_point: "-37.594619, 150.842759", end_point: "-38.780864,143.430955", reward_point: sp8.danger, date: "12/03/2024", name: "Great Ocean Road", car: car6)
 sydney = Trip.create!(start_point: "-37.797219, 144.987657", end_point: "-33.958899,151.036390", reward_point: sp1.danger, date: "21/03/2024", name: "Sydney", car: car6)
-
+gor = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.780864,143.430955", reward_point: sp8.danger, date: "12/09/2023", name: "Great Ocean Road", car: car5)
+wp = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.916750,146.380524", reward_point: sp9.danger, date: "05/09/2023", name: "Wilson Promontory", car: car3)
+sorrento = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.337904,144.743811", reward_point: sp9.danger, date: "02/10/2023", name: "Sorrento", car: car5)
+pi = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.490159,145.201303", reward_point: sp9.danger, date: "09/11/2023", name: "Philip Island", car: car3)
+torq = Trip.create!(start_point: "-37.798176, 144.990387", end_point: "-38.317497,144.321543", reward_point: sp8.danger, date: "10/11/2023", name: "Torquay", car: car3)
 
 
 
