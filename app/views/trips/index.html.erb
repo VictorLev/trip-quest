@@ -32,16 +32,13 @@
       <table class="table table-hover mt-4">
         <thead>
           <tr >
-            <th class="bg-white" scope="col">Trips</th>
-            <th class="bg-white" scope="col">Car</th>
-            <th class="bg-white" scope="col">Date</th>
+            <th class="bg-white" scope="col"><p style="color:#575E60;text-align:left;">Trips</p></th>
+            <th class="bg-white" scope="col"><p style="color:#575E60;text-align:left;">Car</p></th>
+            <th class="bg-white" scope="col"><p style="color:#575E60;text-align:left;">Date</p></th>
             <th class="bg-white" scope="col">
-              <div class="d-flex justify-content-end align-items-center ">
-                <div class="me-3">
-                  TotalPoints
-                </div>
-                <div class="badge bg-primary rounded-pill fs-4 m-2 p-2" style="height: fit-content;">
-                    <strong><i class="fa-solid fa-coins fa-lg mx-1 my-2"></i> <%= @total_points.sum  %></strong>
+              <div class="d-flex justify-content-end align-items-end">
+                  <div class="badge bg-warning rounded-pill fs-4 m-2 p-2" style="height: fit-content;">
+                    <strong><i class="fa-solid fa-gem fa-lg mx-1 my-2"></i> <%= @total_points.sum  %></strong>
                   </div>
                 </div>
             </th>
